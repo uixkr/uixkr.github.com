@@ -1,0 +1,387 @@
+
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        node.js 맛보기6 - jQueryMobile 프로토타이핑 만들기1 - 
+      
+      UIX
+    </title>
+    
+    <meta name="author" content="aji">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+    <script src="/assets/themes/hooligan/js/jquery.min.js"></script>
+    <script src="/assets/themes/hooligan/bootstrap/js/bootstrap.min.js"></script>
+
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="/assets/themes/hooligan/css-social-buttons/css/zocial.stripped.css" />
+    <link href="/assets/themes/hooligan/css/pygments.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">    
+    <link href="/assets/themes/hooligan/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    
+    <!-- fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>      
+
+
+          <a class="brand" href="/">UIX</a>
+
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive/">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories/">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages/">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags/">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+            <ul class="nav pull-right social visible-desktop">
+              <li class="divider-vertical"></li>
+              
+                <li>
+                  <a href="https://www.github.com/niceaji" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</a>
+                  </a>
+                </li>
+              
+                  
+              
+                <li>
+                  <a href="http://www.twitter.com/niceaji" class="zocial twitter icon" target="_blank">
+                  <span class="hidden-desktop">Twitter</a>
+                  </a>
+                </li>
+                                        
+                         
+                                  
+              
+                <li>
+                  <a href="http://feeds.feedburner.com/Uix" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">FeedBurner</a>
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+        
+<div class="page-header">
+  <h1>
+    node.js 맛보기6 - jQueryMobile 프로토타이핑 만들기1 
+    
+  </h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    <p>이전 포스팅에 활용했던 파싱하는 소스를 활용해서 프로토타이핑 서비스를 만들어 보자. ‘뉴스박스 히스토리’ 페이지를 파싱해서 모바일웹 페이지를 구성해보려 한다.</p>
+
+<h2 id='___api_'>뉴스박스 히스토리 파싱하여 api 만들기</h2>
+
+<p><a href='http://media.daum.net/netizen/newsbox'>http://media.daum.net/netizen/newsbox</a> 이 페이지에서 파란색부분의 링크를 긁어서 리스트 페이지를 구성한다.</p>
+
+<p><img alt='' src='http://cfile3.uf.tistory.com/image/1645FE424F33B109095643' /></p>
+
+<p>class명이 section_statsbox 라는 div엘리먼트 안에 모든 정보는 들어 있는것 같다. 바로 jsdom으로 파싱해보자</p>
+
+<pre><code>//news-history.js
+var jsdom = require(&quot;jsdom&quot;),
+    http = require(&#39;http&#39;);
+
+jsdom.env(&quot;http://media.daum.net/netizen/newsbox&quot;, [
+    &#39;http://code.jquery.com/jquery-1.5.min.js&#39;
+],
+function(errors, window) {
+    var $ = window.$,
+        json = &#39;&#39;,
+        result = [];
+    //jsdom으로 불러와서 우리가 원하는 부분 스크랩핑
+    $(&#39;.section_statsbox a&#39;).each(function(){ 
+
+        result.push({
+            href : $(this).attr(&#39;href&#39;) ,
+            text : encodeURIComponent($(this).text())
+        }); 
+
+    }); 
+
+    //jsonp 형태로 return
+    json = &quot;jsonpCallback(&quot; + JSON.stringify(result) + &quot;)&quot;;
+
+    //http 서버 띄움 (8889포트)
+    http.createServer(function (req, res) {
+
+        res.writeHead(200, {&#39;Content-Type&#39;: &#39;text/javascript&#39;});
+        res.end(json); 
+
+    }).listen(8889, &quot;127.0.0.1&quot;); 
+
+    console.log(&#39;News History API Server!!&#39;);
+});</code></pre>
+
+<p>소스는 주석만으로 설명 가능하다. 간단하게 api서버가 준비 되었다. 실행 시키고 브라우저로 <a href='http://127.0.0.1:8889/'>http://127.0.0.1:8889/</a> 접속해 보면 js소스가 주르륵 펼쳐질 것이다.</p>
+
+<p><img alt='' src='http://cfile25.uf.tistory.com/image/1561FE434F33B109098229' /></p>
+
+<h2 id='api___'>api 사용하는 페이지(클라이언트) 만들기</h2>
+
+<p>이제 api와 그걸 출력해주는 서버가 준비 되었다. 이젠 그 api를 이용하여 우리가 원하는 페이지를 만들어볼텐데 <a href='http://jquerymobile.com/'>jQueryMobile</a>를 사용해서 간단하게 뿌려줄 예정이다. <a href='http://jquerymobile.com//demos/1.0.1/docs/about/getting-started.html'>Quick Start guide</a>에 우리가 원하는 소스가 있다.</p>
+
+<pre><code>//news-history1.html
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;뉴스 히스토리&lt;/title&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css&quot; /&gt;
+    &lt;script src=&quot;http://code.jquery.com/jquery-1.6.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt; 
+
+&lt;div data-role=&quot;page&quot;&gt;
+
+    &lt;div data-role=&quot;header&quot;&gt;
+        &lt;h1&gt;뉴스 히스토리&lt;/h1&gt;
+    &lt;/div&gt;&lt;!-- /header --&gt;
+
+    &lt;div data-role=&quot;content&quot;&gt;
+        &lt;ul data-role=&quot;listview&quot; id=&quot;list&quot;&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;&lt;!-- /content --&gt;
+
+&lt;/div&gt;&lt;!-- /page --&gt;
+
+&lt;script&gt;
+//api에서 호출할 전역함수
+function  jsonpCallback(data){
+    var str = &#39;&#39;;
+
+    for(var i=0; i &lt; data.length; i++){
+
+        str += &#39;&lt;li&gt;&lt;a href=&quot;&#39;+data[i].href+&#39;&quot;&gt;&#39;+decodeURIComponent(data[i].text)+&#39;&lt;/a&gt;&lt;/li&gt;&#39;;
+    }
+
+    $(&#39;#list&#39;).html(str);
+    $(&#39;#list&#39;).listview(&#39;refresh&#39;); //jQueryMobile형태의 list로 렌더링 
+
+}
+
+//domready
+$(function(){
+    //jquery jsonp 형태의 api 호출
+    $.ajax({
+
+        url: &#39;http://localhost:8889&#39;, 
+
+        dataType: &#39;jsonp&#39;,
+        success: function(){
+        }
+    });
+
+});
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<p>html파일로 저장하고 브라우저에서 열어보면 아래와 같은 깔끔한 화면을 볼수 있다. 링크를 클릭할경우 기사보기화면과 몇몇 수정사항은 다음시간에 살펴보기로 한다</p>
+
+<p><img alt='실행화면' src='http://cfile29.uf.tistory.com/image/195B9C3B4F346C800F328F' /></p>
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="/archives/96" title="node.js 맛보기5 - html 문서 파싱 (jsdom)">&larr; Previous</a>
+      
+        <a class="btn" href="/archive">Archive</a>
+      
+        <a class="btn next" href="/archives/238" title="워드프레스에서 다시 시작">Next &rarr;</a>
+      
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'uix'; // required: replace example with your forum shortname
+    
+
+    // var disqus_identifier = 'http://uix.kr/archives/99';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span2">
+    <section>
+      <h4>Published</h4>
+      <div class="date"><span>11 February 2012</span></div>
+    </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
+
+
+  
+     
+    	<li><a href="/tags#jQuery-ref">jQuery <span>20</span></a></li>
+     
+    	<li><a href="/tags#jQueryMobile-ref">jQueryMobile <span>2</span></a></li>
+     
+    	<li><a href="/tags#jsdom모듈-ref">jsdom모듈 <span>2</span></a></li>
+     
+    	<li><a href="/tags#node.js-ref">node.js <span>18</span></a></li>
+     
+    	<li><a href="/tags#프로토타이핑-ref">프로토타이핑 <span>5</span></a></li>
+    
+  
+
+
+
+        </ul>
+      </section>
+             
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; aji 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://github.com/dhulihan/hooligan" target="_blank">The Hooligan Theme</a>
+        </p>
+      </footer>
+    </div> <!-- /container -->
+
+    <link href="/assets/themes/hooligan/css/prettify.css" type="text/css" rel="stylesheet" />
+    <script src="/assets/themes/hooligan/js/prettify.js"></script>
+    <script>
+    $(function(){
+        $('pre').addClass('prettyprint');
+        prettyPrint();
+    });
+    </script>
+
+    
+  </body>
+</html>
+

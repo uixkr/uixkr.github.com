@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        jQuery 이해1 - 시작 - 
+      
+      UIX
+    </title>
+    
+    <meta name="author" content="aji">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+    <script src="/assets/themes/hooligan/js/jquery.min.js"></script>
+    <script src="/assets/themes/hooligan/bootstrap/js/bootstrap.min.js"></script>
+
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="/assets/themes/hooligan/css-social-buttons/css/zocial.stripped.css" />
+    <link href="/assets/themes/hooligan/css/pygments.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">    
+    <link href="/assets/themes/hooligan/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    
+    <!-- fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>      
+
+
+          <a class="brand" href="/">UIX</a>
+
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive/">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories/">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages/">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags/">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+            <ul class="nav pull-right social visible-desktop">
+              <li class="divider-vertical"></li>
+              
+                <li>
+                  <a href="https://www.github.com/niceaji" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</a>
+                  </a>
+                </li>
+              
+                  
+              
+                <li>
+                  <a href="http://www.twitter.com/niceaji" class="zocial twitter icon" target="_blank">
+                  <span class="hidden-desktop">Twitter</a>
+                  </a>
+                </li>
+                                        
+                         
+                                  
+              
+                <li>
+                  <a href="http://feeds.feedburner.com/Uix" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">FeedBurner</a>
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+        
+<div class="page-header">
+  <h1>
+    jQuery 이해1 - 시작 
+    
+  </h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    <p><a href='http://jquery.com/'>jQuery</a>는 수많은 <a href='http://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8'>자바스크립트</a> 라이브러리중에 현재 가장 많이 사용하는 프레임웍이다.</p>
+
+<p><a href='http://jquery.com/'>jQuery홈페이지</a>에서 말하고 있듯이 빠르고 간결하며 기존 자바스크립트와는 달리 작성하는 방식을 달리 할수 있도록 설계되었다(메소드체이닝). 당연히 프론트엔드개발을 하고있는 개발자들은 반드시 이해를 하고 있어야 하는 라이브러리이다.</p>
+
+<h2 id='jquery_'>jQuery 삽입</h2>
+
+<p>자바스크립트 라이브러리들의 사용방법은 간단하다. 문서에 스크립트를 삽입해주면 되는데 jQuery도 동일하다. <a href='http://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8'>다운로드 페이지</a>에서 원하는 버전을 내려받아서 사용하던가 <a href='http://en.wikipedia.org/wiki/Content_delivery_network'>CDN</a>이 적용된 주소를 그대로 사용해도 무방하다</p>
+
+<pre><code>&lt;script src=&quot;http://code.jquery.com/jquery-1.7.1.js&quot;&gt;&lt;/script&gt;</code></pre>
+
+<h2 id='jquery_'>jQuery 사용</h2>
+
+<p>jQuery를 삽입하면 <a href='http://api.jquery.com/jQuery/'>jQuery() 함수</a>가 만들어 지는데 축약형태로 $ 로 사용이 가능하다. <a href='http://jquery.com/'>jQuery홈페이지</a>에서 브라우저에서 콘솔을 열어서 아래코드를 넣어보자 ( 크롬에서 개발자도구를 사용하여 해보기를 권장한다)</p>
+
+<pre><code>$(&#39;body&#39;).fadeOut().delay(1000).fadeIn();</code></pre>
+
+<p>사용방법이 특이한가? 메소드를 연결해서 (method chaining) 계속 호출하고 있다. <strong>jQuery의 많은 메소드들이 jQuery객체를 그대로 리턴하기에 이러한 문법으로 작성</strong>이 가능하다.</p>
+
+<h2 id='_'>$ 충돌방지</h2>
+
+<p>기존에 다른프레임웍을 사용한다는 이유등로 이미 $를 선언해서 사용하고 있다면 <a href='http://api.jquery.com/jQuery.noConflict/'>jQuery별칭인 $ 를 다른이름으로 변경</a> 할수 있습니다</p>
+
+<pre><code>var j = jQuery.noConflict();
+j(&#39;body&#39;).fadeOut().delay(1000).fadeIn();</code></pre>
+
+<h2 id='jquery_'>jQuery 장점</h2>
+
+<p>* 오픈소스이다</p>
+
+<p>* 브라우저마다 javascript,DOM,이벤트 구현등이 처리가 다른데 이런 크로스브라우징 문제를 쉽게 해결 가능</p>
+
+<p>* <a href='http://www.google.co.kr/search?aq=f&amp;sourceid=chrome&amp;ie=UTF-8&amp;q=jquery+plugin'>수많은 플러그인</a>이 존재하여 개발시간을 단축 시킬수 있다</p>
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="/archives/567" title="node.js 맛보기12 – 앱 백그라운드 실행 forever">&larr; Previous</a>
+      
+        <a class="btn" href="/archive">Archive</a>
+      
+        <a class="btn next" href="/archives/608" title="jQuery 이해2 - $(document).ready()">Next &rarr;</a>
+      
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'uix'; // required: replace example with your forum shortname
+    
+
+    // var disqus_identifier = 'http://uix.kr/archives/577';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span2">
+    <section>
+      <h4>Published</h4>
+      <div class="date"><span>26 February 2012</span></div>
+    </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
+
+
+  
+     
+    	<li><a href="/tags#jQuery-ref">jQuery <span>20</span></a></li>
+    
+  
+
+
+
+        </ul>
+      </section>
+             
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; aji 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://github.com/dhulihan/hooligan" target="_blank">The Hooligan Theme</a>
+        </p>
+      </footer>
+    </div> <!-- /container -->
+
+    <link href="/assets/themes/hooligan/css/prettify.css" type="text/css" rel="stylesheet" />
+    <script src="/assets/themes/hooligan/js/prettify.js"></script>
+    <script>
+    $(function(){
+        $('pre').addClass('prettyprint');
+        prettyPrint();
+    });
+    </script>
+
+    
+  </body>
+</html>
+

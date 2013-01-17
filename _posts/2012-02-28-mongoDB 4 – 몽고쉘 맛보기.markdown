@@ -1,0 +1,122 @@
+---
+comments: true
+date: 2012-02-28 00:31:43
+layout: post
+permalink: /archives/629
+title: mongoDB 4 – 몽고쉘 맛보기
+categories:
+- mongoDB
+tags:
+- mongoDB
+---
+
+[이전시간](/mongodb)에 설치도 했고 몽고db 데몬도 올렸다. 이제는 몽고쉘로 접속해서 가지고 놀아볼 차례이다.
+
+
+
+
+
+[path를 설정](/archives/622)했으니 터미널을 띄우고 바로 쉘로 접속해보자
+
+
+
+
+    
+    > mongo
+    
+
+
+
+
+
+프롬프트가 입력을 기다리고 있다.  바로 또 아래 명령어들을 차례대로 입력해보자
+
+
+
+
+    
+    > use testdb  //testdb Database 를 사용하겠음
+    
+    > db  // 현재 사용하고 있는 Database 인 testdb 를 표시 
+    
+    > todo = {text:'study mongodb'}  // todo Document 생성
+    
+    > db.todos.save(todo) //todos Collection 에  todo Document 넣기
+    
+    > db.todos.save({text:'jquery study'})    //새로운 Document 저장
+    
+    > db.todos.find()   // todos Collection에 모든 내용 가져오기
+    
+    >db.todos.count()   //todos Collection count
+    
+    > show collections // 현재 사용하는 Database에 모든 Collection 보기
+    
+
+
+
+
+
+아주 쉽지 않은가? 좀 더 살펴보자
+
+
+
+
+    
+    > var ids = ['a','b','c','d','e','f','g','h','i','j'];  // 배열생성
+    > for(i=0; i<10; i++) { db.users.save({ id : ids[i],level : i }) } // users Collection에 10개의 유저 Document 저장
+    
+    > db.users.find({level:4})  //level 이 4 인 유저 뽑기
+    
+    > db.users.find({level:{$gt:4}})    // level 이 4보다 큰 유저만 가져오기
+    
+    > db.users.find({level:{$lt:4}})        //4보다 작은 유저 가져오기
+    
+
+
+
+
+
+이번엔 데이터를 업데이트 해보자
+
+
+
+
+    
+    >  db.users.update({id:'a'}, {id:'a', level:100})       //a id를 가진 유저의 level를 100으로
+    
+    > db.users.update({id:'a'} , {$set: {nick: 'aji'} } )   //  nick Field 추가
+    
+    > db.users.remove({nick:'aji'})       // aji 유저 삭제
+    
+    >  db.users.remove()    //users Collection 에 모든 요소 지우기
+    
+    > show collections      //  현재 Database 에 생성된 모든 Collections 보기
+    
+    > db.users.drop()       // users Collection 삭제
+    
+
+
+
+
+
+자바스크립트와 별반 다르지 않은 코드들로 그냥 쉽게 넣고, 빼고, 수정하고, 삭제 하면 된다.
+
+
+
+
+
+## 도움글
+
+
+
+
+
+
+
+  * [dbshell Reference](http://www.mongodb.org/display/DOCS/dbshell+Reference)
+
+
+  * [MongoDB Browser Shell](http://try.mongodb.org/)
+
+
+

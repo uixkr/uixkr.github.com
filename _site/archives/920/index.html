@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        pjax 배워보기 - 
+      
+      UIX
+    </title>
+    
+    <meta name="author" content="aji">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+    <script src="/assets/themes/hooligan/js/jquery.min.js"></script>
+    <script src="/assets/themes/hooligan/bootstrap/js/bootstrap.min.js"></script>
+
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="/assets/themes/hooligan/css-social-buttons/css/zocial.stripped.css" />
+    <link href="/assets/themes/hooligan/css/pygments.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">    
+    <link href="/assets/themes/hooligan/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    
+    <!-- fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>      
+
+
+          <a class="brand" href="/">UIX</a>
+
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive/">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories/">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages/">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags/">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+            <ul class="nav pull-right social visible-desktop">
+              <li class="divider-vertical"></li>
+              
+                <li>
+                  <a href="https://www.github.com/niceaji" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</a>
+                  </a>
+                </li>
+              
+                  
+              
+                <li>
+                  <a href="http://www.twitter.com/niceaji" class="zocial twitter icon" target="_blank">
+                  <span class="hidden-desktop">Twitter</a>
+                  </a>
+                </li>
+                                        
+                         
+                                  
+              
+                <li>
+                  <a href="http://feeds.feedburner.com/Uix" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">FeedBurner</a>
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+        
+<div class="page-header">
+  <h1>
+    pjax 배워보기 
+    
+  </h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    <h2 id='pjax_'>pjax ?</h2>
+
+<p>pushState + ajax 의 합성어인 <a href='https://github.com/defunkt/jquery-pjax'>pjax</a>는 github의 창립자,CEO인 <a href='https://github.com/defunkt'>defunkt</a>가 개발했단다.</p>
+
+<p>천천히 뜯어보자.</p>
+
+<h2 id='pushstate'>pushState()</h2>
+
+<p>pushState() 는 html5의 포함된 메소드로 history객체를 조작 가능하게 해준다.</p>
+
+<p>아직 <a href='http://caniuse.com/#feat=history'>ie에서는 지원되지 않으니</a> 크롬이나 파폭에서 아래의 예제를 보자.</p>
+
+<p>예제 : <a href='http://uix.kr/ex/push-state-example/html5.html'>http://uix.kr/ex/push-state-example/html5.html</a></p>
+
+<p>예제의 링크를 클릭하면 주소표시줄에 url이 변경되지만 실제로는 서버에 요청이 가지 않는다.</p>
+
+<p>window.history객체에 pushState()가 이러한 작업을 가능하게 해주는데 세번째 인자로 url를 변경하고 두번째 인자로 문서의 title를 변경하게 된다(title변경은 잘되질 않는다.버그인듯). 더 자세한 설명은 <a href='https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history'>매뉴얼</a>을 참고</p>
+
+<pre><code>history.pushState({url:url}, title, url);</code></pre>
+
+<p>pushState()로 히스토리를 추가한후에 뒤로가기,앞으로가기(history.back()) 버튼을 누르면 popstate 이벤트가 발생한다.</p>
+
+<pre><code>$(window).on(&#39;popstate&#39;,function(event){
+    var state = event.originalEvent.state;
+    console.log(&quot;popstate:&quot;, state );
+});</code></pre>
+
+<p>이때 event.state(event.originalEvent.state)는 pushState()에 첫번째 인자값을 가져오게 된다.</p>
+
+<h2 id='pjax___'>pjax 간단 예제 보기</h2>
+
+<p>php를 사용하는 간단한 웹서비스 예제를 살펴보자</p>
+
+<p>* 예제-<a href='http://uix.kr/ex/push-state-example/pjax/pjax.php'>http://uix.kr/ex/push-state-example/pjax/pjax.php</a></p>
+
+<p>* 소스-<a href='https://github.com/niceaji7/push-state-example/tree/master/pjax'>https://github.com/niceaji7/push-state-example/tree/master/pjax</a></p>
+
+<h3 id='__'>컨텐츠 동적으로 가져오기</h3>
+
+<pre><code>$(&#39;a&#39;).pjax(&#39;#main&#39;);</code></pre>
+
+<p>자동으로 a태그의 href부분을 ajax 로 읽어서 #main 에 넣어준다.</p>
+
+<h3 id='ajax_____'>ajax로 호출될때와 직접 호출될때 달라지는 문서내용</h3>
+
+<p>이 부분의 <a href='https://github.com/defunkt/jquery-pjax'>pjax</a>의 핵심이다.</p>
+
+<pre><code>&lt;?
+//문서 호출시에 request header에 넣어주는 값으로 pjax인지 체크
+$pjax = ($_SERVER[&#39;HTTP_X_PJAX&#39;]===&quot;true&quot;);
+
+if($pjax){
+    //타이틀 변경하기 위해서
+    echo &quot;&lt;title&gt;{$title}&lt;/title&gt;&quot;;
+    return;
+}
+?&gt;</code></pre>
+
+<p><strong>$pjax이면 header.php와 footer.php를 include하지 않는다</strong></p>
+
+<p><img alt='' src='https://img.skitch.com/20120605-nb5qkrdiie49h9k58ibsdw59rs.png' /></p>
+
+<p>브라우저 개발자도구로 실제 a.php클릭시에 호출되는 내용 확인</p>
+
+<h3 id='pushstate___'>pushState() 지원하지 않는 브라우저는?</h3>
+
+<p>링크 그대로 이동하기에 안전하다. 실제 ajax 에러시에도 직접 링크로 이동한다.</p>
+
+<h2 id='id32'>정리</h2>
+
+<p><a href='https://github.com/defunkt/jquery-pjax'>pjax</a>는 ajax를 사용하는 웹서비스에서 해쉬뱅(뒤로가기나 퍼머링크 구현을 위한)이 아닌 pushState()를 이용하여 실제 url를 변경하게 되어 <a href='http://blog.outsider.ne.kr/698'>해쉬뱅이 갖는 단점들</a>을 보완할 수 있다.</p>
+
+<h2 id='id33'>도움글</h2>
+
+<p>* <a href='https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history'>Manipulating the browser history</a></p>
+
+<p>* <a href='http://rkjun.wordpress.com/2012/05/29/ajax-%EC%99%80-hashbang-%EA%B7%B8%EB%A6%AC%EA%B3%A0-pjax/'>ajax 와 hashbang 그리고 pjax</a></p>
+
+<p>* <a href='http://blog.outsider.ne.kr/698'>해시뱅(#!)에 대해서</a></p>
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="/archives/907" title="PHP Selector 소개">&larr; Previous</a>
+      
+        <a class="btn" href="/archive">Archive</a>
+      
+        <a class="btn next" href="/archives/955" title="js 즉시 실행함수로 안전하게 사용하기">Next &rarr;</a>
+      
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'uix'; // required: replace example with your forum shortname
+    
+
+    // var disqus_identifier = 'http://uix.kr/archives/920';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span2">
+    <section>
+      <h4>Published</h4>
+      <div class="date"><span>05 June 2012</span></div>
+    </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
+
+
+  
+     
+    	<li><a href="/tags#history-ref">history <span>1</span></a></li>
+     
+    	<li><a href="/tags#html5-ref">html5 <span>4</span></a></li>
+     
+    	<li><a href="/tags#javascript-ref">javascript <span>8</span></a></li>
+     
+    	<li><a href="/tags#pjax-ref">pjax <span>1</span></a></li>
+    
+  
+
+
+
+        </ul>
+      </section>
+             
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; aji 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://github.com/dhulihan/hooligan" target="_blank">The Hooligan Theme</a>
+        </p>
+      </footer>
+    </div> <!-- /container -->
+
+    <link href="/assets/themes/hooligan/css/prettify.css" type="text/css" rel="stylesheet" />
+    <script src="/assets/themes/hooligan/js/prettify.js"></script>
+    <script>
+    $(function(){
+        $('pre').addClass('prettyprint');
+        prettyPrint();
+    });
+    </script>
+
+    
+  </body>
+</html>
+

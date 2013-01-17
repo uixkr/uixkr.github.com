@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        jQuery 이해3 - Selectors 메소드들 - 
+      
+      UIX
+    </title>
+    
+    <meta name="author" content="aji">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+    <script src="/assets/themes/hooligan/js/jquery.min.js"></script>
+    <script src="/assets/themes/hooligan/bootstrap/js/bootstrap.min.js"></script>
+
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="/assets/themes/hooligan/css-social-buttons/css/zocial.stripped.css" />
+    <link href="/assets/themes/hooligan/css/pygments.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">    
+    <link href="/assets/themes/hooligan/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    
+    <!-- fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>      
+
+
+          <a class="brand" href="/">UIX</a>
+
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive/">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories/">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages/">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags/">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+            <ul class="nav pull-right social visible-desktop">
+              <li class="divider-vertical"></li>
+              
+                <li>
+                  <a href="https://www.github.com/niceaji" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</a>
+                  </a>
+                </li>
+              
+                  
+              
+                <li>
+                  <a href="http://www.twitter.com/niceaji" class="zocial twitter icon" target="_blank">
+                  <span class="hidden-desktop">Twitter</a>
+                  </a>
+                </li>
+                                        
+                         
+                                  
+              
+                <li>
+                  <a href="http://feeds.feedburner.com/Uix" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">FeedBurner</a>
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+        
+<div class="page-header">
+  <h1>
+    jQuery 이해3 - Selectors 메소드들 
+    
+  </h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    <p>웹개발에서 대부분의 자바스크립트의 작업이 <a href='http://ko.wikipedia.org/wiki/%EB%AC%B8%EC%84%9C_%EA%B0%9D%EC%B2%B4_%EB%AA%A8%EB%8D%B8'>DOM</a>을 조작하는 일로 이루어진다.</p>
+
+<p>문서의 특정 태그엘리먼트에 접근하여 이벤트를 주거나 class명을 변경, 내용을 채워넣는(innerHTML)일등을 하기위해선 그 특정 태그엘리먼트를 쉽게 찾을수 있어야 하는데 이때 사용 되어지는게 <a href='http://api.jquery.com/category/selectors/'>Selector</a> 이다. jQuery에서 사용되는 <a href='http://sizzlejs.com/'>Sizzle CSS Selector Engine</a>은 현재 가장 빠른 속도를 자랑하기도 한다.</p>
+
+<h2 id='___'>자주 사용하는 기본 셀렉터</h2>
+
+<h3 id='_'>태그 셀렉터</h3>
+
+<pre><code>$(&#39;div&#39;); //모든 div 태그엘리먼트를 가지고 온다</code></pre>
+
+<h3 id='id_'>id 셀렉터</h3>
+
+<pre><code>$(&#39;#daum&#39;); // id=&quot;daum&quot; 엘리먼트를 가지고 온다</code></pre>
+
+<h3 id='class_'>class 셀렉터</h3>
+
+<pre><code>$(&#39;.bar&#39;); // class=&quot;bar&quot; 엘리먼트를 가지고 온다</code></pre>
+
+<h3 id='multiple_'>Multiple 셀렉터</h3>
+
+<pre><code>$(&#39;div&#39;,&#39;span&#39;,&#39;img&#39;); //div ,span, img 엘리먼트 모두를 가지고 온다</code></pre>
+
+<p>중복 사용과 해당 엘리먼트 내부에서만 검색도 가능하다</p>
+
+<pre><code>$(&#39;div.bar&#39;); //div 태그엘리먼트중에 bar 클래스명을 사용하는 엘리먼트
+$(&#39;img&#39; , &#39;#content&#39;); // id=&quot;content&quot; 안에 img 태그 엘리먼트만 가져온다</code></pre>
+
+<p>이 외에 많은,유용한 셀렉터들이 존재하는데 꼭 하단에 &#8216;도움글&#8217;들을 참고하여 학습하도록 하자</p>
+
+<h2 id='id20'>도움글</h2>
+
+<p>* <a href='http://api.jquery.com/category/selectors/'>jQuery Selector API</a></p>
+
+<p>* <a href='http://www.w3.org/TR/css3-selectors/'>CSS3 Selectors</a></p>
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="/archives/629" title="mongoDB 4 – 몽고쉘 맛보기">&larr; Previous</a>
+      
+        <a class="btn" href="/archive">Archive</a>
+      
+        <a class="btn next" href="/archives/649" title="jQuery 이해4 - CSS 메소드들">Next &rarr;</a>
+      
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'uix'; // required: replace example with your forum shortname
+    
+
+    // var disqus_identifier = 'http://uix.kr/archives/642';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span2">
+    <section>
+      <h4>Published</h4>
+      <div class="date"><span>28 February 2012</span></div>
+    </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
+
+
+  
+     
+    	<li><a href="/tags#jQuery-ref">jQuery <span>20</span></a></li>
+     
+    	<li><a href="/tags#selector-ref">selector <span>1</span></a></li>
+    
+  
+
+
+
+        </ul>
+      </section>
+             
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; aji 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://github.com/dhulihan/hooligan" target="_blank">The Hooligan Theme</a>
+        </p>
+      </footer>
+    </div> <!-- /container -->
+
+    <link href="/assets/themes/hooligan/css/prettify.css" type="text/css" rel="stylesheet" />
+    <script src="/assets/themes/hooligan/js/prettify.js"></script>
+    <script>
+    $(function(){
+        $('pre').addClass('prettyprint');
+        prettyPrint();
+    });
+    </script>
+
+    
+  </body>
+</html>
+

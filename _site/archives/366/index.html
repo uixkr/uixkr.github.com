@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        node.js 맛보기11 – jQueryMobile 프로토타이핑 만들기2 - 
+      
+      UIX
+    </title>
+    
+    <meta name="author" content="aji">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+    <script src="/assets/themes/hooligan/js/jquery.min.js"></script>
+    <script src="/assets/themes/hooligan/bootstrap/js/bootstrap.min.js"></script>
+
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="/assets/themes/hooligan/css-social-buttons/css/zocial.stripped.css" />
+    <link href="/assets/themes/hooligan/css/pygments.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">    
+    <link href="/assets/themes/hooligan/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    
+    <!-- fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>      
+
+
+          <a class="brand" href="/">UIX</a>
+
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive/">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories/">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages/">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags/">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+            <ul class="nav pull-right social visible-desktop">
+              <li class="divider-vertical"></li>
+              
+                <li>
+                  <a href="https://www.github.com/niceaji" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</a>
+                  </a>
+                </li>
+              
+                  
+              
+                <li>
+                  <a href="http://www.twitter.com/niceaji" class="zocial twitter icon" target="_blank">
+                  <span class="hidden-desktop">Twitter</a>
+                  </a>
+                </li>
+                                        
+                         
+                                  
+              
+                <li>
+                  <a href="http://feeds.feedburner.com/Uix" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">FeedBurner</a>
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+        
+<div class="page-header">
+  <h1>
+    node.js 맛보기11 – jQueryMobile 프로토타이핑 만들기2 
+    
+  </h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    <p>이번 시간에는 <a href='http://uix.kr/archives/99'>이전 포스팅</a> 에 이어 좀더 프로토타이핑 완성도를 높여보자.</p>
+
+<p><a href='http://www.youtube.com/watch?v=Iw-Uhulbt3o'><img alt='' src='https://img.skitch.com/20120221-k9sy6w499nxaw877fnbym78g7t.png' /></a></p>
+
+<p>실제 완성모습 (<a href='http://www.youtube.com/watch?v=Iw-Uhulbt3o'>동영상 보기</a>)</p>
+
+<h2 id='__'>기능별로 모듈로 만들기</h2>
+
+<p>리스트페이지,뷰페이지, 리스트 스크랩핑, 뷰 스크래핑&#8230;.등 각 기능별로 파일,모듈로 빼자. 하나의 파일로 관리하는것보다 직관적이고 효율적이다.</p>
+
+<h3 id='newshistory__'>news-history 프로젝트 파일구조</h3>
+
+<p>* app.js - 첫 실행되는 메인프로그램 이다. 웹서버를 구성하는 부분</p>
+
+<p>* index.html - 리스트를 표시한다</p>
+
+<p>* view.html - 기사뷰를 표시한다</p>
+
+<p>* news-list.js - 뉴스리스트를 스크래핑하여 json형태로 리턴하는 모듈</p>
+
+<p>* news-view.js - 뉴스뷰를 스크래핑하여 json형태로 리턴하는 모듈</p>
+
+<p>* file-content.js - index.html,view.html <a href='http://uix.kr/archives/418'>파일을 읽어서 출력하기위한 모듈</a></p>
+
+<p>* loadurl.js - 특정 <a href='http://uix.kr/archives/435'>url를 가져오는 모듈</a></p>
+
+<h3 id='appjs'>app.js</h3>
+
+<p>http서버를 띄우고 요청이 들어오는 url마다 분기처리하여 맞는 문서,api 를 출력한다. <a href='https://github.com/niceaji7/news-history/blob/master/app.js'>전체 소스보기</a></p>
+
+<pre><code>http.createServer(function (req, res) {
+
+    var urlObj = url.parse(req.url, true),
+        output = &#39;&#39;;
+
+    //들어오는 주소에 따라 분기처리 
+    if(urlObj.pathname == &quot;/&quot;) {
+        //index.html 출력
+    }
+    else if(urlObj.pathname == &quot;/view&quot;) {
+        //view.html 출력 
+    }
+    // /api/list 
+    else if(urlObj.pathname == &quot;/api/list&quot;) {
+        //news-list.js 모듈을 호출하여 json api 출력  
+    }
+    // /api/view?newsid=1234....
+    else if(urlObj.pathname == &quot;/api/view&quot;){
+        //news-view.js 모듈을 호출하여 json api 출력  
+    }
+    else {
+        // 404 
+    }
+
+}).listen(8889, &quot;127.0.0.1&quot;); </code></pre>
+
+<h3 id='newslistjs'>news-list.js</h3>
+
+<p>$(&#8216;.section_statsbox a&#8217;) 에서 보다 디테일 하게 뉴스링크만 빼보도록 하자.</p>
+
+<p><img alt='' src='https://img.skitch.com/20120216-dqwphmh7r9rux3xh42m2cqiywu.medium.jpg' /></p>
+
+<p>콘솔을 열어서 <strong>document.querySelectorAll(&#8216;.section_statsbox a&#8217;)</strong> 로 dom 을 살펴보면 뉴스링크일경우에는 <strong>newsid 라는 17자리 숫자형태의 키</strong>를 발견할수 있다. 이 newsid 를 가 있을경우에만 api로 뱉어주도록 변경 해보자. <a href='https://github.com/niceaji7/news-history/blob/master/news-list.js'>소스보기</a></p>
+
+<h3 id='newsviewjs'>news-view.js</h3>
+
+<p>newsid 를 가지고 뉴스제목과 내용을 가져오는 모듈이다. <a href='https://github.com/niceaji7/news-history/blob/master/news-view.js'>소스보기</a></p>
+
+<h2 id='_'>전체소스 다운로드</h2>
+
+<p><a href='https://github.com/niceaji7/news-history'>전체소스를 다운로드</a> 하고 해당폴더에서 node app.js로 실행시키고 http://localhost:8889/ 를 브라우저에서 열어보자</p>
+
+<h3 id='_'>필요한 모듈</h3>
+
+<p>* <a href='/archives/96'>jsdom 모듈</a></p>
+
+<p>* <a href='/archives/83'>request 모듈</a></p>
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="/archives/472" title="프론트엔드개발자를 위한 RESTful">&larr; Previous</a>
+      
+        <a class="btn" href="/archive">Archive</a>
+      
+        <a class="btn next" href="/archives/504" title="mongoDB 1 시작하기 - 설치,실행">Next &rarr;</a>
+      
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'uix'; // required: replace example with your forum shortname
+    
+
+    // var disqus_identifier = 'http://uix.kr/archives/366';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span2">
+    <section>
+      <h4>Published</h4>
+      <div class="date"><span>21 February 2012</span></div>
+    </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
+
+
+  
+     
+    	<li><a href="/tags#jQueryMobile-ref">jQueryMobile <span>2</span></a></li>
+     
+    	<li><a href="/tags#node.js-ref">node.js <span>18</span></a></li>
+     
+    	<li><a href="/tags#프로토타이핑-ref">프로토타이핑 <span>5</span></a></li>
+    
+  
+
+
+
+        </ul>
+      </section>
+             
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; aji 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://github.com/dhulihan/hooligan" target="_blank">The Hooligan Theme</a>
+        </p>
+      </footer>
+    </div> <!-- /container -->
+
+    <link href="/assets/themes/hooligan/css/prettify.css" type="text/css" rel="stylesheet" />
+    <script src="/assets/themes/hooligan/js/prettify.js"></script>
+    <script>
+    $(function(){
+        $('pre').addClass('prettyprint');
+        prettyPrint();
+    });
+    </script>
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        어디를 많이 클릭할까? - 클릭 트래킹 - 
+      
+      UIX
+    </title>
+    
+    <meta name="author" content="aji">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+    <script src="/assets/themes/hooligan/js/jquery.min.js"></script>
+    <script src="/assets/themes/hooligan/bootstrap/js/bootstrap.min.js"></script>
+
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="/assets/themes/hooligan/css-social-buttons/css/zocial.stripped.css" />
+    <link href="/assets/themes/hooligan/css/pygments.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">    
+    <link href="/assets/themes/hooligan/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    
+    <!-- fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>      
+
+
+          <a class="brand" href="/">UIX</a>
+
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive/">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories/">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages/">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags/">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+            <ul class="nav pull-right social visible-desktop">
+              <li class="divider-vertical"></li>
+              
+                <li>
+                  <a href="https://www.github.com/niceaji" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</a>
+                  </a>
+                </li>
+              
+                  
+              
+                <li>
+                  <a href="http://www.twitter.com/niceaji" class="zocial twitter icon" target="_blank">
+                  <span class="hidden-desktop">Twitter</a>
+                  </a>
+                </li>
+                                        
+                         
+                                  
+              
+                <li>
+                  <a href="http://feeds.feedburner.com/Uix" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">FeedBurner</a>
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+        
+<div class="page-header">
+  <h1>
+    어디를 많이 클릭할까? - 클릭 트래킹 
+    
+  </h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    <p>유저가 어디를 보다 많이 클릭 하는지를 알면 웹문서에 많은 컨텐츠 중에서 어떤 부분에 좀더 집중할수 있을지를 결정할수 있습니다.</p>
+
+<p>이런 물음으로 시작되어 만들어진 <strong>&#8216;클릭 트래킹-Click Tracking(이하 ct)&#8217;</strong> 을 소개합니다.</p>
+
+<p>위와 같은 화면으로 유저의 클릭을 분석해 볼수 있는데요. 처음엔 개발자끼리 모여 재미로 개발되어 많은 버전업을 하고 현재 많은 서비스에서 적용되어 유저의 패턴을 분석해 보고 있습니다.</p>
+
+<h2 id='id7'>관리화면</h2>
+
+<p>이번에 <a href='http://yakulten.tistory.com'>yakulten</a>님이 판올림하면서 가장 많이 신경쓴 부분입니다.</p>
+
+<p><img alt='클릭 트래킹 관리화면' src='http://uix.kr/wordpress/wp-content/uploads/2012/02/ct.jpg' /></p>
+
+<p>1. Calendar - 날짜별로 ct데이터를 불러와서 문서에 출력</p>
+
+<p>2. Hits - 총 클릭수를 표시하고 영역별, 링크별 선택 출력</p>
+
+<p>3. Links - 가장 많은 클릭수순으로 정렬</p>
+
+<p>4. <a href='http://uix.kr/wordpress/wp-content/uploads/2012/02/ct.png'>Hitmap</a> - 클릭정보로 <a href='http://www.youtube.com/watch?v=lo_a2cfBUGc'>아이트래킹</a> 같은 히트맵을 그립니다</p>
+
+<p>5. Settings - 관리화면 설정</p>
+
+<h2 id='__3'>동작 방법 3줄요약;</h2>
+
+<p>* 유저가 문서내에 A링크를 클릭하면 수집 ( document.body 에 mousedown 에서 감시 )</p>
+
+<p>* A링크는 xpath 처럼 <strong>&#8216;ct path&#8217;</strong> 로 변환후에 저장</p>
+
+<p>* 유저에게 얻은 클릭정보를 한번에 모아서 출력 (그림 1)</p>
+
+<h3 id='ct_path__'>ct path 셀렉터 예제</h3>
+
+<p>* 아래의 링크를 클릭하며 ct path 확인. <a href='http://uix.kr/ex/ct/'>원본열기</a> , <a href='https://gist.github.com/1814029'>소스열기</a></p>
+
+<p>언젠가는 잘 정리해서 공개도 해보고 싶은 맘입니다^^</p>
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="/archives/238" title="워드프레스에서 다시 시작">&larr; Previous</a>
+      
+        <a class="btn" href="/archive">Archive</a>
+      
+        <a class="btn next" href="/service/bgfinder" title="background-image 쉽게 찾기 – BG Finder">Next &rarr;</a>
+      
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'uix'; // required: replace example with your forum shortname
+    
+
+    // var disqus_identifier = 'http://uix.kr/archives/211';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span2">
+    <section>
+      <h4>Published</h4>
+      <div class="date"><span>13 February 2012</span></div>
+    </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
+
+
+  
+     
+    	<li><a href="/tags#click-ref">click <span>1</span></a></li>
+     
+    	<li><a href="/tags#tracking-ref">tracking <span>1</span></a></li>
+     
+    	<li><a href="/tags#기타-ref">기타 <span>6</span></a></li>
+    
+  
+
+
+
+        </ul>
+      </section>
+             
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; aji 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://github.com/dhulihan/hooligan" target="_blank">The Hooligan Theme</a>
+        </p>
+      </footer>
+    </div> <!-- /container -->
+
+    <link href="/assets/themes/hooligan/css/prettify.css" type="text/css" rel="stylesheet" />
+    <script src="/assets/themes/hooligan/js/prettify.js"></script>
+    <script>
+    $(function(){
+        $('pre').addClass('prettyprint');
+        prettyPrint();
+    });
+    </script>
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        jQuery 이해 6 - 메소드 특징 이해 - 
+      
+      UIX
+    </title>
+    
+    <meta name="author" content="aji">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+    <script src="/assets/themes/hooligan/js/jquery.min.js"></script>
+    <script src="/assets/themes/hooligan/bootstrap/js/bootstrap.min.js"></script>
+
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="/assets/themes/hooligan/css-social-buttons/css/zocial.stripped.css" />
+    <link href="/assets/themes/hooligan/css/pygments.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">    
+    <link href="/assets/themes/hooligan/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    
+    <!-- fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>      
+
+
+          <a class="brand" href="/">UIX</a>
+
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive/">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories/">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages/">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags/">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+            <ul class="nav pull-right social visible-desktop">
+              <li class="divider-vertical"></li>
+              
+                <li>
+                  <a href="https://www.github.com/niceaji" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</a>
+                  </a>
+                </li>
+              
+                  
+              
+                <li>
+                  <a href="http://www.twitter.com/niceaji" class="zocial twitter icon" target="_blank">
+                  <span class="hidden-desktop">Twitter</a>
+                  </a>
+                </li>
+                                        
+                         
+                                  
+              
+                <li>
+                  <a href="http://feeds.feedburner.com/Uix" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">FeedBurner</a>
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+        
+<div class="page-header">
+  <h1>
+    jQuery 이해 6 - 메소드 특징 이해 
+    
+  </h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    <p>jQuery의 <a href='/archives/642'>Selector메소드</a>, <a href='/archives/649'>CSS메소드</a>, <a href='/archives/655'>Attribute메소드</a>를 살펴봤다. jQuery 특징이 보이는가?</p>
+
+<p>그럼 몇가지 특징을 찾아보자. (소개하는 예제들은 <a href='/archives/649'>예제페이지</a>로 이동한후 개발자도구 콘솔을 열어서 입력하면서 테스트 해보면 된다)</p>
+
+<h2 id='___'>어떤 엘리먼트를 타겟으로 하는가?</h2>
+
+<pre><code>// 모든 div안에 text를 집어넣는다
+$(&#39;div&#39;).html(&quot;text&quot;)
+
+// 모든 div가 아니라 $(&#39;div&#39;) 에서 가장 처음에 발견된 엘리먼트의 width를 구한다
+$(&#39;div&#39;).width();</code></pre>
+
+<h2 id='jquery_'>jQuery객체를 리턴하는가?</h2>
+
+<p>많은 메소드들이 jQuery 자기 자신을 리턴한다. 이렇게 되면 메소드체이닝이 가능하게 된다</p>
+
+<pre><code>//  bgcolor 를 변경하고 uix.kr 텍스트를 집어 넣어라!
+$(&#39;#box&#39;).css(&quot;background-color&quot;,&quot;red&quot;).html(&quot;uix.kr&quot;)</code></pre>
+
+<p>css() 메소드에서 처음 선택했던 엘리먼트인 jQuery객체 $(&#8216;#box&#8217;) 를 그대로 리턴한다. 그래서 바로 이어서 html() 이 사용가능해 지는 이유이다.</p>
+
+<p>그럼 아래소스는 어떨까?</p>
+
+<pre><code>// width를 구하고 uix.kr 텍스트를 집어넣어라?
+$(&#39;#box&#39;).width().html(&quot;uix.kr&quot;)</code></pre>
+
+<p>width() 메소드는 width값을 리턴하기에 메소드체이닝이 불가능하다. 위의 소스를 콘솔에서 실행하면 에러가 발생한다.</p>
+
+<h2 id='__'>수많은 인자 타입들</h2>
+
+<p>메소드들에 많은 인자타입이 존재한다 (오버로딩)</p>
+
+<pre><code>//모든 div에 border 클래스를 추가
+$(&quot;div&quot;).addClass(&quot;border&quot;)
+
+//모든 div에 div-{index} 클래스 추가
+$(&#39;div&#39;).addClass(function(index){   return &quot;div-&quot; + index  })</code></pre>
+
+<p>인자가 없을경우엔 getter 가 되고 있을경우엔 setter 가 되는 경우도 있다</p>
+
+<pre><code>$(&#39;#box&#39;).width(300) //300px 로 설정
+$(&#39;#box&#39;).width() // width 구하기</code></pre>
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="/archives/661" title="Raphael로 구현한 SVG 지도 인포그래픽">&larr; Previous</a>
+      
+        <a class="btn" href="/archive">Archive</a>
+      
+        <a class="btn next" href="/archives/705" title="jQuery 이해7 - Effects 메소드들">Next &rarr;</a>
+      
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'uix'; // required: replace example with your forum shortname
+    
+
+    // var disqus_identifier = 'http://uix.kr/archives/695';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span2">
+    <section>
+      <h4>Published</h4>
+      <div class="date"><span>02 March 2012</span></div>
+    </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
+
+
+  
+     
+    	<li><a href="/tags#jQuery-ref">jQuery <span>20</span></a></li>
+    
+  
+
+
+
+        </ul>
+      </section>
+             
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; aji 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://github.com/dhulihan/hooligan" target="_blank">The Hooligan Theme</a>
+        </p>
+      </footer>
+    </div> <!-- /container -->
+
+    <link href="/assets/themes/hooligan/css/prettify.css" type="text/css" rel="stylesheet" />
+    <script src="/assets/themes/hooligan/js/prettify.js"></script>
+    <script>
+    $(function(){
+        $('pre').addClass('prettyprint');
+        prettyPrint();
+    });
+    </script>
+
+    
+  </body>
+</html>
+

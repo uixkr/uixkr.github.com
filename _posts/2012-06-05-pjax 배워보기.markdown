@@ -1,0 +1,212 @@
+---
+comments: true
+date: 2012-06-05 10:14:34
+layout: post
+permalink: /archives/920
+title: pjax 배워보기
+categories:
+- javascript
+tags:
+- history
+- html5
+- javascript
+- pjax
+---
+
+## pjax ?
+
+
+
+
+
+pushState + ajax 의 합성어인 [pjax](https://github.com/defunkt/jquery-pjax)는 github의 창립자,CEO인 [defunkt](https://github.com/defunkt)가 개발했단다.  
+
+천천히 뜯어보자.
+
+
+
+
+
+## pushState()
+
+
+
+
+
+pushState() 는 html5의 포함된 메소드로 history객체를 조작 가능하게 해준다.  
+
+아직 [ie에서는 지원되지 않으니](http://caniuse.com/#feat=history) 크롬이나 파폭에서 아래의  예제를 보자.
+
+
+
+
+
+예제 : [http://uix.kr/ex/push-state-example/html5.html](http://uix.kr/ex/push-state-example/html5.html)
+
+
+
+
+
+예제의 링크를 클릭하면 주소표시줄에 url이 변경되지만 실제로는 서버에 요청이 가지 않는다.  
+
+window.history객체에 pushState()가  이러한 작업을 가능하게 해주는데 세번째 인자로 url를 변경하고 두번째 인자로 문서의 title를 변경하게 된다(title변경은 잘되질 않는다.버그인듯). 더 자세한 설명은 [매뉴얼](https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history)을 참고
+
+
+
+
+    
+    history.pushState({url:url}, title, url);
+    
+
+
+
+
+
+pushState()로 히스토리를 추가한후에 뒤로가기,앞으로가기(history.back()) 버튼을 누르면 popstate 이벤트가 발생한다.
+
+
+
+
+    
+    $(window).on('popstate',function(event){
+        var state = event.originalEvent.state;
+        console.log("popstate:", state );
+    });
+    
+
+
+
+
+
+이때 event.state(event.originalEvent.state)는 pushState()에 첫번째 인자값을 가져오게 된다.
+
+
+
+
+
+## pjax 간단 예제 보기
+
+
+
+
+
+php를 사용하는 간단한 웹서비스 예제를 살펴보자
+
+
+
+
+
+
+
+  * 예제-[http://uix.kr/ex/push-state-example/pjax/pjax.php](http://uix.kr/ex/push-state-example/pjax/pjax.php)
+
+
+  * 소스-[https://github.com/niceaji7/push-state-example/tree/master/pjax](https://github.com/niceaji7/push-state-example/tree/master/pjax)
+
+
+
+
+
+### 컨텐츠 동적으로 가져오기
+
+
+
+
+    
+    $('a').pjax('#main');
+    
+
+
+
+
+
+자동으로 a태그의 href부분을 ajax 로 읽어서 #main 에 넣어준다.
+
+
+
+
+
+### ajax로 호출될때와 직접 호출될때 달라지는 문서내용
+
+
+
+
+
+이 부분의 [pjax](https://github.com/defunkt/jquery-pjax)의 핵심이다.
+
+
+
+
+    
+    <?
+    //문서 호출시에 request header에 넣어주는 값으로 pjax인지 체크
+    $pjax = ($_SERVER['HTTP_X_PJAX']==="true");
+    
+    if($pjax){
+        //타이틀 변경하기 위해서
+        echo "<title>{$title}</title>";
+        return;
+    }
+    ?>
+    
+
+
+
+
+
+**$pjax이면  header.php와 footer.php를 include하지 않는다**
+
+
+
+
+
+![](https://img.skitch.com/20120605-nb5qkrdiie49h9k58ibsdw59rs.png)  
+
+브라우저 개발자도구로 실제 a.php클릭시에 호출되는 내용 확인
+
+
+
+
+
+### pushState() 지원하지 않는 브라우저는?
+
+
+
+
+
+링크 그대로 이동하기에 안전하다. 실제 ajax 에러시에도 직접 링크로 이동한다.
+
+
+
+
+
+## 정리
+
+
+
+
+
+[pjax](https://github.com/defunkt/jquery-pjax)는 ajax를 사용하는 웹서비스에서 해쉬뱅(뒤로가기나 퍼머링크 구현을 위한)이 아닌 pushState()를 이용하여 실제 url를 변경하게 되어 [해쉬뱅이 갖는 단점들](http://blog.outsider.ne.kr/698)을 보완할 수 있다.
+
+
+
+
+
+## 도움글
+
+
+
+
+
+
+
+  * [Manipulating the browser history](https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history)
+
+
+  * [ajax 와 hashbang 그리고 pjax](http://rkjun.wordpress.com/2012/05/29/ajax-%EC%99%80-hashbang-%EA%B7%B8%EB%A6%AC%EA%B3%A0-pjax/)
+
+
+  * [해시뱅(#!)에 대해서](http://blog.outsider.ne.kr/698)
+
+
+

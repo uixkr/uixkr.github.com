@@ -1,0 +1,95 @@
+---
+comments: true
+date: 2012-02-11 09:28:39
+layout: post
+permalink: /archives/61
+title: node.js 맛보기2 - 웹서버 만들기
+categories:
+- nodejs
+tags:
+- node.js
+---
+
+Node 를 돌릴수 있는 환경이 있으니 이젠 어떤 일들을 할수 있는지 살펴보자. 솔직히 Node의 목적인 “쉽고 빠르게 확장가능한 네트워크 애플리케이션 구축” 이라는 내용의 이해는 천천히 해도 무리는 없다 (이런 부분의 갈증은 구글에서 검색)
+
+
+
+
+
+## 간단한 http 서버
+
+
+
+
+    
+    var http = require('http');
+    
+    http.createServer(function (req, res) {
+    
+        res.writeHead(200, {'Content-Type': 'text/plain'});
+        res.end('Hello Worldn');
+    
+    }).listen(1337, "127.0.0.1");
+    
+    console.log('Server running at http://127.0.0.1:1337/');
+    
+
+
+
+
+
+([nodejs.org](http://nodejs.org)에 걸린 첫번째 예제)
+
+
+
+
+
+위는 간단한 웹서버를 만들어주는 코드이다. 우리(프론트엔드 개발자) 에겐 매우 익숙한 코드 패턴이다. http 모듈 같은것을 불러오고(require()), 서버를 만들고(createServer()) 요청을 기다린다( listen(1337, "127.0.0.1") ) 핵심부분은 createServer() 안에 작성된 함수 부분이다. 보통 함수가 메소드의 인자로 넘어가게 되면 callback인 경우가 많다.(경험상..)
+
+
+
+
+
+## 서버 실행
+
+
+
+
+
+자 이제 서버를 만들었으니 실행하고 그 서버에 접속해보자. 위 소스를 server.js 로 저장을 하고 node로 실행하면 된다.
+
+
+
+
+    
+    node server.js
+    
+
+
+
+
+
+![](http://cfile2.uf.tistory.com/image/187D583C4F2F67652E4ACC)
+
+
+
+
+
+간단하게 http 서버가 되고 callback이라고 의심해본 부분이 실행되는걸로 봐서 사용자 접속이 이뤄질경우 실행되는 callback임을 알수 있다.  
+
+별로 놀랍진 않다.. (많은 예제들에선 놀라길 바라고? 있는데 아직은 모르겠다)
+
+
+
+
+
+## 도움글
+
+
+
+
+
+*[ What is Node.js](http://www.slideshare.net/rockdoli/what-is-nodejs-6751599?from=ss_embed) ([Outsider](http://blog.outsider.ne.kr/))
+
+
+

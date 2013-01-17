@@ -1,0 +1,107 @@
+---
+comments: true
+date: 2012-02-12 10:43:00
+layout: post
+permalink: /archives/238
+title: 워드프레스에서 다시 시작
+tags:
+- markdown
+- plugin
+- wordpress
+- 워드프레스 팁
+---
+
+[티스토리](http://blog.uix.kr)를 사용하다 워드프레스로 건너왔다. 가장 큰 이유는 [위지윅 편집기 사용이 너무 큰 스트레스](http://blog.uix.kr/17)라 [마크다운](http://daringfireball.net/projects/markdown/syntax)으로 대체하려 넘어왔다. 결과는 대만족.
+
+
+
+
+
+이전 블로그에서는 [기존서비스 html 스크랩핑으로 프로토타이핑](http://blog.uix.kr/category/One%20Page%20Project)을 만든다거나 UX개선을 위한 시도들에 대한 포스팅이 많았는데 서비스 개편등으로 마크업,데이터등이 변경으로 작동을 하지 않는경우가 대부분. 가볍게 이사할수 있었던 또다른 이유이기도 하다;
+
+
+
+
+
+![](http://uix.kr/wordpress/wp-content/uploads/2012/02/20120213-cgck75435ec1r6x17xuwf9y4bh1.png)
+
+
+
+
+
+## 워드프레스가 좋은 이유
+
+
+
+
+
+
+
+  * 플러그인 설치로 마크다운이 사용 가능하다. [마크다운의 장점](http://offree.net/entry/Markdown-Formatter)
+
+
+  * 일반 글과는 다른 분류인 **페이지** 작성이 가능하다. 페이지별로 다른 템플릿 적용도 가능하다. ([사이드바 없애기](http://uix.kr/service/easy-editor/info))
+
+
+  * **페이지에 의미있는 주소**를 부여할수 있다 
+
+
+
+    * [http://uix.kr/service/jes](/service/jes)
+
+
+    * [http://uix.kr/archives/category/nodejs](/archives/category/nodejs)
+
+
+
+
+  * 설치형 블로그의 장점이겠지만 스킨파일을 ftp로 수정이 가능하다. 티스토리에서의 css수정은 정말 피곤하다
+
+
+
+
+
+## 워드프레스 마크다운 플로그인
+
+
+
+
+
+비슷비슷한 종류의 플러그인이 많아서 고르기 쉽지 않았다
+
+
+
+
+
+
+
+  * [Markdown on Save Improved](http://wordpress.org/extend/plugins/markdown-on-save-improved/)
+
+
+  * [Markdown QuickTags](http://wordpress.org/extend/plugins/markdown-quicktags/)
+
+
+
+
+
+## 페이스북,트위터 공유 버튼 달기
+
+
+
+
+    
+    <div class="single-social">
+        <div class="facebook">
+        <iframe src="http://www.facebook.com/plugins/like.php?href=<?php urlencode(the_permalink()) ?>&amp;layout=button_count&amp;show_faces=false&amp;width=100&amp;action=like&amp;colorscheme=light"
+        scrolling="no" frameborder="0" allowTransparency="true"
+        style="border:none; overflow:hidden; width:100px; height: 30px; align: left; margin: 0px 0px 0px 0px"></iframe>
+        </div>
+        <div class="twitter">
+        <a href="http://twitter.com/share" class="twitter-share-button" data-url="<?php the_permalink() ?>" data-text="<?php the_title(); ?>" data-count="horizontal"  data-via="niceaji" ></a>
+        <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+        </div>
+    </div>
+    
+
+
+

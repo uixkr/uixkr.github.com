@@ -1,0 +1,147 @@
+---
+comments: true
+date: 2012-09-11 00:36:03
+layout: post
+permalink: /archives/1161
+title: jQuery - 페이지에 위로가기 버튼을 넣어보자
+categories:
+- jQuery
+tags:
+- jQuery
+- 따라하기
+---
+
+스크롤이 길게 생기는 페이지에서 글을 다읽고  위에 있는 메뉴등을 접근하기 위해서 제공되는 '위로가기' 버튼을 넣어보자
+
+
+
+
+
+### HTML 만들기
+
+
+
+
+
+테스트용 html은 html5  doctype으로 생성하고 jQuery최신버전을 호출하자
+
+
+
+
+    
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset=utf-8 />
+    <title>위로가기 버튼 만들기</title>
+    <style>
+    </style>
+    </head>
+    <body>
+    <img src="test.jpg" alt="스크롤 생기게" width="600" height="2000">
+    
+    <script src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
+    <script>
+    //이곳에 위로가기 버튼 동적으로 넣기
+    </script>
+    </body>
+    </html>
+    
+
+
+
+
+
+위 코드에서 `<img>`태그는 문서에 스크롤이 생기게 해주는 더미 태그이다.
+
+
+
+
+
+### CSS 만들기
+
+
+
+
+
+'위로가기' 버튼을 이미지로 할 예정이다. `<div class="top" />`에 `background`로 이미지를 넣어주자.
+
+
+
+
+    
+    .top {
+        position: fixed;
+        bottom:20px;
+        right:30px;
+        background: url(http://cdn1.iconfinder.com/data/icons/oxygen/48x48/actions/go-up.png) no-repeat;
+        width:48px;
+        height:48px;
+    }
+    
+
+
+
+
+
+위로가기 버튼은 항상 그 위치에 있어야 하기에 `position:fixed` 를 주고 오른쪽 하단에 위치하게 `bottom:20px;right:30px`를 주었고 `widht`,`height`는 이미지 사이즈와 동일하게 48px 로 세팅
+
+
+
+
+
+### javascript 만들기
+
+
+
+
+
+이제 script 로 동적으로 위로가기 버튼을 넣어줄 차례이다.  
+
+스크롤위치(scrollTop())가 100이상 일때만 보이게 하고 위로가기 버튼을 눌렀을때도 스무스하게 올라가게끔 처리.
+
+
+
+
+    
+    $(document).ready(function(){
+        var $body = $(document.body), //자주 사용하기에 캐시되게 변수에 넣어준다
+            $top = '';
+    
+        $top=$('<div>') //div 를 만들고 
+                .addClass('top') //top className을 주고
+                .hide() //처음에는 숨겨둔다
+                .click(function(){  // 클릭이 이벤트 할당
+                    $body.animate({ scrollTop: 0 }); //animation효과로 scollTop=0으로 이동
+                })
+                .appendTo($body); // body에 top을 넣는다
+    
+        //윈도우의 스크롤위치로 위로가기 버튼을 보여줘야기에 핸들러 작성
+        $(window).scroll(function(){
+    
+            var y = $(this).scrollTop();
+    
+            if(y >= 100){
+                $top.fadeIn();
+            }
+            else {
+                $top.fadeOut();
+            }
+        });
+    });
+    
+
+
+
+
+
+### 데모보기
+
+
+
+
+
+[http://jsbin.com/etoduc/1/](http://jsbin.com/etoduc/1/)
+
+
+

@@ -1,0 +1,45 @@
+---
+comments: true
+date: 2012-08-30 10:36:22
+layout: post
+permalink: /archives/1137
+title: node.js - 간단한 Static 서버 만들기
+categories:
+- nodejs
+tags:
+- node.js
+---
+
+로컬에서 개발하다보면 WAS까지는 아니더래도 서버환경을 구성하고 개발할 필요가 생기게 된다.  
+
+이때 보통 apache서버를 이용하는 경우가 많은데 간단하게 node.js로도 static서버가 가능하다.
+
+
+
+
+
+[node-static](https://github.com/cloudhead/node-static) 모듈을 사용하면 간단하다.  
+
+터미널 환경에서 사용할 예정이니 global로 설치하자
+
+
+
+
+    
+    sudo npm install -g node-static
+    
+
+
+
+
+
+이제 터미널에서 root가 될 디렉토리로 가서 `static` 이라고 입력하면 static 서버가 올라간다.
+
+
+
+
+
+![](https://img.skitch.com/20120830-mih4us5mt2peqgx62ndmbeucj2.jpg)
+
+
+

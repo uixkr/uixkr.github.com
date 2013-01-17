@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        Raphael로 구현한 SVG 지도 인포그래픽 - 
+      
+      UIX
+    </title>
+    
+    <meta name="author" content="aji">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+    <script src="/assets/themes/hooligan/js/jquery.min.js"></script>
+    <script src="/assets/themes/hooligan/bootstrap/js/bootstrap.min.js"></script>
+
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="/assets/themes/hooligan/css-social-buttons/css/zocial.stripped.css" />
+    <link href="/assets/themes/hooligan/css/pygments.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">    
+    <link href="/assets/themes/hooligan/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    
+    <!-- fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>      
+
+
+          <a class="brand" href="/">UIX</a>
+
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive/">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories/">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages/">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags/">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+            <ul class="nav pull-right social visible-desktop">
+              <li class="divider-vertical"></li>
+              
+                <li>
+                  <a href="https://www.github.com/niceaji" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</a>
+                  </a>
+                </li>
+              
+                  
+              
+                <li>
+                  <a href="http://www.twitter.com/niceaji" class="zocial twitter icon" target="_blank">
+                  <span class="hidden-desktop">Twitter</a>
+                  </a>
+                </li>
+                                        
+                         
+                                  
+              
+                <li>
+                  <a href="http://feeds.feedburner.com/Uix" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">FeedBurner</a>
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+        
+<div class="page-header">
+  <h1>
+    Raphael로 구현한 SVG 지도 인포그래픽 
+    
+  </h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    <p>이번에 <a href='http://media.daum.net/2012g_election/'>19대 총선 서비스</a>를 오픈하면서 역대 선거구별 당선현황을 지도 인포그래픽으로 구현해 보았다.</p>
+
+<p><img alt='지도 인포그래픽' src='https://img.skitch.com/20120301-rw4dswk65jajnktx4p1m2c592u.jpg' /></p>
+
+<p>지도는 <a href='http://raphaeljs.com/'>Raphael 자바스크립트 라이브러리</a>를 사용해서 그려졌는데 <a href='http://ko.wikipedia.org/wiki/SVG'>SVG</a>와 <a href='http://www.w3.org/TR/NOTE-VML'>VML</a> 중 브라우저에서 지원하는 방식으로 표현을 한다. 보통 지도에 인터랙티브 UI를 구현할때 플래시를 자주 사용하게 되는데 HTML5 이슈 등으로 이 방식을 선택했다.</p>
+
+<p>주요 PC브라우저와 iOS는 커버했지만 아쉽게도 안드로이드에서는 SVG를 지원하지 않기에 보이지 않는다</p>
+
+<h2 id='_path'>지도 Path</h2>
+
+<p>지도 Path는 사내에서 사용중인 데이터를 그대로 SVG로 익스포트 하였기에 디자이너의 수작업은 필요치 않았다. 그 내려진 SVG를 다시 JSON형태로 변환하여 사용을 한다. 아래는 18대 서울지도(위 이미지)의 Path와 선거구포인트,명의 JSON이다</p>
+
+<p><a href='http://s1.daumcdn.net/photo-media/static/2012g_election/path/109/map18-11.js'>http://s1.daumcdn.net/photo-media/static/2012g_election/path/109/map18-11.js</a></p>
+
+<h2 id='raphael_'>Raphael 라이브러리</h2>
+
+<h3 id='path_'>path 그리기</h3>
+
+<p>Raphael 로 그리는건 간단하다. 위 JSON 에서 보이는 path 프로퍼티를 그대로 넣어주면 된다</p>
+
+<pre><code>var paper = Raphael(0, 0, 500, 500);
+paper.path( path ).attr(&quot;fill&quot;, &quot;#eee&quot;);</code></pre>
+
+<p>정당별 컬러값을 채우기 위해 <a href='http://raphaeljs.com/reference.html#Element.attr'>attr()</a> 메소드를 사용하여 폴리곤에 색상을 채우게 된다.</p>
+
+<h3 id='_'>선거구명 표시</h3>
+
+<p>텍스트(선거구명)를 추가 할경우 <a href='http://raphaeljs.com/reference.html#Paper.text'>text()</a> 메소드를 사용하면 낮은버전 ie 에서 폰트가 제대로 표시가 안되기에 html에서 직접 올려서 표시했다.</p>
+
+<pre><code>Raphael.fn.hangulText = function(x, t, text, style) {
+    var wrap = daum.getParent(this.canvas);
+    var div = daum.createElement(&#39;&lt;div style=&quot;position:absolute;&quot;&gt;&#39; + text + &quot;&lt;/div&gt;&quot;);
+    wrap.appendChild(div);
+    daum.setLeft(div, x - (div.offsetWidth / 2));
+    daum.setTop(div, y - (div.offsetHeight / 2));
+    if (style) {
+            daum.setStyle(div, style)
+    }
+    return this.set()
+};</code></pre>
+
+<h2 id='id22'>정리</h2>
+
+<p>지도 인포그래픽은 어떻게 구현하든 조율이 많이 필요한 작업이다. 장점을 따져보자면</p>
+
+<p>* 액션스크립트 지식없이 자바스크립트로 가능</p>
+
+<p>* 플래시 없이 인터랙티브 지도 가능 (요새 악의축이 되어버린듯한;)</p>
+
+<p>* iOS 에서 지도 표시</p>
+
+<p>물론 플래시 보다 단점도 존재한다</p>
+
+<p>* 폴리건에 mouseover 시에 지역명에 가면 mouseout 발생. 툴팁 유지하기가 힘들다</p>
+
+<p>* 디자이너가 직접 path와 포인트들을 다듬기엔 불편할수 있다</p>
+
+<p>* 플래시보다 피곤하다;(폰트, 마우스오버이슈 등)</p>
+
+<h2 id='id23'>관련글</h2>
+
+<p>* <a href='http://media.daum.net/v/20120305095119693'>다음, 4월 총선특집 페이지 개설</a></p>
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="/archives/655" title="jQuery 이해5 - Attributes 메소드들">&larr; Previous</a>
+      
+        <a class="btn" href="/archive">Archive</a>
+      
+        <a class="btn next" href="/archives/695" title="jQuery 이해 6 - 메소드 특징 이해">Next &rarr;</a>
+      
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'uix'; // required: replace example with your forum shortname
+    
+
+    // var disqus_identifier = 'http://uix.kr/archives/661';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span2">
+    <section>
+      <h4>Published</h4>
+      <div class="date"><span>01 March 2012</span></div>
+    </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
+
+
+  
+     
+    	<li><a href="/tags#html5-ref">html5 <span>4</span></a></li>
+     
+    	<li><a href="/tags#raphael-ref">raphael <span>1</span></a></li>
+     
+    	<li><a href="/tags#svg-ref">svg <span>1</span></a></li>
+     
+    	<li><a href="/tags#기타-ref">기타 <span>6</span></a></li>
+     
+    	<li><a href="/tags#미디어다음-ref">미디어다음 <span>2</span></a></li>
+     
+    	<li><a href="/tags#인포그래픽-ref">인포그래픽 <span>2</span></a></li>
+    
+  
+
+
+
+        </ul>
+      </section>
+             
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; aji 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://github.com/dhulihan/hooligan" target="_blank">The Hooligan Theme</a>
+        </p>
+      </footer>
+    </div> <!-- /container -->
+
+    <link href="/assets/themes/hooligan/css/prettify.css" type="text/css" rel="stylesheet" />
+    <script src="/assets/themes/hooligan/js/prettify.js"></script>
+    <script>
+    $(function(){
+        $('pre').addClass('prettyprint');
+        prettyPrint();
+    });
+    </script>
+
+    
+  </body>
+</html>
+

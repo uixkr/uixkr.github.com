@@ -1,0 +1,95 @@
+---
+comments: true
+date: 2012-03-18 16:13:02
+layout: post
+permalink: /archives/765
+title: 블로그를 뛰어넘는 워드프레스 CMS
+tags:
+- 워드프레스
+- 워드프레스 팁
+---
+
+2001년경에 개발된 워드프레스는 Content Management System(CMS) 이다.  
+
+CMS툴로써 세계에서 가장 많이 사용하는 워드프레스는 우리나라에선 NHN의 [익스프레스엔진](http://www.xpressengine.com/)(제로보드의 발전된) 다음으로 [많이 사용되어 진다](http://media.daum.net/v/20111125155714599)
+
+
+
+
+
+국내에선 블로그툴로만 관심을 받다가 이제 점차 해외에서처럼 CMS툴로 점차 인식이 바뀌어 나가는듯 하다. 컨텐츠를 관리하는 시스템이라는 의미를 가진 CMS는 단순히 컨텐츠의 효율적인 관리를 벗어나서 '지속가능한 웹'을 지향한다는 의미가 더 클 것 같다.
+
+
+
+
+
+## 장점
+
+
+
+
+
+
+
+  * 쉽다(설치, 운영....)
+
+
+  * 오픈소스, 무료
+
+
+  * [수 많은 테마(스킨)](http://wordpress.org/extend/themes/) 들과 [확장 플러그인](http://wordpress.org/extend/plugins/)들
+
+
+  * 쉬운 컨텐츠 업데이트
+
+
+  * 개발기술 없이도 손쉽게 확장 가능
+
+
+
+
+
+## 도움 링크
+
+
+
+
+
+
+
+  * [워드프레스로 웹사이트 만들기](http://usefulparadigm.com/2012/03/17/creating-static-website-with-wordpress/)
+
+
+  * [‘워드프레스, 드루팔, 줌라’ 어떤 오픈소스 CMS 고를까?](http://www.ciokorea.com/news/11875)
+
+
+  * [웹초보의 WORDPRESS 홈페이지 제작하기](http://wordpressblog.co.kr/)
+
+
+
+
+
+## 워드프레스로 만들어진 웹사이트
+
+
+
+
+
+
+
+  * [http://www.metapresso.com/](http://www.metapresso.com/)
+
+
+  * [http://social.lge.co.kr](http://social.lge.co.kr)
+
+
+  * [http://www.ddanzi.com](http://www.ddanzi.com)
+
+
+  * [http://company.ktb.co.kr](http://company.ktb.co.kr)
+
+
+  * [서울시청](http://media.daum.net/v/20120315112711234)
+
+
+

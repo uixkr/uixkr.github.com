@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        jQuery 이해7 - Effects 메소드들 - 
+      
+      UIX
+    </title>
+    
+    <meta name="author" content="aji">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+    <script src="/assets/themes/hooligan/js/jquery.min.js"></script>
+    <script src="/assets/themes/hooligan/bootstrap/js/bootstrap.min.js"></script>
+
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="/assets/themes/hooligan/css-social-buttons/css/zocial.stripped.css" />
+    <link href="/assets/themes/hooligan/css/pygments.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">    
+    <link href="/assets/themes/hooligan/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    
+    <!-- fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>      
+
+
+          <a class="brand" href="/">UIX</a>
+
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive/">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories/">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages/">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags/">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+            <ul class="nav pull-right social visible-desktop">
+              <li class="divider-vertical"></li>
+              
+                <li>
+                  <a href="https://www.github.com/niceaji" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</a>
+                  </a>
+                </li>
+              
+                  
+              
+                <li>
+                  <a href="http://www.twitter.com/niceaji" class="zocial twitter icon" target="_blank">
+                  <span class="hidden-desktop">Twitter</a>
+                  </a>
+                </li>
+                                        
+                         
+                                  
+              
+                <li>
+                  <a href="http://feeds.feedburner.com/Uix" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">FeedBurner</a>
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+        
+<div class="page-header">
+  <h1>
+    jQuery 이해7 - Effects 메소드들 
+    
+  </h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    <p>이번엔 좀 재밌는 <a href='http://api.jquery.com/category/effects/'>이펙트관련 메소드</a>를 살펴보자. 소개하는 메소드들은 <a href='/ex/jquery/ex.html'>예제페이지</a>로 이동한후 개발자도구 콘솔을 열어서 입력하면서 테스트 해보면 된다.</p>
+
+<h2 id='hide'>.hide()</h2>
+
+<p>엘리먼트를 숨긴다</p>
+
+<pre><code>// $(&#39;div&#39;).css(&quot;display&quot;,&quot;none&quot;) 과 동일
+$(&#39;div&#39;).hide()
+//천천히 사라지게
+$(&#39;div&#39;).hide(&#39;slow&#39;,function(){ console.log(&#39;hide ok!&#39;) });</code></pre>
+
+<h2 id='show'>.show()</h2>
+
+<p>엘리먼트를 보여준다</p>
+
+<pre><code>$(&#39;div&#39;).show()
+$(&#39;div&#39;).show(&#39;fast&#39;)</code></pre>
+
+<h2 id='toggle'>.toggle()</h2>
+
+<p>엘리먼트 show(),hide() 를 toggle 처리</p>
+
+<pre><code>$(&#39;div&#39;).toggle(&#39;fast&#39;)</code></pre>
+
+<h2 id='fadeout'>.fadeOut()</h2>
+
+<p>엘리먼트가 opacity값이 빠지면서 사라진다</p>
+
+<pre><code>//모든 태그 사라짐 
+$(&#39;*&#39;).fadeOut()</code></pre>
+
+<h2 id='fadein'>.fadeIn()</h2>
+
+<p>엘리먼트가 opacity값이 채워지면서 나타남</p>
+
+<pre><code>$(&#39;*&#39;).fadeIn(&#39;fast&#39;)</code></pre>
+
+<h2 id='fadeto'>.fadeTo()</h2>
+
+<p>두번째 인자로 엘리먼트의 opacity를 결정한다</p>
+
+<pre><code>$(&#39;*&#39;).fadeTo(&#39;slow&#39;, 0.3, function(){ console.log(&#39;done&#39;) })</code></pre>
+
+<h2 id='fadetoggle'>.fadeToggle()</h2>
+
+<p>fadeIn(), fadeOut() toggle</p>
+
+<h2 id='slideup'>.slideUp()</h2>
+
+<p>엘리먼트를 슬라이드가 올라가는 형태로 숨긴다</p>
+
+<pre><code>$(&#39;#box&#39;).slideUp();</code></pre>
+
+<h2 id='slidedown'>.slideDown()</h2>
+
+<p>엘리먼트를 밑으로 슬라이드 펼쳐지는 형태로 보여준다</p>
+
+<pre><code>$(&#39;#box&#39;).slideDown();</code></pre>
+
+<h2 id='slidetoggle'>.slideToggle()</h2>
+
+<p>slideDown(), slideUp() toggle</p>
+
+<h2 id='animate'>.animate()</h2>
+
+<p>엘리먼트 CSS속성에 에니메이션 효과를 적용하여 변경한다. <a href='http://api.jquery.com/animate/'>API 참고</a></p>
+
+<pre><code>$(&#39;#ani&#39;).animate({ 
+    &#39;background-color&#39; : &#39;#ff0000&#39;,
+    &#39;top&#39; : &#39;200&#39;,
+    &#39;left&#39; : &#39;500&#39;,
+    &#39;width&#39; : 200
+},5000, function(){
+    console.log(&#39;animate end!&#39;);
+})</code></pre>
+
+<h2 id='delay'>.delay()</h2>
+
+<p>지연 타이머를 설정</p>
+
+<pre><code>$(&#39;#box&#39;).slideUp(300).delay(800).fadeIn(400)</code></pre>
+
+<p>이 외에도 현재 동작중인 모든 에니메이션을 멈춘다든가 (<a href='http://api.jquery.com/jQuery.fx.off/'>jQuery.fx.off</a>), 에니메이션의 framerate를 변경 하는(<a href='http://api.jquery.com/jQuery.fx.interval/'>jQuery.fx.interval</a>) 등의 전역변수들도 참고하자</p>
+
+<h2 id='id24'>도움글</h2>
+
+<p>* <a href='http://api.jquery.com/category/effects/'>jQuery Effects 메소드</a></p>
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="/archives/695" title="jQuery 이해 6 - 메소드 특징 이해">&larr; Previous</a>
+      
+        <a class="btn" href="/archive">Archive</a>
+      
+        <a class="btn next" href="/archives/710" title="Node.js 에서 mongoDB 제어하기 - Mongolian">Next &rarr;</a>
+      
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'uix'; // required: replace example with your forum shortname
+    
+
+    // var disqus_identifier = 'http://uix.kr/archives/705';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span2">
+    <section>
+      <h4>Published</h4>
+      <div class="date"><span>03 March 2012</span></div>
+    </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
+
+
+  
+     
+    	<li><a href="/tags#jQuery-ref">jQuery <span>20</span></a></li>
+    
+  
+
+
+
+        </ul>
+      </section>
+             
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; aji 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://github.com/dhulihan/hooligan" target="_blank">The Hooligan Theme</a>
+        </p>
+      </footer>
+    </div> <!-- /container -->
+
+    <link href="/assets/themes/hooligan/css/prettify.css" type="text/css" rel="stylesheet" />
+    <script src="/assets/themes/hooligan/js/prettify.js"></script>
+    <script>
+    $(function(){
+        $('pre').addClass('prettyprint');
+        prettyPrint();
+    });
+    </script>
+
+    
+  </body>
+</html>
+

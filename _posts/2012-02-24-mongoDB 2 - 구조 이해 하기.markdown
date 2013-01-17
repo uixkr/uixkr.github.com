@@ -1,0 +1,126 @@
+---
+comments: true
+date: 2012-02-24 12:30:42
+layout: post
+permalink: /archives/522
+title: mongoDB 2 - 구조 이해 하기
+categories:
+- mongoDB
+tags:
+- mongoDB
+---
+
+mongoDB는 프론트엔드 개발자가 꼭 배워야 하는 데이터베이스 이다.
+
+
+
+
+
+
+
+  * 쉽고 빠르다
+
+
+  * [JSON](http://www.json.org/)형식으로 저장과 출력을 하기에 더욱 더 우리에겐 익숙하고 유리하다.
+
+
+  * 기존에 다른 데이터베이스를 경험하지 않아도 쉽게 익힐수 있다. 
+
+
+  * 빠른 프로토타이핑을 도와준다 (데이터베이스 설계 따위는 필요없다)
+
+
+  * 자바스크립트 스럽다?!
+
+
+
+
+
+## 데이터베이스 ?
+
+
+
+
+
+쉽게 데이터를 저장하고 간편하게 꺼내 쓰게 만든것이 바로 데이터베이스이다. 다른 개념이나 이론들은 나중에 찾아보고 지금은 일단 이 부분만 빠르게 습득하는걸 목표로 삼자
+
+
+
+
+
+### Document (row)
+
+
+
+
+
+가장 최소의 데이터 단위를  Document라 부른다. 아래는 aji라는 사람의 점수(score)를 표시하는  Document 이다. 우리에게 매우 익숙한 json 형식라 이해도 빠르다.  여기서  name, score 를 field 라고 한다.
+
+
+
+
+    
+    //score Document
+    {
+        "name" : "aji",
+        "score" : 100 
+    }
+    
+
+
+
+
+
+### Collection (table)
+
+
+
+
+
+Document 가 여러개 모여서 Collection를 이룬다고 보면 된다. 위에 **score Document 가 여러개 모여서 scores Collection**를 만들었다
+
+
+
+
+    
+    //scores Collection
+    {
+        "name" : "aji",
+        "score" : 100 
+    },
+    {
+        "name" : "cat",
+        "score" : 95 
+    },
+    {
+        "name" : "bat",
+        "score" : 80 
+    }
+    
+
+
+
+
+
+### Database
+
+
+
+
+
+여러개의 관련된 Collection 이 모여서 한개의 Database를 만든다. 그냥 쉽게 최상위 폴더 개념이라고 보면 된다.
+
+
+
+
+
+## 정리
+
+
+
+
+
+![mongodb](https://img.skitch.com/20120226-xgx3e177a5ihgup2qin926ndqs.png)
+
+
+

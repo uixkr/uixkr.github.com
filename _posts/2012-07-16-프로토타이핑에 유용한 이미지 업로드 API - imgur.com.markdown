@@ -1,0 +1,84 @@
+---
+comments: true
+date: 2012-07-16 20:13:15
+layout: post
+permalink: /archives/1076
+title: 프로토타이핑에 유용한 이미지 업로드 API - imgur.com
+tags:
+- api
+- curl
+- 도움스킬
+---
+
+프로토타이핑할때 간단하게 이미지업로드를 할경우에 간단하게 사용할수 있는 OpenAPI를 살펴보자
+
+
+
+
+
+[imgur](http://imgur.com) 서비스는 간단하게 이미지를 공유하는 심플한 서비스이다.  
+
+간단하게 사용자 등록만 하면  [Anonymous Upload API](http://api.imgur.com/#anonapi)를 제공하니 써볼만 하다. (복잡한 OAuth 없이 ^^)
+
+
+
+
+
+[사용자 등록](https://imgur.com/register/api_anon)을 하면 바로 (귀찮은 이메일인증도 없다) Developer API Key를 발급해준다.  
+
+어딘가에 잘 카피하고  이제  [api문서](http://api.imgur.com/resources_anon)에서 upload 부분을 살펴보자
+
+
+
+
+
+![](https://img.skitch.com/20120716-bqdqnwn7fbsf8wr6csymjrf9fd.jpg)
+
+
+
+
+
+[http://api.imgur.com/2/upload](http://api.imgur.com/2/upload) 에  POST로 key와 image파라미터를 넘기면 된다.  
+
+key는 아까 등록할때 받았던 Developer API Key이고, image 에는 'A binary file, base64 data, or a URL' 같은 이미지 정보를 넘겨주면 된다
+
+
+
+
+
+[curl](http://uix.kr/archives/1059)로 바로 테스트 해보기 위해 터미널을 열고 테스트 image 를 다운로드 하자
+
+
+
+
+    
+    curl  http://icon.daumcdn.net/w/c/12/03/77951173032424319.png -o daum.png
+    
+
+
+
+
+
+다운로드 된 daum.png를 바로 imgur서버로 업로드 해보자
+
+
+
+
+    
+    curl -F image=@daum.png -F "key={Developer API Key}" http://api.imgur.com/2/upload
+    
+
+
+
+
+
+이젠 리턴문구가 성공인지만 확인하면 된다.
+
+
+
+
+
+![](https://img.skitch.com/20120716-t12k87tn8miid35b332786hujs.jpg)
+
+
+

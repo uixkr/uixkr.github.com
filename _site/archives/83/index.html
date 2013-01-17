@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        node.js 맛보기3 - request 모듈 설치(npm) - 
+      
+      UIX
+    </title>
+    
+    <meta name="author" content="aji">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+    <script src="/assets/themes/hooligan/js/jquery.min.js"></script>
+    <script src="/assets/themes/hooligan/bootstrap/js/bootstrap.min.js"></script>
+
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="/assets/themes/hooligan/css-social-buttons/css/zocial.stripped.css" />
+    <link href="/assets/themes/hooligan/css/pygments.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">    
+    <link href="/assets/themes/hooligan/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    
+    <!-- fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>      
+
+
+          <a class="brand" href="/">UIX</a>
+
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive/">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories/">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages/">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags/">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+            <ul class="nav pull-right social visible-desktop">
+              <li class="divider-vertical"></li>
+              
+                <li>
+                  <a href="https://www.github.com/niceaji" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</a>
+                  </a>
+                </li>
+              
+                  
+              
+                <li>
+                  <a href="http://www.twitter.com/niceaji" class="zocial twitter icon" target="_blank">
+                  <span class="hidden-desktop">Twitter</a>
+                  </a>
+                </li>
+                                        
+                         
+                                  
+              
+                <li>
+                  <a href="http://feeds.feedburner.com/Uix" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">FeedBurner</a>
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+        
+<div class="page-header">
+  <h1>
+    node.js 맛보기3 - request 모듈 설치(npm) 
+    
+  </h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    <p>node는 서버사이드 javascript 이다. 서버사이드에서 돌아가는 언어들이 할수 있는 많은 일들을 할수 있다. 좀더 발전적인 프론트엔드 개발자라면 서버사이드에서의 기술도 구현이 가능해야 한다. 서비스가 아니더라도 간단한 프로토타이핑, ajax API 구현, http의 이해.. 등을 위해서라도 서버사이드 기술은 우리에게도 매우 중요하다. 우리가 Node를 좀더 알아야 하는 이유이기도 하다</p>
+
+<h2 id='_'>모듈 사용하기</h2>
+
+<p>Node에서는 많은 부분이 외부모듈(플러그인)형태로 동작을 한다. 브라우저에서의 javascript개발도 마찬가지 이지 않은가? jQuery, ext.js… 훌륭한 오픈소스들이 즐비하다. Node도 마찬가지로 이런 훌륭한 라이브러리로 가득하다. 이제 첫번째 <a href='https://github.com/mikeal/request'>request 모듈</a>을 사용해 보자</p>
+
+<pre><code>var request = require(&#39;request&#39;);</code></pre>
+
+<p>바로 이전에 봤던 소스 이다. 특정 모듈을 불러오는것 같은 코드. 이렇게만 적고 request.js로 저장하고 실행해보자( .js는 생략해도 된다)</p>
+
+<pre><code>node request</code></pre>
+
+<p><img alt='' src='http://cfile10.uf.tistory.com/image/173806354F2F70C82A88B9' /></p>
+
+<h2 id='npm__'>npm으로 모듈 설치하기</h2>
+
+<p>request 모듈을 찾을수 없다고 나온다. 기본core에 포함된 모듈일경우는 그냥 땡겨쓰면(require()) 되고 없는경우 찾아줘야 한다는걸 알수 있다 .node에는 훌륭한 모듈 설치 프로그램이 존재한다. npm (Node Package Manager 정확한 약어는 아니라는데 이해하는데는 전혀 문제 없다^^) 모듈설치는 아주 간단하다.</p>
+
+<pre><code>npm install request</code></pre>
+
+<p>위처럼 터미널에서 실행하게 되면 request 모듈에 관련된 모든 모듈패키지를 설치하게 된다. 설치후엔 제대로 설치 되었는지 npm list로 확인해보자!</p>
+
+<p><img alt='' src='http://cfile1.uf.tistory.com/image/1820283B4F2F70C802CF32' /></p>
+
+<p>request 모듈관련된 매뉴얼은 늘그렇듯 <a href='https://github.com/mikeal/request'>해당 홈페이지</a>에서 찾아보면 된다. 그리고 또 도움되는 <a href='http://nodejs-kr.org/insidejs/archives/634'>블로그 글 하나</a></p>
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="/archives/61" title="node.js 맛보기2 - 웹서버 만들기">&larr; Previous</a>
+      
+        <a class="btn" href="/archive">Archive</a>
+      
+        <a class="btn next" href="/archives/87" title="node.js 맛보기4 - npm으로 설치 팁">Next &rarr;</a>
+      
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'uix'; // required: replace example with your forum shortname
+    
+
+    // var disqus_identifier = 'http://uix.kr/archives/83';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span2">
+    <section>
+      <h4>Published</h4>
+      <div class="date"><span>11 February 2012</span></div>
+    </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
+
+
+  
+     
+    	<li><a href="/tags#node.js-ref">node.js <span>18</span></a></li>
+     
+    	<li><a href="/tags#npm-ref">npm <span>2</span></a></li>
+     
+    	<li><a href="/tags#request모듈-ref">request모듈 <span>1</span></a></li>
+    
+  
+
+
+
+        </ul>
+      </section>
+             
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; aji 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://github.com/dhulihan/hooligan" target="_blank">The Hooligan Theme</a>
+        </p>
+      </footer>
+    </div> <!-- /container -->
+
+    <link href="/assets/themes/hooligan/css/prettify.css" type="text/css" rel="stylesheet" />
+    <script src="/assets/themes/hooligan/js/prettify.js"></script>
+    <script>
+    $(function(){
+        $('pre').addClass('prettyprint');
+        prettyPrint();
+    });
+    </script>
+
+    
+  </body>
+</html>
+

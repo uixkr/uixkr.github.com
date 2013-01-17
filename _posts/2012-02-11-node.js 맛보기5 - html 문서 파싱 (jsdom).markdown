@@ -1,0 +1,127 @@
+---
+comments: true
+date: 2012-02-11 11:57:29
+layout: post
+permalink: /archives/96
+title: node.js 맛보기5 - html 문서 파싱 (jsdom)
+categories:
+- nodejs
+tags:
+- jsdom모듈
+- node.js
+---
+
+## 시작하기
+
+
+
+
+
+node로 html를 읽어서 필요한 데이터를 뽑아보자. 이곳에 소개되었던 많은 프로토타이핑들이 직접 html를 파싱하고 구현이 되었다. 백엔드 개발자에게 원하는 데이터를 요청하기보다 이렇게 html스크랩핑 하는것이 훨씬 효율적이다. 프로토타이핑은 빨라야하고 node 또한 이런 부분들을 충분히 채워줄수 있다
+
+
+
+
+
+## jsdom 모듈
+
+
+
+
+
+jsdom 모듈을 설치한다. [https://github.com/tmpvar/jsdom](https://github.com/tmpvar/jsdom)
+
+
+
+
+    
+     npm install jsdom
+    
+
+
+
+
+
+[c++ 컴파일러가 없을경우 설치시 에러가 발생할수 있다](http://stackoverflow.com/questions/8844708/npm-install-error). 맥이라면 xcode를 설치해보자. 기타 플랫폼에서의 에러는 직접 검색으로 해결해보자; javascript로 개발된 모듈만 붙일수 있는게 아니라 다른언어로 작성된 컴파일된 모듈도 붙일수 있다라는 느낌도 대충 온다.
+
+
+
+
+
+예제소스는 늘 그렇듯 소스홈페이지에 잘 나와있다.
+
+
+
+
+    
+    //jsdom1.js
+    var jsdom = require("jsdom");
+    
+    jsdom.env("http://daum.net", [
+      'http://code.jquery.com/jquery-1.5.min.js'
+    ],
+    function(errors, window) {
+        var $ = window.$;
+        $('#news a').each(function(){ 
+    
+            console.log(  $(this).attr('href')  +" : "+ $(this).text() );
+        });
+    });
+    
+
+
+
+
+
+예제를 조금 수정했다. 실행해 보자
+
+
+
+
+
+![](http://cfile1.uf.tistory.com/image/123DFC3B4F3221FC2E066E)
+
+
+
+
+
+## js데이터 파싱
+
+
+
+
+
+[http://media.daum.net/common/wing.data](http://media.daum.net/common/wing.data) 이런 js는 어떻게 파싱해야 할까?
+
+
+
+
+    
+    //jsdom2.js
+    var jsdom    = require("jsdom").jsdom,
+        document = jsdom("<html><head></head><body></body></html>"),
+        window   = document.createWindow();
+    
+    var script = document.createElement('script');
+    script.src = 'http://media.daum.net/common/wing.data';
+    document.body.appendChild(script);
+    
+    script.onload = function(){
+    
+        var data = window.wing_primary_sisa.component.data,
+            length = data.length;
+    
+        for(var i=0; i < length; i++){
+            console.log( data[i].component.data[0].title );
+        }
+    };
+    
+
+
+
+
+
+미소가 지어진다 ^^
+
+
+

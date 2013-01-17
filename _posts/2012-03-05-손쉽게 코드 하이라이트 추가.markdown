@@ -1,0 +1,52 @@
+---
+comments: true
+date: 2012-03-05 21:50:14
+layout: post
+permalink: /archives/727
+title: 손쉽게 코드 하이라이트 추가
+categories:
+- jQuery
+tags:
+- code highlight
+- jQuery
+- wordpress
+- 워드프레스 팁
+---
+
+블로그 글 내용중에  소스코드를 삽입하게 되는데 이때 에디터처럼 컬러풀하게 적용하면 유저들이 좀더 쉽게 소스관찰이 가능하다.
+
+
+
+
+
+[여러종류의 코드하이라이터](http://bit.ly/AfFMQH) 중에 내가 선택한 기준은 편리함이다. [마크다운](/archives/238)을 사용하는 이유로 작성시에 오직 글에만 집중해야기에 코드하이라이트를 위해 마크업을 추가 작업하는 일은 피곤한 일이다.
+
+
+
+
+
+[google-code-prettify](http://code.google.com/p/google-code-prettify/) 를 사용하여 이미 작성한 글에도 손쉽게 코드하이라이트를 추가했다. 워드프레스 하단스킨(footer.php)에 추가한 소스는
+
+
+
+
+    
+    <link href="/wordpress/wp-content/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="/wordpress/wp-content/google-code-prettify/prettify.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>
+    $(function(){
+        $('pre').addClass('prettyprint');
+        prettyPrint();
+    });
+    </script>
+    
+
+
+
+
+
+이 방법은 페이지 하단에서 불러오기에 페이지 영향속도에 영향을 덜주고 글 작성시에도 피곤하지 않다^^
+
+
+

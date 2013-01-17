@@ -1,0 +1,232 @@
+---
+comments: true
+date: 2012-02-29 17:12:50
+layout: post
+permalink: /archives/649
+title: jQuery 이해4 - CSS 메소드들
+categories:
+- jQuery
+tags:
+- jQuery
+---
+
+[CSS 와 관련된 속성을 얻고 설정하는 메소드](http://api.jquery.com/category/css/)를 살펴보자. 소개하는 메소드들은 [예제페이지](/ex/jquery/ex.html)로 이동한후 개발자도구 콘솔을 열어서 입력하면서 테스트 해보자.
+
+
+
+
+
+## .css()
+
+
+
+
+
+엘리먼트의 첫번째 인자의 style값을 가져오거나 style을 적용한다
+
+
+
+
+    
+    $('#box').css("background-color");
+    
+    $('div').css("background-color", '#eee');
+    
+    $('ul').css({'list-style':'none','border':'1px solid red'});
+    
+
+
+
+
+
+## .height()
+
+
+
+
+
+엘리먼트의 높이값을 구하거나 인자값으로 세팅한다
+
+
+
+
+    
+    $('#box').height()    //200
+    $('#box').height(500) //500으로 늘림 
+    
+
+
+
+
+
+![jQuery.height()](http://api.jquery.com/images/0042_04_01.png)
+
+
+
+
+
+## .innerHeight()
+
+
+
+
+
+엘리먼트의 패딩을 포함하는 높이값을 구함
+
+
+
+
+    
+    $('#box').innerHeight()   //220
+    
+
+
+
+
+
+![jQuery.innerHeight()](http://api.jquery.com/images/0042_04_02.png)
+
+
+
+
+
+## .outerHeight()
+
+
+
+
+
+엘리먼트의 외부 padding,boder를 포함한 높이를 구함, 인자값이 true 일경우 margin 도 포함 합니다
+
+
+
+
+    
+    $('#box').outerHeight()   //222
+    $('#box').outerHeight(true)   //242
+    
+
+
+
+
+
+![jQuery.outerHeight()](http://api.jquery.com/images/0042_04_03.png)
+
+
+
+
+
+## .width()
+
+
+
+
+
+![jQuery.width()](http://api.jquery.com/images/0042_04_04.png)
+
+
+
+
+
+## .innerWidth()
+
+
+
+
+
+![jQuery.innerWidth()](http://api.jquery.com/images/0042_04_05.png)
+
+
+
+
+
+## .outerWidth()
+
+
+
+
+
+![jQuery.outerWidth()](http://api.jquery.com/images/0042_04_06.png)
+
+
+
+
+
+## .offset()
+
+
+
+
+
+엘리먼트의 절대좌표를 반환한다.
+
+
+
+
+    
+    $('li.a1').offset().top
+    $('li.a1').offset().left
+    
+
+
+
+
+
+## .position()
+
+
+
+
+
+엘리먼트의 부모엘리먼트 기준 좌표를 반환한다
+
+
+
+
+    
+    $('li.a1').position().top
+    
+
+
+
+
+
+## .scrollLeft()
+
+
+
+
+
+엘리먼트의 수평 스크롤 위치를 구하거나 인자로 주어진값으로 세팅한다
+
+
+
+
+
+## .scrollTop()
+
+
+
+
+
+엘리먼트의 수직 스크롤 위치를 구하거나 인자로 주어진값으로 세팅한다
+
+
+
+
+
+## 도움글
+
+
+
+
+
+
+
+  * 이미지는 [jQuery홈페이지](http://jquery.com)에서 가져왔다
+
+
+  * [CSS  관련 메소드](http://api.jquery.com/category/css/)
+
+
+

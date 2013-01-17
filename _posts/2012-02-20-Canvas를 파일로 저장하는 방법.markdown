@@ -1,0 +1,109 @@
+---
+comments: true
+date: 2012-02-20 12:38:55
+layout: post
+permalink: /archives/450
+title: Canvas를 파일로 저장하는 방법
+categories:
+- javascript
+tags:
+- canvas
+- html5
+- javascript
+- php
+- sketch.js
+- 도움스킬
+---
+
+Canvas로 그린 그림을 파일로 저장할수 있다. [canvas2image 라이브러리](http://www.nihilogic.dk/labs/canvas2image/)를 사용하면 js만으로 브라우저 다운로드까지 구현이 가능하지만 이번엔 php로 서버에 파일로 저장하는 방법에 대해 살펴보자
+
+
+
+
+
+## 동작방법
+
+
+
+
+
+
+
+  1. 
+Sketch.js 로 드로잉 구현
+
+    
+
+
+간단하게 캔버스 드로잉툴을 제공해주는 [Sketch.js](http://intridea.github.com/sketch.js/)를 사용해서 예제 구성
+
+
+
+
+
+
+
+  2. 
+Canvas.toDataURL() 로 데이터 가져오기
+
+    
+
+
+캔버스에 그려진 path들은 Canvas.toDataURL() 를 사용하면 [DataURI형태](http://en.wikipedia.org/wiki/Data_URI_scheme)의 스트링으로 가져올수 있음
+
+
+
+
+
+
+
+  3. 
+php로 데이터 파일로 저장
+
+    
+
+
+DataURI 의 데이터를 php로 넘겨서 바로 저장
+
+
+
+
+
+
+
+
+
+
+## 예제
+
+
+
+
+
+[http://uix.kr/ex/canvas2image/sketch.html](http://uix.kr/ex/canvas2image/sketch.html)
+
+
+
+
+
+## canvas2image.php 소스
+
+
+
+
+    
+    <?php 
+    $data  = $_POST['data'];
+    
+    $filename = "test"; 
+    $filename .= ".png";
+    
+    //파일로 저장!
+    file_put_contents($filename, base64_decode($data)); 
+    
+    echo $filename;
+    ?>
+    
+
+
+

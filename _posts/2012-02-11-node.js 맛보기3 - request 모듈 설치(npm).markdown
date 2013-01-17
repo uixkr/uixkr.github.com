@@ -1,0 +1,93 @@
+---
+comments: true
+date: 2012-02-11 11:39:31
+layout: post
+permalink: /archives/83
+title: node.js 맛보기3 - request 모듈 설치(npm)
+categories:
+- nodejs
+tags:
+- node.js
+- npm
+- request모듈
+---
+
+node는 서버사이드 javascript 이다. 서버사이드에서 돌아가는 언어들이 할수 있는 많은 일들을 할수 있다. 좀더 발전적인 프론트엔드 개발자라면 서버사이드에서의 기술도 구현이 가능해야 한다. 서비스가 아니더라도 간단한 프로토타이핑, ajax API 구현, http의 이해.. 등을 위해서라도 서버사이드 기술은 우리에게도 매우 중요하다. 우리가 Node를 좀더 알아야 하는 이유이기도 하다
+
+
+
+
+
+## 모듈 사용하기
+
+
+
+
+
+Node에서는 많은 부분이 외부모듈(플러그인)형태로 동작을 한다. 브라우저에서의 javascript개발도 마찬가지 이지 않은가? jQuery, ext.js… 훌륭한 오픈소스들이 즐비하다. Node도 마찬가지로 이런 훌륭한 라이브러리로 가득하다. 이제 첫번째 [request 모듈](https://github.com/mikeal/request)을 사용해 보자
+
+
+
+
+    
+    var request = require('request');
+    
+
+
+
+
+
+바로 이전에 봤던 소스 이다. 특정 모듈을 불러오는것 같은 코드. 이렇게만 적고 request.js로 저장하고 실행해보자( .js는 생략해도 된다)
+
+
+
+
+    
+    node request
+    
+
+
+
+
+
+![](http://cfile10.uf.tistory.com/image/173806354F2F70C82A88B9)
+
+
+
+
+
+## npm으로 모듈 설치하기
+
+
+
+
+
+request 모듈을 찾을수 없다고 나온다. 기본core에 포함된 모듈일경우는 그냥 땡겨쓰면(require()) 되고 없는경우 찾아줘야 한다는걸 알수 있다 .node에는 훌륭한 모듈 설치 프로그램이 존재한다. npm (Node Package Manager 정확한 약어는 아니라는데 이해하는데는 전혀 문제 없다^^) 모듈설치는 아주 간단하다.
+
+
+
+
+    
+    npm install request
+    
+
+
+
+
+
+위처럼 터미널에서 실행하게 되면 request 모듈에 관련된 모든 모듈패키지를 설치하게 된다. 설치후엔 제대로 설치 되었는지 npm list로 확인해보자!
+
+
+
+
+
+![](http://cfile1.uf.tistory.com/image/1820283B4F2F70C802CF32)
+
+
+
+
+
+request 모듈관련된 매뉴얼은 늘그렇듯 [해당 홈페이지](https://github.com/mikeal/request)에서 찾아보면 된다.  그리고 또 도움되는 [블로그 글 하나](http://nodejs-kr.org/insidejs/archives/634)
+
+
+

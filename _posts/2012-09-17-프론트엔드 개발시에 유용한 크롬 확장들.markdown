@@ -1,0 +1,79 @@
+---
+comments: true
+date: 2012-09-17 17:53:14
+layout: post
+permalink: /archives/1204
+title: 프론트엔드 개발시에 유용한 크롬 확장들
+categories:
+- 기타
+tags:
+- 크롬확장
+---
+
+소개되는 확장기능중엔 비슷한 확장들이 많지만 그래도 맘에들어 현재 쓰고 있는 확장들
+
+
+
+
+
+## [Sight](https://chrome.google.com/webstore/detail/epmaefhielclhlnmjofcdapbeepkmggh)
+
+
+
+
+
+
+
+  * js,css 소스 하이라이트 , 압축된 js 이쁘게도 보여줌
+
+
+  * 확장 옵션에서 배경색을 흰색톤으로 맞춰주면 보기 좋음
+
+
+
+
+
+[![](https://lh6.googleusercontent.com/5z14_yWd8vaXHZ4232-8NGVxuYHBbBHLOWpKC3QdGqj4lkqyfbjtnzWulyW6ilD-x33qu_CLyyY=s640-h400-e365)](https://chrome.google.com/webstore/detail/epmaefhielclhlnmjofcdapbeepkmggh)
+
+
+
+
+
+## [JSON Formatter](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa)
+
+
+
+
+
+
+
+  * json  이쁘게 보여주기
+
+
+
+
+
+[![](https://lh6.googleusercontent.com/68vofGty-EmFi1WHH-y0IbwRXeJpKTg3eTZOjZQoZAhJ6vuY7cL0G6yJ0CsE5sooUtJkSbqwUbI=s640-h400-e365)](https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa)
+
+
+
+
+
+## [XV — XML Viewer](https://chrome.google.com/webstore/detail/eeocglpgjdpaefaedpblffpeebgmgddk)
+
+
+
+
+
+
+
+  * xml 이쁘게 보여주기
+
+
+
+
+
+[![](https://lh5.googleusercontent.com/ZyrhyWuSckRdiBE6RBf08Gp4BGgUWO2yr_YiKxEhOvma5NEIhxaGAVqptBT6LahaRqR636nK=s640-h400-e365)](https://chrome.google.com/webstore/detail/eeocglpgjdpaefaedpblffpeebgmgddk)
+
+
+

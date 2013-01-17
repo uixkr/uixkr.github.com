@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        mongoDB 2 - 구조 이해 하기 - 
+      
+      UIX
+    </title>
+    
+    <meta name="author" content="aji">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+    <script src="/assets/themes/hooligan/js/jquery.min.js"></script>
+    <script src="/assets/themes/hooligan/bootstrap/js/bootstrap.min.js"></script>
+
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="/assets/themes/hooligan/css-social-buttons/css/zocial.stripped.css" />
+    <link href="/assets/themes/hooligan/css/pygments.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">    
+    <link href="/assets/themes/hooligan/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    
+    <!-- fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>      
+
+
+          <a class="brand" href="/">UIX</a>
+
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive/">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories/">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages/">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags/">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+            <ul class="nav pull-right social visible-desktop">
+              <li class="divider-vertical"></li>
+              
+                <li>
+                  <a href="https://www.github.com/niceaji" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</a>
+                  </a>
+                </li>
+              
+                  
+              
+                <li>
+                  <a href="http://www.twitter.com/niceaji" class="zocial twitter icon" target="_blank">
+                  <span class="hidden-desktop">Twitter</a>
+                  </a>
+                </li>
+                                        
+                         
+                                  
+              
+                <li>
+                  <a href="http://feeds.feedburner.com/Uix" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">FeedBurner</a>
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+        
+<div class="page-header">
+  <h1>
+    mongoDB 2 - 구조 이해 하기 
+    
+  </h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    <p>mongoDB는 프론트엔드 개발자가 꼭 배워야 하는 데이터베이스 이다.</p>
+
+<p>* 쉽고 빠르다</p>
+
+<p>* <a href='http://www.json.org/'>JSON</a>형식으로 저장과 출력을 하기에 더욱 더 우리에겐 익숙하고 유리하다.</p>
+
+<p>* 기존에 다른 데이터베이스를 경험하지 않아도 쉽게 익힐수 있다.</p>
+
+<p>* 빠른 프로토타이핑을 도와준다 (데이터베이스 설계 따위는 필요없다)</p>
+
+<p>* 자바스크립트 스럽다?!</p>
+
+<h2 id='_'>데이터베이스 ?</h2>
+
+<p>쉽게 데이터를 저장하고 간편하게 꺼내 쓰게 만든것이 바로 데이터베이스이다. 다른 개념이나 이론들은 나중에 찾아보고 지금은 일단 이 부분만 빠르게 습득하는걸 목표로 삼자</p>
+
+<h3 id='document_row'>Document (row)</h3>
+
+<p>가장 최소의 데이터 단위를 Document라 부른다. 아래는 aji라는 사람의 점수(score)를 표시하는 Document 이다. 우리에게 매우 익숙한 json 형식라 이해도 빠르다. 여기서 name, score 를 field 라고 한다.</p>
+
+<pre><code>//score Document
+{
+    &quot;name&quot; : &quot;aji&quot;,
+    &quot;score&quot; : 100 
+}</code></pre>
+
+<h3 id='collection_table'>Collection (table)</h3>
+
+<p>Document 가 여러개 모여서 Collection를 이룬다고 보면 된다. 위에 <strong>score Document 가 여러개 모여서 scores Collection</strong>를 만들었다</p>
+
+<pre><code>//scores Collection
+{
+    &quot;name&quot; : &quot;aji&quot;,
+    &quot;score&quot; : 100 
+},
+{
+    &quot;name&quot; : &quot;cat&quot;,
+    &quot;score&quot; : 95 
+},
+{
+    &quot;name&quot; : &quot;bat&quot;,
+    &quot;score&quot; : 80 
+}</code></pre>
+
+<h3 id='database'>Database</h3>
+
+<p>여러개의 관련된 Collection 이 모여서 한개의 Database를 만든다. 그냥 쉽게 최상위 폴더 개념이라고 보면 된다.</p>
+
+<h2 id='id14'>정리</h2>
+
+<p><img alt='mongodb' src='https://img.skitch.com/20120226-xgx3e177a5ihgup2qin926ndqs.png' /></p>
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="/archives/504" title="mongoDB 1 시작하기 - 설치,실행">&larr; Previous</a>
+      
+        <a class="btn" href="/archive">Archive</a>
+      
+        <a class="btn next" href="/archives/550" title="북마클릿 배워보기 - Daum사전 북마클릿">Next &rarr;</a>
+      
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'uix'; // required: replace example with your forum shortname
+    
+
+    // var disqus_identifier = 'http://uix.kr/archives/522';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span2">
+    <section>
+      <h4>Published</h4>
+      <div class="date"><span>24 February 2012</span></div>
+    </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
+
+
+  
+     
+    	<li><a href="/tags#mongoDB-ref">mongoDB <span>7</span></a></li>
+    
+  
+
+
+
+        </ul>
+      </section>
+             
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; aji 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://github.com/dhulihan/hooligan" target="_blank">The Hooligan Theme</a>
+        </p>
+      </footer>
+    </div> <!-- /container -->
+
+    <link href="/assets/themes/hooligan/css/prettify.css" type="text/css" rel="stylesheet" />
+    <script src="/assets/themes/hooligan/js/prettify.js"></script>
+    <script>
+    $(function(){
+        $('pre').addClass('prettyprint');
+        prettyPrint();
+    });
+    </script>
+
+    
+  </body>
+</html>
+

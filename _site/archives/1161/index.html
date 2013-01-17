@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        jQuery - 페이지에 위로가기 버튼을 넣어보자 - 
+      
+      UIX
+    </title>
+    
+    <meta name="author" content="aji">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+    <script src="/assets/themes/hooligan/js/jquery.min.js"></script>
+    <script src="/assets/themes/hooligan/bootstrap/js/bootstrap.min.js"></script>
+
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="/assets/themes/hooligan/css-social-buttons/css/zocial.stripped.css" />
+    <link href="/assets/themes/hooligan/css/pygments.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">    
+    <link href="/assets/themes/hooligan/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    
+    <!-- fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>      
+
+
+          <a class="brand" href="/">UIX</a>
+
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive/">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories/">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages/">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags/">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+            <ul class="nav pull-right social visible-desktop">
+              <li class="divider-vertical"></li>
+              
+                <li>
+                  <a href="https://www.github.com/niceaji" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</a>
+                  </a>
+                </li>
+              
+                  
+              
+                <li>
+                  <a href="http://www.twitter.com/niceaji" class="zocial twitter icon" target="_blank">
+                  <span class="hidden-desktop">Twitter</a>
+                  </a>
+                </li>
+                                        
+                         
+                                  
+              
+                <li>
+                  <a href="http://feeds.feedburner.com/Uix" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">FeedBurner</a>
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+        
+<div class="page-header">
+  <h1>
+    jQuery - 페이지에 위로가기 버튼을 넣어보자 
+    
+  </h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    <p>스크롤이 길게 생기는 페이지에서 글을 다읽고 위에 있는 메뉴등을 접근하기 위해서 제공되는 &#8216;위로가기&#8217; 버튼을 넣어보자</p>
+
+<h3 id='html_'>HTML 만들기</h3>
+
+<p>테스트용 html은 html5 doctype으로 생성하고 jQuery최신버전을 호출하자</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=utf-8 /&gt;
+&lt;title&gt;위로가기 버튼 만들기&lt;/title&gt;
+&lt;style&gt;
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;img src=&quot;test.jpg&quot; alt=&quot;스크롤 생기게&quot; width=&quot;600&quot; height=&quot;2000&quot;&gt;
+
+&lt;script src=&quot;http://code.jquery.com/jquery-1.8.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+//이곳에 위로가기 버튼 동적으로 넣기
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<p>위 코드에서 <code>&lt;img&gt;</code>태그는 문서에 스크롤이 생기게 해주는 더미 태그이다.</p>
+
+<h3 id='css_'>CSS 만들기</h3>
+
+<p>&#8216;위로가기&#8217; 버튼을 이미지로 할 예정이다. <code>&lt;div class=&quot;top&quot; /&gt;</code>에 <code>background</code>로 이미지를 넣어주자.</p>
+
+<pre><code>.top {
+    position: fixed;
+    bottom:20px;
+    right:30px;
+    background: url(http://cdn1.iconfinder.com/data/icons/oxygen/48x48/actions/go-up.png) no-repeat;
+    width:48px;
+    height:48px;
+}</code></pre>
+
+<p>위로가기 버튼은 항상 그 위치에 있어야 하기에 <code>position:fixed</code> 를 주고 오른쪽 하단에 위치하게 <code>bottom:20px;right:30px</code>를 주었고 <code>widht</code>,<code>height</code>는 이미지 사이즈와 동일하게 48px 로 세팅</p>
+
+<h3 id='javascript_'>javascript 만들기</h3>
+
+<p>이제 script 로 동적으로 위로가기 버튼을 넣어줄 차례이다.</p>
+
+<p>스크롤위치(scrollTop())가 100이상 일때만 보이게 하고 위로가기 버튼을 눌렀을때도 스무스하게 올라가게끔 처리.</p>
+
+<pre><code>$(document).ready(function(){
+    var $body = $(document.body), //자주 사용하기에 캐시되게 변수에 넣어준다
+        $top = &#39;&#39;;
+
+    $top=$(&#39;&lt;div&gt;&#39;) //div 를 만들고 
+            .addClass(&#39;top&#39;) //top className을 주고
+            .hide() //처음에는 숨겨둔다
+            .click(function(){  // 클릭이 이벤트 할당
+                $body.animate({ scrollTop: 0 }); //animation효과로 scollTop=0으로 이동
+            })
+            .appendTo($body); // body에 top을 넣는다
+
+    //윈도우의 스크롤위치로 위로가기 버튼을 보여줘야기에 핸들러 작성
+    $(window).scroll(function(){
+
+        var y = $(this).scrollTop();
+
+        if(y &gt;= 100){
+            $top.fadeIn();
+        }
+        else {
+            $top.fadeOut();
+        }
+    });
+});</code></pre>
+
+<h3 id='id34'>데모보기</h3>
+
+<p><a href='http://jsbin.com/etoduc/1/'>http://jsbin.com/etoduc/1/</a></p>
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="/archives/1153" title="jQuery - 이벤트전파방지, 기본동작막기 ">&larr; Previous</a>
+      
+        <a class="btn" href="/archive">Archive</a>
+      
+        <a class="btn next" href="/archives/1194" title="jQuery -  dom 요소 위치 변경하기 예제들">Next &rarr;</a>
+      
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'uix'; // required: replace example with your forum shortname
+    
+
+    // var disqus_identifier = 'http://uix.kr/archives/1161';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span2">
+    <section>
+      <h4>Published</h4>
+      <div class="date"><span>11 September 2012</span></div>
+    </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
+
+
+  
+     
+    	<li><a href="/tags#jQuery-ref">jQuery <span>20</span></a></li>
+     
+    	<li><a href="/tags#따라하기-ref">따라하기 <span>1</span></a></li>
+    
+  
+
+
+
+        </ul>
+      </section>
+             
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; aji 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://github.com/dhulihan/hooligan" target="_blank">The Hooligan Theme</a>
+        </p>
+      </footer>
+    </div> <!-- /container -->
+
+    <link href="/assets/themes/hooligan/css/prettify.css" type="text/css" rel="stylesheet" />
+    <script src="/assets/themes/hooligan/js/prettify.js"></script>
+    <script>
+    $(function(){
+        $('pre').addClass('prettyprint');
+        prettyPrint();
+    });
+    </script>
+
+    
+  </body>
+</html>
+

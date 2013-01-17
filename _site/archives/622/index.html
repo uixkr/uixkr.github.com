@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        mongoDB 3 - mongod config  파일로 실행 - 
+      
+      UIX
+    </title>
+    
+    <meta name="author" content="aji">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+    <script src="/assets/themes/hooligan/js/jquery.min.js"></script>
+    <script src="/assets/themes/hooligan/bootstrap/js/bootstrap.min.js"></script>
+
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="/assets/themes/hooligan/css-social-buttons/css/zocial.stripped.css" />
+    <link href="/assets/themes/hooligan/css/pygments.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">    
+    <link href="/assets/themes/hooligan/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    
+    <!-- fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>      
+
+
+          <a class="brand" href="/">UIX</a>
+
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive/">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories/">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages/">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags/">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+            <ul class="nav pull-right social visible-desktop">
+              <li class="divider-vertical"></li>
+              
+                <li>
+                  <a href="https://www.github.com/niceaji" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</a>
+                  </a>
+                </li>
+              
+                  
+              
+                <li>
+                  <a href="http://www.twitter.com/niceaji" class="zocial twitter icon" target="_blank">
+                  <span class="hidden-desktop">Twitter</a>
+                  </a>
+                </li>
+                                        
+                         
+                                  
+              
+                <li>
+                  <a href="http://feeds.feedburner.com/Uix" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">FeedBurner</a>
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+        
+<div class="page-header">
+  <h1>
+    mongoDB 3 - mongod config  파일로 실행 
+    
+  </h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    <h2 id='path_'>$PATH 설정</h2>
+
+<p>몽고db 데몬을 쉽게 올릴수 있게 어느 디렉토리든 mongod가 실행이 되게 설정해 보자 (mac같은 유닉스시스템 기준) 터미널에서 아래 명령을 실행한다</p>
+
+<pre><code>&gt; echo $PATH</code></pre>
+
+<p>위 명령으로 보이는 디렉토리 목록이 경로 지정 없이도 프로그램이 실행되는 디렉토리 모음이다. 이제 $PATH에 mongodb 설치경로를 지정해 보자.</p>
+
+<pre><code>&gt; vi ~/.profile</code></pre>
+
+<p>현재 계정의 .profile 파일을 vi 에디터로 열고 아래 내용을 한줄 추가한다</p>
+
+<pre><code>export PATH=/Applications/mongodb/bin:$PATH</code></pre>
+
+<p>/Applications/mongodb/bin 이부분은 자기가 mongodb 를 둔 디렉토리 기준으로 작성하면 된다. .profile 파일은 처음 터미널에 접속할경우 해석되는데 우린 이미 접속 하고 있기에 갱신 명령으로 바로 사용할수 있게 하자</p>
+
+<pre><code>&gt; source ~/.profile</code></pre>
+
+<p>이젠 바로 터미널에서 mongod 를 실행시켜 보면 path가 잡힌걸 확인가능 하다.</p>
+
+<h2 id='config__'>config파일로 옵션 지정하기</h2>
+
+<p>mongod 를 올릴때 여러 옵션들을 config 파일을 지정하면 좀더 손쉽게 올릴수 있다.</p>
+
+<pre><code>&gt; mongod --config /Applications/mongodb/mongo.conf</code></pre>
+
+<p>mongo.conf 파일명과 위치는 원하는대로 하면 된다. 이제 mongo.conf 에 파일을 만들어보자</p>
+
+<pre><code>port = 27017 # 몽고데몬이 돌아갈 포트
+fork = true # 데몬모드
+logpath = /tmp/mongodb.log  #로그파일 위치
+dbpath = /Applications/mongodb/data  # DB 파일의 path (기본 /data/db)</code></pre>
+
+<p>위 처럼 자신의 환경에 맞게 옵션을 설정하고 저장한다</p>
+
+<p>자 이제 몽고db를 띄워보자!</p>
+
+<pre><code>&gt; mongod --config /Applications/mongodb/mongo.conf</code></pre>
+
+<h2 id='id18'>도움글</h2>
+
+<p>* <a href='http://judydba.tistory.com/tag/%EB%AA%BD%EA%B3%A0%EB%94%94%EB%B9%84%20%EC%84%A4%EC%B9%98'>윈도우에서 환경변수 설정</a></p>
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="/archives/608" title="jQuery 이해2 - $(document).ready()">&larr; Previous</a>
+      
+        <a class="btn" href="/archive">Archive</a>
+      
+        <a class="btn next" href="/archives/629" title="mongoDB 4 – 몽고쉘 맛보기">Next &rarr;</a>
+      
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'uix'; // required: replace example with your forum shortname
+    
+
+    // var disqus_identifier = 'http://uix.kr/archives/622';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span2">
+    <section>
+      <h4>Published</h4>
+      <div class="date"><span>27 February 2012</span></div>
+    </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
+
+
+  
+     
+    	<li><a href="/tags#mongoDB-ref">mongoDB <span>7</span></a></li>
+     
+    	<li><a href="/tags#터미널-ref">터미널 <span>2</span></a></li>
+    
+  
+
+
+
+        </ul>
+      </section>
+             
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; aji 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://github.com/dhulihan/hooligan" target="_blank">The Hooligan Theme</a>
+        </p>
+      </footer>
+    </div> <!-- /container -->
+
+    <link href="/assets/themes/hooligan/css/prettify.css" type="text/css" rel="stylesheet" />
+    <script src="/assets/themes/hooligan/js/prettify.js"></script>
+    <script>
+    $(function(){
+        $('pre').addClass('prettyprint');
+        prettyPrint();
+    });
+    </script>
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        node.js 맛보기5 - html 문서 파싱 (jsdom) - 
+      
+      UIX
+    </title>
+    
+    <meta name="author" content="aji">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+    <script src="/assets/themes/hooligan/js/jquery.min.js"></script>
+    <script src="/assets/themes/hooligan/bootstrap/js/bootstrap.min.js"></script>
+
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="/assets/themes/hooligan/css-social-buttons/css/zocial.stripped.css" />
+    <link href="/assets/themes/hooligan/css/pygments.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">    
+    <link href="/assets/themes/hooligan/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    
+    <!-- fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>      
+
+
+          <a class="brand" href="/">UIX</a>
+
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive/">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories/">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages/">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags/">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+            <ul class="nav pull-right social visible-desktop">
+              <li class="divider-vertical"></li>
+              
+                <li>
+                  <a href="https://www.github.com/niceaji" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</a>
+                  </a>
+                </li>
+              
+                  
+              
+                <li>
+                  <a href="http://www.twitter.com/niceaji" class="zocial twitter icon" target="_blank">
+                  <span class="hidden-desktop">Twitter</a>
+                  </a>
+                </li>
+                                        
+                         
+                                  
+              
+                <li>
+                  <a href="http://feeds.feedburner.com/Uix" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">FeedBurner</a>
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+        
+<div class="page-header">
+  <h1>
+    node.js 맛보기5 - html 문서 파싱 (jsdom) 
+    
+  </h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    <h2 id='id6'>시작하기</h2>
+
+<p>node로 html를 읽어서 필요한 데이터를 뽑아보자. 이곳에 소개되었던 많은 프로토타이핑들이 직접 html를 파싱하고 구현이 되었다. 백엔드 개발자에게 원하는 데이터를 요청하기보다 이렇게 html스크랩핑 하는것이 훨씬 효율적이다. 프로토타이핑은 빨라야하고 node 또한 이런 부분들을 충분히 채워줄수 있다</p>
+
+<h2 id='jsdom_'>jsdom 모듈</h2>
+
+<p>jsdom 모듈을 설치한다. <a href='https://github.com/tmpvar/jsdom'>https://github.com/tmpvar/jsdom</a></p>
+
+<pre><code> npm install jsdom</code></pre>
+
+<p><a href='http://stackoverflow.com/questions/8844708/npm-install-error'>c++ 컴파일러가 없을경우 설치시 에러가 발생할수 있다</a>. 맥이라면 xcode를 설치해보자. 기타 플랫폼에서의 에러는 직접 검색으로 해결해보자; javascript로 개발된 모듈만 붙일수 있는게 아니라 다른언어로 작성된 컴파일된 모듈도 붙일수 있다라는 느낌도 대충 온다.</p>
+
+<p>예제소스는 늘 그렇듯 소스홈페이지에 잘 나와있다.</p>
+
+<pre><code>//jsdom1.js
+var jsdom = require(&quot;jsdom&quot;);
+
+jsdom.env(&quot;http://daum.net&quot;, [
+  &#39;http://code.jquery.com/jquery-1.5.min.js&#39;
+],
+function(errors, window) {
+    var $ = window.$;
+    $(&#39;#news a&#39;).each(function(){ 
+
+        console.log(  $(this).attr(&#39;href&#39;)  +&quot; : &quot;+ $(this).text() );
+    });
+});</code></pre>
+
+<p>예제를 조금 수정했다. 실행해 보자</p>
+
+<p><img alt='' src='http://cfile1.uf.tistory.com/image/123DFC3B4F3221FC2E066E' /></p>
+
+<h2 id='js_'>js데이터 파싱</h2>
+
+<p><a href='http://media.daum.net/common/wing.data'>http://media.daum.net/common/wing.data</a> 이런 js는 어떻게 파싱해야 할까?</p>
+
+<pre><code>//jsdom2.js
+var jsdom    = require(&quot;jsdom&quot;).jsdom,
+    document = jsdom(&quot;&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;&quot;),
+    window   = document.createWindow();
+
+var script = document.createElement(&#39;script&#39;);
+script.src = &#39;http://media.daum.net/common/wing.data&#39;;
+document.body.appendChild(script);
+
+script.onload = function(){
+
+    var data = window.wing_primary_sisa.component.data,
+        length = data.length;
+
+    for(var i=0; i &lt; length; i++){
+        console.log( data[i].component.data[0].title );
+    }
+};</code></pre>
+
+<p>미소가 지어진다 ^^</p>
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="/archives/87" title="node.js 맛보기4 - npm으로 설치 팁">&larr; Previous</a>
+      
+        <a class="btn" href="/archive">Archive</a>
+      
+        <a class="btn next" href="/archives/99" title="node.js 맛보기6 - jQueryMobile 프로토타이핑 만들기1">Next &rarr;</a>
+      
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'uix'; // required: replace example with your forum shortname
+    
+
+    // var disqus_identifier = 'http://uix.kr/archives/96';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span2">
+    <section>
+      <h4>Published</h4>
+      <div class="date"><span>11 February 2012</span></div>
+    </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
+
+
+  
+     
+    	<li><a href="/tags#jsdom모듈-ref">jsdom모듈 <span>2</span></a></li>
+     
+    	<li><a href="/tags#node.js-ref">node.js <span>18</span></a></li>
+    
+  
+
+
+
+        </ul>
+      </section>
+             
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; aji 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://github.com/dhulihan/hooligan" target="_blank">The Hooligan Theme</a>
+        </p>
+      </footer>
+    </div> <!-- /container -->
+
+    <link href="/assets/themes/hooligan/css/prettify.css" type="text/css" rel="stylesheet" />
+    <script src="/assets/themes/hooligan/js/prettify.js"></script>
+    <script>
+    $(function(){
+        $('pre').addClass('prettyprint');
+        prettyPrint();
+    });
+    </script>
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,183 @@
+---
+comments: true
+date: 2012-02-21 22:10:10
+layout: post
+permalink: /archives/366
+title: node.js 맛보기11 – jQueryMobile 프로토타이핑 만들기2
+categories:
+- nodejs
+tags:
+- jQueryMobile
+- node.js
+- 프로토타이핑
+---
+
+이번 시간에는 [이전 포스팅](http://uix.kr/archives/99) 에 이어 좀더 프로토타이핑 완성도를 높여보자.
+
+
+
+
+
+[![](https://img.skitch.com/20120221-k9sy6w499nxaw877fnbym78g7t.png)](http://www.youtube.com/watch?v=Iw-Uhulbt3o)
+
+
+
+
+
+실제 완성모습 ([동영상 보기](http://www.youtube.com/watch?v=Iw-Uhulbt3o))
+
+
+
+
+
+## 기능별로 모듈로 만들기
+
+
+
+
+
+리스트페이지,뷰페이지, 리스트 스크랩핑, 뷰 스크래핑....등 각 기능별로 파일,모듈로 빼자. 하나의 파일로 관리하는것보다 직관적이고 효율적이다.
+
+
+
+
+
+### news-history 프로젝트 파일구조
+
+
+
+
+
+
+
+  * app.js  - 첫 실행되는 메인프로그램 이다. 웹서버를 구성하는 부분
+
+
+  * index.html - 리스트를 표시한다
+
+
+  * view.html - 기사뷰를 표시한다
+
+
+  * news-list.js - 뉴스리스트를 스크래핑하여 json형태로 리턴하는 모듈
+
+
+  * news-view.js - 뉴스뷰를 스크래핑하여 json형태로 리턴하는 모듈
+
+
+  * file-content.js - index.html,view.html [파일을 읽어서 출력하기위한 모듈 ](http://uix.kr/archives/418)
+
+
+  * loadurl.js - 특정  [url를 가져오는 모듈](http://uix.kr/archives/435)
+
+
+
+
+
+### app.js
+
+
+
+
+
+http서버를 띄우고 요청이 들어오는 url마다 분기처리하여 맞는 문서,api 를 출력한다. [전체 소스보기](https://github.com/niceaji7/news-history/blob/master/app.js)
+
+
+
+
+    
+    http.createServer(function (req, res) {
+    
+        var urlObj = url.parse(req.url, true),
+            output = '';
+    
+        //들어오는 주소에 따라 분기처리 
+        if(urlObj.pathname == "/") {
+            //index.html 출력
+        }
+        else if(urlObj.pathname == "/view") {
+            //view.html 출력 
+        }
+        // /api/list 
+        else if(urlObj.pathname == "/api/list") {
+            //news-list.js 모듈을 호출하여 json api 출력  
+        }
+        // /api/view?newsid=1234....
+        else if(urlObj.pathname == "/api/view"){
+            //news-view.js 모듈을 호출하여 json api 출력  
+        }
+        else {
+            // 404 
+        }
+    
+    }).listen(8889, "127.0.0.1"); 
+    
+
+
+
+
+
+### news-list.js
+
+
+
+
+
+$('.section_statsbox a') 에서 보다 디테일 하게  뉴스링크만 빼보도록 하자.
+
+
+
+
+
+![](https://img.skitch.com/20120216-dqwphmh7r9rux3xh42m2cqiywu.medium.jpg)
+
+
+
+
+
+콘솔을 열어서 **document.querySelectorAll('.section_statsbox a')** 로 dom 을 살펴보면 뉴스링크일경우에는 **newsid 라는 17자리 숫자형태의 키**를 발견할수 있다. 이 newsid 를 가 있을경우에만 api로 뱉어주도록 변경 해보자. 
+[소스보기 ](https://github.com/niceaji7/news-history/blob/master/news-list.js)
+
+
+
+
+
+### news-view.js
+
+
+
+
+
+newsid 를 가지고 뉴스제목과 내용을 가져오는 모듈이다.   [소스보기 ](https://github.com/niceaji7/news-history/blob/master/news-view.js)
+
+
+
+
+
+## 전체소스 다운로드
+
+
+
+
+
+[전체소스를 다운로드](https://github.com/niceaji7/news-history) 하고 해당폴더에서 node app.js로 실행시키고 http://localhost:8889/ 를 브라우저에서 열어보자
+
+
+
+
+
+### 필요한 모듈
+
+
+
+
+
+
+
+  * [jsdom 모듈](/archives/96)
+
+
+  * [request 모듈](/archives/83)
+
+
+

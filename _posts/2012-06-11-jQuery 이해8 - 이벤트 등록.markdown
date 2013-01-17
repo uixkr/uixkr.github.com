@@ -1,0 +1,83 @@
+---
+comments: true
+date: 2012-06-11 10:48:44
+layout: post
+permalink: /archives/960
+title: jQuery 이해8 - 이벤트 등록
+categories:
+- jQuery
+tags:
+- jQuery
+---
+
+jQuery에서 [이벤트 관련 메소드들](http://api.jquery.com/category/events/)은 무척 많다.  
+
+그중에  편한방식,마음에 드는 방식을 선택하면 되는데 하나씩 살펴보자.  
+
+소개되는 예제코드는 [예제페이지](http://uix.kr/ex/jquery/ex.html)로 이동한후 개발자도구 콘솔을 열어서 실행하면 된다.
+
+
+
+
+
+## 이벤트 등록
+
+
+
+
+    
+    $('#box').on('click', function(event){
+        console.log(this,event);
+    });
+    
+    //이렇게도 가능
+    $('#box').click(function(event){
+        console.log(this, event);
+    });
+    
+
+
+
+
+
+[on메소드](http://api.jquery.com/on/)를 사용해서 간단하게 이벤트 등록이 가능하다.  
+
+이벤트콜백함수 안에서의  this는 이벤트가 발생된 엘리먼트 그대로를 가르키고 event인자는 **jQuery Event객체**를 가르킨다. 특이하게 [click()](http://api.jquery.com/click/)처럼 이벤트명의 메소드들도 존재하는데 편한대로 사용하면 된다.
+
+
+
+
+
+## jQuery  Event객체
+
+
+
+
+
+기본 js Event객체가 크로스브라우징이 필요하기에  통일된 [jQuery Event객체](http://api.jquery.com/category/events/event-object/)를 제공한다.
+
+
+
+
+    
+    $('#box').on('click', function(event){
+        console.log('#box 이벤트를 시작한 요소', event.target );
+        console.log('#box 이벤트 요소', event.currentTarget );
+    
+        console.log('#box 네이티브 event객체', event.originalEvent );
+    });
+    
+    $(document.body).on('click', function(event){
+        console.log('body 이벤트를 시작한 요소', event.target );
+        console.log('body이벤트 요소', event.currentTarget );
+    });
+    
+
+
+
+
+
+이벤트 전파방지, 기본동작 막기 : [http://uix.kr/archives/1153](http://uix.kr/archives/1153)
+
+
+

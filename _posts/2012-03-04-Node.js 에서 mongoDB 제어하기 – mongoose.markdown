@@ -1,0 +1,95 @@
+---
+comments: true
+date: 2012-03-04 15:52:59
+layout: post
+permalink: /archives/717
+title: Node.js 에서 mongoDB 제어하기 – mongoose
+categories:
+- mongoDB
+- nodejs
+tags:
+- mongoDB
+- mongoose
+- node.js
+---
+
+이전시간에 노드에서 몽고db를 제어할때 [몽고리안](/archives/710)모듈을 살펴봤다. 이번엔 좀더 색다른 [몽구스](http://mongoosejs.com)라는 모듈을 살펴보자
+
+
+
+
+
+npm으로 설치가 가능하다. `npm install mongoose` 설치하고 바로 예제소스를 보자
+
+
+
+
+    
+    var mongoose = require('mongoose');
+    var Schema = mongoose.Schema;
+    
+    // localhost 에 testdb Database에 접속
+    mongoose.connect('mongodb://localhost/testdb');
+    
+    //모델의 스키마를 작성한다
+    var CommentSchema = new Schema({
+        desc : String,  //내용
+        hit : Number,   //조회수
+        date : Date     //작성일
+    });
+    
+    // CommentSchema에 맞는 CommentModel 만들기
+    // comment는 Document , 자동으로 comments Collection 에 모델이 저장된
+    var CommentModel = mongoose.model('comment', CommentSchema);
+    
+    //CommentModel의 인스턴스생성
+    var comment = new CommentModel();
+    
+    //인스턴스에 값을 할당하고
+    comment.desc = "nodejs test";
+    comment.hit = 0;
+    comment.date = new Date();
+    
+    //저장하면 바로 몽고db에 올라간다
+    comment.save(function (err) {
+        if (!err) console.log('Success!');
+    });
+    
+
+
+
+
+
+좀 복잡하다. Document 에 해당하는 모델을 생성하고 그 모델을 저장하면 몽고db 에 저장이 되는 형태이다. 모델을 만들기전에 스키마(구조)도 만들어줘야 한다. [몽고리안](/archives/710)보다 뭔가 있어 보이지만? 불편해 보인다;;
+
+
+
+
+
+위 소스를 mongoose.js 로 만들고 실행후에 몽고쉘로 접속해서 데이터가 잘 들어갔는지 보자
+
+
+
+
+
+![](https://img.skitch.com/20120304-ewb9si3f61tidwcd1udg8mtpgc.jpg)
+
+
+
+
+
+## 도움글
+
+
+
+
+
+
+
+  * [mongoosejs](http://mongoosejs.com/)
+
+
+  * [MongoDB Node.js Driver](http://www.mongodb.org/display/DOCS/node.JS)
+
+
+

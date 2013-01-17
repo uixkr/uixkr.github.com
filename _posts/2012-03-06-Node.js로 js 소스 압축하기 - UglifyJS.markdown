@@ -1,0 +1,81 @@
+---
+comments: true
+date: 2012-03-06 18:03:27
+layout: post
+permalink: /archives/745
+title: Node.js로 js 소스 압축하기 - UglifyJS
+categories:
+- nodejs
+tags:
+- node.js
+- UglifyJS
+---
+
+[UglifyJS](https://github.com/mishoo/UglifyJS) 를 이용하면 자바스크립트 소스를 압축할수 있다. 실 서비스에 배포되는 자바스크립트를 압축하면 용량면이나 소스보안? 면에서 이익을 가질수 있다.
+
+
+
+
+
+콘솔에서 사용하게될 모듈이므로 글로벌 설치 하자. `npm install uglify-js -g`  글로벌 설치를 하면 어느 디렉토리에서든 `uglifyjs` 명령이 사용가능 하다.
+
+
+
+
+
+일단 압축할 js파일을 구하자. 터미널에서 아래와 같은 명령으로 [jquery](/jquery)를 다운로드 하자
+
+
+
+
+    
+    > curl --output jquery.js http://code.jquery.com/jquery-1.7.1.js
+    
+
+
+
+
+
+다운로드 되었으니 바로 압축!
+
+
+
+
+    
+    > uglifyjs --output jquery.min.js jquery.js
+    
+
+
+
+
+
+[매뉴얼](https://github.com/mishoo/UglifyJS)에서 사용할수 있는 여러 옵션도 살펴보자
+
+
+
+
+
+## 도움
+
+
+
+
+
+### 주요 자바스크립트 압축 도구
+
+
+
+
+
+
+
+  * [YUI Compressor](http://developer.yahoo.com/yui/compressor/)
+
+
+  * [JSMin](http://www.crockford.com/javascript/jsmin.html)
+
+
+  * [Google Closure Compiler](http://code.google.com/closure/compiler/)
+
+
+

@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        mongoDB 4 – 몽고쉘 맛보기 - 
+      
+      UIX
+    </title>
+    
+    <meta name="author" content="aji">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+    <script src="/assets/themes/hooligan/js/jquery.min.js"></script>
+    <script src="/assets/themes/hooligan/bootstrap/js/bootstrap.min.js"></script>
+
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="/assets/themes/hooligan/css-social-buttons/css/zocial.stripped.css" />
+    <link href="/assets/themes/hooligan/css/pygments.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">    
+    <link href="/assets/themes/hooligan/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    
+    <!-- fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>      
+
+
+          <a class="brand" href="/">UIX</a>
+
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive/">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories/">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages/">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags/">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+            <ul class="nav pull-right social visible-desktop">
+              <li class="divider-vertical"></li>
+              
+                <li>
+                  <a href="https://www.github.com/niceaji" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</a>
+                  </a>
+                </li>
+              
+                  
+              
+                <li>
+                  <a href="http://www.twitter.com/niceaji" class="zocial twitter icon" target="_blank">
+                  <span class="hidden-desktop">Twitter</a>
+                  </a>
+                </li>
+                                        
+                         
+                                  
+              
+                <li>
+                  <a href="http://feeds.feedburner.com/Uix" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">FeedBurner</a>
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+        
+<div class="page-header">
+  <h1>
+    mongoDB 4 – 몽고쉘 맛보기 
+    
+  </h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    <p><a href='/mongodb'>이전시간</a>에 설치도 했고 몽고db 데몬도 올렸다. 이제는 몽고쉘로 접속해서 가지고 놀아볼 차례이다.</p>
+
+<p><a href='/archives/622'>path를 설정</a>했으니 터미널을 띄우고 바로 쉘로 접속해보자</p>
+
+<pre><code>&gt; mongo</code></pre>
+
+<p>프롬프트가 입력을 기다리고 있다. 바로 또 아래 명령어들을 차례대로 입력해보자</p>
+
+<pre><code>&gt; use testdb  //testdb Database 를 사용하겠음
+
+&gt; db  // 현재 사용하고 있는 Database 인 testdb 를 표시 
+
+&gt; todo = {text:&#39;study mongodb&#39;}  // todo Document 생성
+
+&gt; db.todos.save(todo) //todos Collection 에  todo Document 넣기
+
+&gt; db.todos.save({text:&#39;jquery study&#39;})    //새로운 Document 저장
+
+&gt; db.todos.find()   // todos Collection에 모든 내용 가져오기
+
+&gt;db.todos.count()   //todos Collection count
+
+&gt; show collections // 현재 사용하는 Database에 모든 Collection 보기</code></pre>
+
+<p>아주 쉽지 않은가? 좀 더 살펴보자</p>
+
+<pre><code>&gt; var ids = [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;e&#39;,&#39;f&#39;,&#39;g&#39;,&#39;h&#39;,&#39;i&#39;,&#39;j&#39;];  // 배열생성
+&gt; for(i=0; i&lt;10; i++) { db.users.save({ id : ids[i],level : i }) } // users Collection에 10개의 유저 Document 저장
+
+&gt; db.users.find({level:4})  //level 이 4 인 유저 뽑기
+
+&gt; db.users.find({level:{$gt:4}})    // level 이 4보다 큰 유저만 가져오기
+
+&gt; db.users.find({level:{$lt:4}})        //4보다 작은 유저 가져오기</code></pre>
+
+<p>이번엔 데이터를 업데이트 해보자</p>
+
+<pre><code>&gt;  db.users.update({id:&#39;a&#39;}, {id:&#39;a&#39;, level:100})       //a id를 가진 유저의 level를 100으로
+
+&gt; db.users.update({id:&#39;a&#39;} , {$set: {nick: &#39;aji&#39;} } )   //  nick Field 추가
+
+&gt; db.users.remove({nick:&#39;aji&#39;})       // aji 유저 삭제
+
+&gt;  db.users.remove()    //users Collection 에 모든 요소 지우기
+
+&gt; show collections      //  현재 Database 에 생성된 모든 Collections 보기
+
+&gt; db.users.drop()       // users Collection 삭제</code></pre>
+
+<p>자바스크립트와 별반 다르지 않은 코드들로 그냥 쉽게 넣고, 빼고, 수정하고, 삭제 하면 된다.</p>
+
+<h2 id='id19'>도움글</h2>
+
+<p>* <a href='http://www.mongodb.org/display/DOCS/dbshell+Reference'>dbshell Reference</a></p>
+
+<p>* <a href='http://try.mongodb.org/'>MongoDB Browser Shell</a></p>
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="/archives/622" title="mongoDB 3 - mongod config  파일로 실행">&larr; Previous</a>
+      
+        <a class="btn" href="/archive">Archive</a>
+      
+        <a class="btn next" href="/archives/642" title="jQuery 이해3 - Selectors 메소드들">Next &rarr;</a>
+      
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'uix'; // required: replace example with your forum shortname
+    
+
+    // var disqus_identifier = 'http://uix.kr/archives/629';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span2">
+    <section>
+      <h4>Published</h4>
+      <div class="date"><span>28 February 2012</span></div>
+    </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
+
+
+  
+     
+    	<li><a href="/tags#mongoDB-ref">mongoDB <span>7</span></a></li>
+    
+  
+
+
+
+        </ul>
+      </section>
+             
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; aji 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://github.com/dhulihan/hooligan" target="_blank">The Hooligan Theme</a>
+        </p>
+      </footer>
+    </div> <!-- /container -->
+
+    <link href="/assets/themes/hooligan/css/prettify.css" type="text/css" rel="stylesheet" />
+    <script src="/assets/themes/hooligan/js/prettify.js"></script>
+    <script>
+    $(function(){
+        $('pre').addClass('prettyprint');
+        prettyPrint();
+    });
+    </script>
+
+    
+  </body>
+</html>
+

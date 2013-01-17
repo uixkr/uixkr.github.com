@@ -1,0 +1,74 @@
+---
+comments: true
+date: 2012-02-25 12:02:21
+layout: post
+permalink: /archives/550
+title: 북마클릿 배워보기 - Daum사전 북마클릿
+categories:
+- 기타
+tags:
+- 기타
+- 북마클릿
+---
+
+문서내에서 찾고자하는 단어를 드래그로 선택하면 Daum사전으로 검색해주는 간단한 북마클릿이다. [Daum사전은 이번에 반응형웹](https://plus.google.com/108919073072673973649/posts/BZeUmB4d9d1)으로 개편되었기에 새창으로 띄워도 최적화된 화면으로 잘 보인다.
+
+
+
+
+
+![Daum사전 북마클릿](https://img.skitch.com/20120225-bkyr1j6g12yadcxramwygia6k4.jpg)
+
+
+
+
+
+## 북마클릿 추가
+
+
+
+
+
+[Daum사전](javascript:(function(){var dic='http://alldic.daum.net/',query='';if(window.getSelection){query=window.getSelection().toString()||'';}else if(document.selection.createRange){query=document.selection.createRange().text||'';}var url=(query)?dic+'search.do?q='+query:dic;window.open(url,'','width=400px,height=500px');})())
+
+
+
+
+
+## 소스
+
+
+
+
+
+아래소스로 북마클릿을 쉽게 만들수 있게 도와주는 [Bookmarklet Builder](http://subsimple.com/bookmarklets/jsbuilder.htm)에서 쉽게 만들수 있다.
+
+
+
+
+
+
+## 도움글
+
+
+
+
+
+
+
+  * [북마클릿 위키](http://en.wikipedia.org/wiki/Bookmarklet)
+
+
+  * [Create Bookmarklets – The Right Way](http://net.tutsplus.com/tutorials/javascript-ajax/create-bookmarklets-the-right-way/)
+
+
+  * [북마클릿 만들기](http://codefactory.kr/old/posts/javascript/title/%EB%B6%81%EB%A7%88%ED%81%B4%EB%A6%BF%E2%94%80%EB%A7%8C%EB%93%A4%EA%B8%B0%E2%94%80bookmarklet)
+
+
+  * [jQuery Bookmarklet Generator](http://benalman.com/projects/run-jquery-code-bookmarklet/)
+
+
+  * [Perl Bookmarklet Builder ](http://daringfireball.net/2007/03/javascript_bookmarklet_builder)
+
+
+

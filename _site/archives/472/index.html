@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        프론트엔드개발자를 위한 RESTful - 
+      
+      UIX
+    </title>
+    
+    <meta name="author" content="aji">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+    <script src="/assets/themes/hooligan/js/jquery.min.js"></script>
+    <script src="/assets/themes/hooligan/bootstrap/js/bootstrap.min.js"></script>
+
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="/assets/themes/hooligan/css-social-buttons/css/zocial.stripped.css" />
+    <link href="/assets/themes/hooligan/css/pygments.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">    
+    <link href="/assets/themes/hooligan/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    
+    <!-- fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>      
+
+
+          <a class="brand" href="/">UIX</a>
+
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive/">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories/">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages/">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags/">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+            <ul class="nav pull-right social visible-desktop">
+              <li class="divider-vertical"></li>
+              
+                <li>
+                  <a href="https://www.github.com/niceaji" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</a>
+                  </a>
+                </li>
+              
+                  
+              
+                <li>
+                  <a href="http://www.twitter.com/niceaji" class="zocial twitter icon" target="_blank">
+                  <span class="hidden-desktop">Twitter</a>
+                  </a>
+                </li>
+                                        
+                         
+                                  
+              
+                <li>
+                  <a href="http://feeds.feedburner.com/Uix" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">FeedBurner</a>
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+        
+<div class="page-header">
+  <h1>
+    프론트엔드개발자를 위한 RESTful 
+    
+  </h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    <h2 id='id10'>소개</h2>
+
+<p>* <a href='http://ko.wikipedia.org/wiki/REST'>REST</a> : ROA(Resource Oriented Architecture) 를 따르는 웹서비스 디자인 표준</p>
+
+<p>* REST 원리를 따르는 시스템은 <a href='http://ko.wiktionary.org/wiki/-ful'>RESTful</a>이란 용어로 지칭</p>
+
+<h3 id='id11'>도움글</h3>
+
+<p>* <a href='http://www.iamcorean.net/22'>http://www.iamcorean.net/22</a></p>
+
+<p>* <a href='http://ds5apn.wordpress.com/2011/11/11/restful-api-design-second-edition/'>http://ds5apn.wordpress.com/2011/11/11/restful-api-design-second-edition/</a></p>
+
+<h1 id='restful_api'>RESTful API</h1>
+
+<p>* HTTP로 <a href='http://ko.wikipedia.org/wiki/CRUD'>CRUD</a> 할수 있는 자원을 관리하는데 사용되는 웹 서비스 API</p>
+
+<p>* <a href='http://dialup.egloos.com/139627'>HTTP Method</a>로 <a href='http://ko.wikipedia.org/wiki/CRUD'>CRUD</a> 구분</p>
+
+<pre><code>* POST -  아이템 작성 (Create)
+
+
+* GET - 아이템 검색 (Read)
+
+
+* PUT – 아이템 업데이트 (Update)
+
+
+* DELETE - 아이템 삭제 (Delete)</code></pre>
+
+<p>* 실제 대부분의 브라우저는 GET,POST 메소드만 제공, 하지만 javascript XMLHttpRequest() 에서는 모두 가능</p>
+
+<p>* 많은 openAPI가 RESTful 인터페이스 제공</p>
+
+<pre><code>* [Twitter REST Api](https://dev.twitter.com/docs/api)
+
+
+* [구글맵](http://code.google.com/intl/ko-KR/apis/maps/documentation/places/)</code></pre>
+
+<p>* 많은 개발 프레임웍 지원</p>
+
+<pre><code>* [backbone.js](http://documentcloud.github.com/backbone/)
+
+
+* [mongoDB REST 인터페이스](http://www.mongodb.org/display/DOCS/Http+Interface)</code></pre>
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="/archives/450" title="Canvas를 파일로 저장하는 방법">&larr; Previous</a>
+      
+        <a class="btn" href="/archive">Archive</a>
+      
+        <a class="btn next" href="/archives/366" title="node.js 맛보기11 – jQueryMobile 프로토타이핑 만들기2">Next &rarr;</a>
+      
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'uix'; // required: replace example with your forum shortname
+    
+
+    // var disqus_identifier = 'http://uix.kr/archives/472';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span2">
+    <section>
+      <h4>Published</h4>
+      <div class="date"><span>21 February 2012</span></div>
+    </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
+
+
+  
+     
+    	<li><a href="/tags#RESTful-ref">RESTful <span>1</span></a></li>
+     
+    	<li><a href="/tags#도움스킬-ref">도움스킬 <span>7</span></a></li>
+    
+  
+
+
+
+        </ul>
+      </section>
+             
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; aji 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://github.com/dhulihan/hooligan" target="_blank">The Hooligan Theme</a>
+        </p>
+      </footer>
+    </div> <!-- /container -->
+
+    <link href="/assets/themes/hooligan/css/prettify.css" type="text/css" rel="stylesheet" />
+    <script src="/assets/themes/hooligan/js/prettify.js"></script>
+    <script>
+    $(function(){
+        $('pre').addClass('prettyprint');
+        prettyPrint();
+    });
+    </script>
+
+    
+  </body>
+</html>
+

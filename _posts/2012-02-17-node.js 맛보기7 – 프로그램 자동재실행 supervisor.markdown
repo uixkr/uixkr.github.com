@@ -1,0 +1,55 @@
+---
+comments: true
+date: 2012-02-17 19:27:57
+layout: post
+permalink: /archives/381
+title: node.js 맛보기7 – 프로그램 자동재실행 supervisor
+categories:
+- nodejs
+tags:
+- node.js
+- supervisor
+---
+
+node.js 프로그램을 개발하면서 소스 수정하고 콘솔에서 node를 재실행하고를 반복하게 되는데 이때 자동으로 리로딩 해주는 [supervisor ](https://github.com/isaacs/node-supervisor) 모듈은 반드시 사용하자. npm 으로 바로 설치가 가능한데 [글로벌 설치](http://doortts.tistory.com/226)를 권장한다. (글로벌설치시에 디렉토리에 쓰기권한이 없을경우 에러를 뱉는데 관리자권한으로 실행시켜 주면 된다)
+
+
+
+
+    
+    npm install supervisor -g
+    
+
+
+
+
+
+설치하면 바로 사용이 가능하다. 간단하게 [이전에 했던 server.js](http://uix.kr/archives/61)로 테스트 해보자.
+
+
+
+
+    
+    supervisor server.js 
+    
+
+
+
+
+
+supervisor 로 실행하고 server.js 를 수정하면 자동으로 다시 실행되는걸 볼수 있다
+
+
+
+
+
+![supervisor 실행화면](https://img.skitch.com/20120217-t45dgn5dn5msy94m25g3913x8b.medium.jpg)
+
+
+
+
+
+더 자세한 사용방법은 [레퍼런스](https://github.com/isaacs/node-supervisor)를 참고하면 된다.
+
+
+

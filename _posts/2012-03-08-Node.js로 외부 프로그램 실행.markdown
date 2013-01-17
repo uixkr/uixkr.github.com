@@ -1,0 +1,123 @@
+---
+comments: true
+date: 2012-03-08 00:08:06
+layout: post
+permalink: /archives/755
+title: Node.js로 외부 프로그램 실행
+categories:
+- nodejs
+tags:
+- node.js
+- 터미널
+---
+
+노드로도 당연히 외부 프로그램을 실행할수 있다.
+
+
+
+
+
+## 외부 프로그램 실행 프로그램 만들기
+
+
+
+
+
+우선 터미널상에서 테스트용 디렉토리를 만들고 nodedate.js파일을 생성하자
+
+
+
+
+    
+    > mkdir exec-test       
+    > cd exec-test          
+    > vi nodedate.js            ## vi에디터로 nodedate.js생성&열기
+    
+
+
+
+
+
+이제  아래소스를 nodedate.js에 넣으면 된다
+
+
+
+
+    
+    var exec = require('child_process').exec;
+    exec("date", function (error, stdout, stderr) {
+       console.log(stdout);
+    });
+    
+
+
+
+
+
+`date` 는 현재 시간을 보여주는 명령어다. `node nodedate.js`  로 실행하면 현재시간이 출력 된다
+
+
+
+
+
+## 커맨드라인 명령처럼 실행
+
+
+
+
+
+nodedate.js에 맨상단에 한줄을 추가하면 파일 실행권한을 주게 되면 커맨드라인 명령처럼 사용이 가능해진다
+
+
+
+
+    
+    #!/usr/bin/env node
+    var exec = require('child_process').exec;
+    exec("date", function (error, stdout, stderr) {
+       console.log(stdout);
+    });
+    
+
+
+
+
+
+파일의 실행권한을 부여하자
+
+
+
+
+    
+    > chmod 755 nodedate.js
+    
+
+
+
+
+
+자~ 이제 `./nodedate.js` 로도 실행이 가능해 진다
+
+
+
+
+    
+    exec-test > chmod 755 nodedate.js
+    exec-test > ./nodedate.js
+    2012년 3월  8일 목요일 00시 21분 47초 KST
+    
+
+
+
+
+
+## 도움글
+
+
+
+
+
+[Child Process](http://nodejs.org/api/child_process.html)
+
+
+

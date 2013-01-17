@@ -1,0 +1,92 @@
+---
+comments: true
+date: 2012-02-23 19:47:02
+layout: post
+permalink: /archives/504
+title: mongoDB 1 시작하기 - 설치,실행
+categories:
+- mongoDB
+tags:
+- mongoDB
+---
+
+[mongoDB](http://www.mongodb.org/) 는 프론트엔드개발자가 꼭 배워둘만한 데이터베이스 이다.  일단 겪어보려면 mongoDB가 필요하다. 얼른 설치해 보자
+
+
+
+
+
+## 설치
+
+
+
+
+
+환경에 맞는 mongoDB 를 [다운로드](http://www.mongodb.org/downloads) 받아 압축만 풀면 바로  데몬을 올릴수 있다. [퀵가이드](http://www.mongodb.org/display/DOCS/Quickstart)에 따라 설치를 진행해 보자
+
+
+
+
+
+
+
+  * [윈도우에 설치하기](http://blog.naver.com/PostView.nhn?blogId=ff9292&logNo=70116175704)
+
+
+
+
+
+## 서버 띄우기
+
+
+
+
+
+mongoDB는 데이터베이스 서버이기 때문에 서버를 띄워줘야 한다.
+
+
+
+
+
+**기본 데이터베이스 저장 디렉토리는 /data/db (윈도우 c:\data/db )** 이기에 경로를 만들어주고  콘솔로 설치된 디렉토리에 bin/mongod (윈도우는 mongod.exe) 를 실행 시켜주면 바로 서버가 올라온다.  (데이터베이스가 저장되는 경로는 물론 변경할수도 있다)
+
+
+
+
+
+![윈도우에서 mongoDB 실행](https://img.skitch.com/20120222-dq3gmepuf5d28mibf5rjwt5fet.jpg)
+
+
+
+
+
+## 서버 접속
+
+
+
+
+
+데이터베이스에 쿼리를 날려보려면 접속을 해야한다. 이 또한 간단하다.  콘솔로 설치된 디렉토리에 bin/mongo 를 실행해주면 바로 관리쉘로이 뜬다.  쉘이 우리의 입력을 기다리고 있다. 이제 가지고 놀 준비는 끝났다.
+
+
+
+
+
+[mongoDB 홈페이지](http://www.mongodb.org/)에서 "Try it Out"메뉴를 클릭하면 간단하게 쉘을 실행시켜 볼수 있다. 잘 만들어진 튜토리얼을 진행해 보자!
+
+
+
+
+
+## 도움글
+
+
+
+
+
+
+
+  * [mongoDB를 Demon으로 실행하고 정상적으로 종료하기](http://blog.outsider.ne.kr/582?category=41)
+
+
+

@@ -1,0 +1,76 @@
+---
+comments: true
+date: 2012-03-03 22:15:46
+layout: post
+permalink: /archives/710
+title: Node.js 에서 mongoDB 제어하기 - Mongolian
+categories:
+- mongoDB
+- nodejs
+tags:
+- mongoDB
+- node.js
+---
+
+[몽고db](/mongodb)는 프론트엔드개발자가 사용하기에 아주 적합한 데이터베이스이다. [노드](/nodejs)에서 몽고db를 컨트롤 해보자
+
+
+
+
+
+노드의 [Mongolian](https://github.com/marcello3d/node-mongolian)모듈을 설치해 보자
+
+
+
+
+    
+    npm install mongolian
+    
+
+
+
+
+
+테스트 예제는 매뉴얼에서 고대로 퍼왔다
+
+
+
+
+    
+    var Mongolian = require("mongolian");
+    var server = new Mongolian;
+    
+    var db = server.db("test"); // test Database선택
+    var posts = db.collection("posts"); //posts Collection 선택
+    
+    //posts Collection 에  Document 넣기
+    posts.insert({
+        pageId: "hallo",
+        title: "Hallo",
+        created: new Date,
+        body: "Welcome to my new blog!"
+    });
+    
+
+
+
+
+
+소스는 [이제까지 모든 내용](/mongodb)들을 쫒아왔다면 이해하기 아주 쉽다.  
+
+파일을 mongolian.js로 저장하고 실행해보면 몽고db 에 하나의 row가 생긴걸 확인할 수 있다
+
+
+
+
+
+![](https://img.skitch.com/20120303-ffmskqda7me1g8qeue1rsb5drx.png)
+
+
+
+
+
+[매뉴얼](https://github.com/marcello3d/node-mongolian)에 insert 말고 다른 예제들도 꼭 따라해 보자
+
+
+

@@ -1,0 +1,54 @@
+---
+comments: true
+date: 2012-07-13 14:06:47
+layout: post
+permalink: /archives/1059
+title: curl로 api테스트 하기
+tags:
+- api
+- curl
+- widget
+- 도움스킬
+---
+
+[curl](http://curl.haxx.se/)은 명령행 기반 웹 요청 도구이다.
+
+
+
+
+
+
+
+  * 개발초기에 백엔드에서 만들어준 api를 테스트할때 요긴
+
+
+  * [REST](http://uix.kr/archives/472) 애플리케이션을 개발 테스트시에 유용
+
+
+
+
+
+터미널을 실행하고 아래 명령들을 날려보자
+
+
+
+
+    
+    // get
+    curl http://uix.kr/widget/parameter.php?a=1&b=2
+    
+    // post
+    curl -F "a=1&b=2" http://uix.kr/widget/parameter.php
+    
+    // file upload  (해당디렉토리에 test.js가 필요)
+    curl -F upfile=@test.js -F "type=file"  http://uix.kr/widget/parameter.php
+    
+
+
+
+
+
+[http://uix.kr/widget/parameter.php](http://uix.kr/widget/parameter.php)의 소스는 [여기서](https://github.com/uixkr/widget/blob/master/parameter.php) 확인 가능하다.
+
+
+

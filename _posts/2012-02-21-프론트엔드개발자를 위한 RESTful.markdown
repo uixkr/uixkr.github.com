@@ -1,0 +1,102 @@
+---
+comments: true
+date: 2012-02-21 15:52:45
+layout: post
+permalink: /archives/472
+title: 프론트엔드개발자를 위한 RESTful
+tags:
+- RESTful
+- 도움스킬
+---
+
+## 소개
+
+
+
+
+
+
+
+  * [REST](http://ko.wikipedia.org/wiki/REST) : ROA(Resource Oriented Architecture) 를 따르는 웹서비스 디자인 표준
+
+
+  * REST 원리를 따르는 시스템은 [RESTful](http://ko.wiktionary.org/wiki/-ful)이란 용어로 지칭
+
+
+
+
+
+### 도움글
+
+
+
+
+
+
+
+  * [http://www.iamcorean.net/22](http://www.iamcorean.net/22)
+
+
+  * [http://ds5apn.wordpress.com/2011/11/11/restful-api-design-second-edition/](http://ds5apn.wordpress.com/2011/11/11/restful-api-design-second-edition/)
+
+
+
+
+
+# RESTful API
+
+
+
+
+
+
+
+  * HTTP로 [CRUD](http://ko.wikipedia.org/wiki/CRUD)  할수 있는 자원을 관리하는데 사용되는 웹 서비스 API
+
+
+  * [HTTP Method](http://dialup.egloos.com/139627)로 [CRUD](http://ko.wikipedia.org/wiki/CRUD)  구분 
+
+
+
+    * POST -  아이템 작성 (Create)
+
+
+    * GET - 아이템 검색 (Read)
+
+
+    * PUT – 아이템 업데이트 (Update)
+
+
+    * DELETE - 아이템 삭제 (Delete)
+
+
+
+
+  * 실제 대부분의 브라우저는  GET,POST 메소드만 제공, 하지만 javascript XMLHttpRequest() 에서는 모두 가능
+
+
+  * 많은 openAPI가  RESTful 인터페이스 제공
+
+
+
+    * [Twitter REST Api](https://dev.twitter.com/docs/api)
+
+
+    * [구글맵](http://code.google.com/intl/ko-KR/apis/maps/documentation/places/)
+
+
+
+
+  * 많은 개발 프레임웍 지원 
+
+
+
+    * [backbone.js](http://documentcloud.github.com/backbone/)
+
+
+    * [mongoDB REST 인터페이스](http://www.mongodb.org/display/DOCS/Http+Interface)
+
+
+
+
+

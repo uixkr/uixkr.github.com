@@ -1,0 +1,55 @@
+---
+comments: true
+date: 2012-02-19 13:40:50
+layout: post
+permalink: /archives/418
+title: node.js 맛보기9 – File System
+categories:
+- nodejs
+tags:
+- fileSystem
+- node.js
+- url
+---
+
+파일을 읽고 쓰거나 폴더를 만드는 등의 파일시스템과 관련된 일들을 할수 있는  [File System](http://nodejs.org/docs/latest/api/fs.html) 모듈을 살펴보자.
+
+
+
+
+
+[url 모듈에서 썼던 예제](http://uix.kr/archives/377)를 조금 수정하여 들어오는 url 마다 파일을 읽어서 해당 파일을 보여주려 한다. http://127.0.0.1:8889/info 로 접속하면  [info.html](https://gist.github.com/1862000)  을 열어서 보여주고, http://127.0.0.1:8889/api 로 접속하면 [api.html ](https://gist.github.com/1862003)을 [File System](http://nodejs.org/docs/latest/api/fs.html)모듈로 읽어서 보여준다.
+
+
+
+
+    
+    var http = require('http'),
+        url = require('url'),
+        fs = require('fs');
+    
+    http.createServer(function (request, response) {
+    
+        var urlObj = url.parse(request.url, true),
+            filename = urlObj.pathname.replace("/","") + ".html"; 
+    
+        console.log(urlObj);
+    
+        //파일을 읽는다 
+        fs.readFile(filename, function (err, data) {
+              if (err) { //에러가 날경우에는 404 로 연결 
+                  response.writeHead(404, {'Content-Type': 'text/plain'});
+                  response.end("404 Not Found!! \n");
+                  throw err;
+              }
+              //파일이 있으면 해당 내용 보여주기 
+              response.writeHead(200, {'Content-Type': 'text/html;'});
+              response.end(data);
+        });
+    
+    }).listen(8889, "127.0.0.1");
+    console.log('Server running at http://127.0.0.1:8889/');
+    
+
+
+

@@ -1,0 +1,2640 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>UIX</title>
+ <link href="http://niceaji.github.com/atom.xml" rel="self"/>
+ <link href="http://niceaji.github.com"/>
+ <updated>2013-01-17T21:49:49+09:00</updated>
+ <id>http://niceaji.github.com</id>
+ <author>
+   <name>aji</name>
+   <email>niceaji7@gmail.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>프론트엔드 개발시에 유용한 크롬 확장들</title>
+   <link href="http://niceaji.github.com/archives/1204"/>
+   <updated>2012-09-17T17:53:14+09:00</updated>
+   <id>http://niceaji.github.com/archives/프론트엔드 개발시에 유용한 크롬 확장들</id>
+   <content type="html">&lt;p&gt;소개되는 확장기능중엔 비슷한 확장들이 많지만 그래도 맘에들어 현재 쓰고 있는 확장들&lt;/p&gt;
+
+&lt;h2 id='sight'&gt;&lt;a href='https://chrome.google.com/webstore/detail/epmaefhielclhlnmjofcdapbeepkmggh'&gt;Sight&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;* js,css 소스 하이라이트 , 압축된 js 이쁘게도 보여줌&lt;/p&gt;
+
+&lt;p&gt;* 확장 옵션에서 배경색을 흰색톤으로 맞춰주면 보기 좋음&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='https://chrome.google.com/webstore/detail/epmaefhielclhlnmjofcdapbeepkmggh'&gt;&lt;img alt='' src='https://lh6.googleusercontent.com/5z14_yWd8vaXHZ4232-8NGVxuYHBbBHLOWpKC3QdGqj4lkqyfbjtnzWulyW6ilD-x33qu_CLyyY=s640-h400-e365' /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id='json_formatter'&gt;&lt;a href='https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa'&gt;JSON Formatter&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;* json 이쁘게 보여주기&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='https://chrome.google.com/webstore/detail/bcjindcccaagfpapjjmafapmmgkkhgoa'&gt;&lt;img alt='' src='https://lh6.googleusercontent.com/68vofGty-EmFi1WHH-y0IbwRXeJpKTg3eTZOjZQoZAhJ6vuY7cL0G6yJ0CsE5sooUtJkSbqwUbI=s640-h400-e365' /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id='xv__xml_viewer'&gt;&lt;a href='https://chrome.google.com/webstore/detail/eeocglpgjdpaefaedpblffpeebgmgddk'&gt;XV — XML Viewer&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;* xml 이쁘게 보여주기&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='https://chrome.google.com/webstore/detail/eeocglpgjdpaefaedpblffpeebgmgddk'&gt;&lt;img alt='' src='https://lh5.googleusercontent.com/ZyrhyWuSckRdiBE6RBf08Gp4BGgUWO2yr_YiKxEhOvma5NEIhxaGAVqptBT6LahaRqR636nK=s640-h400-e365' /&gt;&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>jQuery -  dom 요소 위치 변경하기 예제들</title>
+   <link href="http://niceaji.github.com/archives/1194"/>
+   <updated>2012-09-15T00:12:02+09:00</updated>
+   <id>http://niceaji.github.com/archives/jQuery -  dom 요소 위치 변경하기 예제들</id>
+   <content type="html">&lt;pre&gt;&lt;code&gt;&amp;lt;div id=&amp;quot;menu&amp;quot;&amp;gt;
+  &amp;lt;p class=&amp;quot;about&amp;quot;&amp;gt;이곳은?&amp;lt;/p&amp;gt;
+  &amp;lt;p class=&amp;quot;jquery&amp;quot;&amp;gt;jQuery 맛보기&amp;lt;/p&amp;gt;
+  &amp;lt;p class=&amp;quot;nodejs&amp;quot;&amp;gt;node.js 맛보기&amp;lt;/p&amp;gt;
+  &amp;lt;p class=&amp;quot;mongodb&amp;quot;&amp;gt;mongo DB 맛보기&amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;위와 같은 메뉴에서 &lt;code&gt;jquery&lt;/code&gt;와 &lt;code&gt;mongodb&lt;/code&gt;의 위치를 jQuery를 이용해서 바꿔보자.&lt;/p&gt;
+
+&lt;p&gt;아래 실행되는 코드는 &lt;a href='http://jsbin.com/enuviq/11'&gt;이곳&lt;/a&gt;에서 테스트 가능하다.&lt;/p&gt;
+
+&lt;h3 id='_1'&gt;코드 1&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;.jquery&amp;#39;).clone().appendTo( $(&amp;#39;#menu&amp;#39;) );    
+$(&amp;#39;.mongodb&amp;#39;).replaceAll( $(&amp;#39;.jquery&amp;#39;).eq(0) );&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;1. &lt;code&gt;.jquery&lt;/code&gt;를 하나 더 만들어서 &lt;code&gt;#menu&lt;/code&gt; 제일 하단에 넣는다&lt;/p&gt;
+
+&lt;p&gt;2. &lt;code&gt;.mongodb&lt;/code&gt;로 첫번째 &lt;code&gt;.jquery&lt;/code&gt;를 대체&lt;/p&gt;
+
+&lt;h3 id='_2'&gt;코드 2&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;.jquery&amp;#39;).replaceWith( $(&amp;#39;.mongodb&amp;#39;) ).appendTo( $(&amp;#39;#menu&amp;#39;) );&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;1. &lt;code&gt;.jquery&lt;/code&gt;를 &lt;code&gt;.mongodb&lt;/code&gt; 로 대체하고 바로 &lt;code&gt;#menu&lt;/code&gt; 하단에 넣는다&lt;/p&gt;
+
+&lt;h3 id='_3'&gt;코드 3&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;.mongodb&amp;#39;).after( $(&amp;#39;.jquery&amp;#39;) );
+$(&amp;#39;.about&amp;#39;).after( $(&amp;#39;.mongodb&amp;#39;) );&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;1. &lt;code&gt;.mongodb&lt;/code&gt;뒤에 &lt;code&gt;.jquery&lt;/code&gt; 두고&lt;/p&gt;
+
+&lt;p&gt;2. &lt;code&gt;.about&lt;/code&gt; 뒤에 &lt;code&gt;.mongodb&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id='_4'&gt;코드 4&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;.mongodb&amp;#39;).after( $(&amp;#39;.jquery&amp;#39;) ).insertAfter( $(&amp;#39;.about&amp;#39;) );&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;1. &lt;code&gt;.mongodb&lt;/code&gt;뒤에 &lt;code&gt;.jquery&lt;/code&gt; 두고, 바로 &lt;code&gt;.about&lt;/code&gt; 뒤에 두기&lt;/p&gt;
+
+&lt;p&gt;* replaceAll(), replaceWith()&lt;/p&gt;
+
+&lt;p&gt;* after(), insertAfter()&lt;/p&gt;
+
+&lt;p&gt;* append(), appendTo()&lt;/p&gt;
+
+&lt;p&gt;누가 selector이고 target인지만 잘 구별 할수 있으면 될듯.. 머리 아픔&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>jQuery - 페이지에 위로가기 버튼을 넣어보자</title>
+   <link href="http://niceaji.github.com/archives/1161"/>
+   <updated>2012-09-11T00:36:03+09:00</updated>
+   <id>http://niceaji.github.com/archives/jQuery - 페이지에 위로가기 버튼을 넣어보자</id>
+   <content type="html">&lt;p&gt;스크롤이 길게 생기는 페이지에서 글을 다읽고 위에 있는 메뉴등을 접근하기 위해서 제공되는 &amp;#8216;위로가기&amp;#8217; 버튼을 넣어보자&lt;/p&gt;
+
+&lt;h3 id='html_'&gt;HTML 만들기&lt;/h3&gt;
+
+&lt;p&gt;테스트용 html은 html5 doctype으로 생성하고 jQuery최신버전을 호출하자&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;meta charset=utf-8 /&amp;gt;
+&amp;lt;title&amp;gt;위로가기 버튼 만들기&amp;lt;/title&amp;gt;
+&amp;lt;style&amp;gt;
+&amp;lt;/style&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;img src=&amp;quot;test.jpg&amp;quot; alt=&amp;quot;스크롤 생기게&amp;quot; width=&amp;quot;600&amp;quot; height=&amp;quot;2000&amp;quot;&amp;gt;
+
+&amp;lt;script src=&amp;quot;http://code.jquery.com/jquery-1.8.1.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script&amp;gt;
+//이곳에 위로가기 버튼 동적으로 넣기
+&amp;lt;/script&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;위 코드에서 &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt;태그는 문서에 스크롤이 생기게 해주는 더미 태그이다.&lt;/p&gt;
+
+&lt;h3 id='css_'&gt;CSS 만들기&lt;/h3&gt;
+
+&lt;p&gt;&amp;#8216;위로가기&amp;#8217; 버튼을 이미지로 할 예정이다. &lt;code&gt;&amp;lt;div class=&amp;quot;top&amp;quot; /&amp;gt;&lt;/code&gt;에 &lt;code&gt;background&lt;/code&gt;로 이미지를 넣어주자.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;.top {
+    position: fixed;
+    bottom:20px;
+    right:30px;
+    background: url(http://cdn1.iconfinder.com/data/icons/oxygen/48x48/actions/go-up.png) no-repeat;
+    width:48px;
+    height:48px;
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;위로가기 버튼은 항상 그 위치에 있어야 하기에 &lt;code&gt;position:fixed&lt;/code&gt; 를 주고 오른쪽 하단에 위치하게 &lt;code&gt;bottom:20px;right:30px&lt;/code&gt;를 주었고 &lt;code&gt;widht&lt;/code&gt;,&lt;code&gt;height&lt;/code&gt;는 이미지 사이즈와 동일하게 48px 로 세팅&lt;/p&gt;
+
+&lt;h3 id='javascript_'&gt;javascript 만들기&lt;/h3&gt;
+
+&lt;p&gt;이제 script 로 동적으로 위로가기 버튼을 넣어줄 차례이다.&lt;/p&gt;
+
+&lt;p&gt;스크롤위치(scrollTop())가 100이상 일때만 보이게 하고 위로가기 버튼을 눌렀을때도 스무스하게 올라가게끔 처리.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(document).ready(function(){
+    var $body = $(document.body), //자주 사용하기에 캐시되게 변수에 넣어준다
+        $top = &amp;#39;&amp;#39;;
+
+    $top=$(&amp;#39;&amp;lt;div&amp;gt;&amp;#39;) //div 를 만들고 
+            .addClass(&amp;#39;top&amp;#39;) //top className을 주고
+            .hide() //처음에는 숨겨둔다
+            .click(function(){  // 클릭이 이벤트 할당
+                $body.animate({ scrollTop: 0 }); //animation효과로 scollTop=0으로 이동
+            })
+            .appendTo($body); // body에 top을 넣는다
+
+    //윈도우의 스크롤위치로 위로가기 버튼을 보여줘야기에 핸들러 작성
+    $(window).scroll(function(){
+
+        var y = $(this).scrollTop();
+
+        if(y &amp;gt;= 100){
+            $top.fadeIn();
+        }
+        else {
+            $top.fadeOut();
+        }
+    });
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id='id34'&gt;데모보기&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href='http://jsbin.com/etoduc/1/'&gt;http://jsbin.com/etoduc/1/&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>jQuery - 이벤트전파방지, 기본동작막기 </title>
+   <link href="http://niceaji.github.com/archives/1153"/>
+   <updated>2012-09-08T12:12:20+09:00</updated>
+   <id>http://niceaji.github.com/archives/jQuery - 이벤트전파방지, 기본동작막기 </id>
+   <content type="html">&lt;h3 id='eventstoppropagation'&gt;&lt;a href='http://api.jquery.com/event.stopPropagation/'&gt;event.stopPropagation()&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;* 이벤트 전파 방지&lt;/p&gt;
+
+&lt;h3 id='eventpreventdefault'&gt;&lt;a href='http://api.jquery.com/event.preventDefault/'&gt;event.preventDefault()&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;* 링크,폼등의 기본동작 중지&lt;/p&gt;
+
+&lt;p&gt;예제보기 - &lt;a href='http://jsbin.com/amized/1/'&gt;http://jsbin.com/amized/1/&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(a).click(function(event){
+    //동작구현
+
+    //이벤트막고 , 기본동작 중지
+    event.stopPropagation();
+    even.preventDefault();
+
+    //return false; 로 대체가능
+
+});&lt;/code&gt;&lt;/pre&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>jQuery - html문서 손쉽게 불러서 끼워넣기 .load()</title>
+   <link href="http://niceaji.github.com/archives/1150"/>
+   <updated>2012-09-08T10:02:50+09:00</updated>
+   <id>http://niceaji.github.com/archives/jQuery - html문서 손쉽게 불러서 끼워넣기 .load()</id>
+   <content type="html">&lt;p&gt;a:&lt;a href='http://jsbin.com/orafim/1'&gt;http://jsbin.com/orafim/1&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;script src=&amp;quot;http://code.jquery.com/jquery-1.7.2.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+ &amp;lt;div id=&amp;quot;result&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;script&amp;gt;
+$(&amp;#39;#result&amp;#39;).load(&amp;quot;http://jsbin.com/alijey/3 #msg&amp;quot;);
+&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;b:&lt;a href='http://jsbin.com/alijey/3/'&gt;http://jsbin.com/alijey/3/&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; &amp;lt;h1&amp;gt;테스트&amp;lt;/h1&amp;gt;
+&amp;lt;div id=&amp;quot;msg&amp;quot;&amp;gt;Hello World!!&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;a문서의 #result에 b문서의 #msg부분을 불러서 넣는 간단한 예제&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>BigNews - BigVideo.js의 프로토타이핑 서비스</title>
+   <link href="http://niceaji.github.com/archives/1140"/>
+   <updated>2012-08-30T11:39:11+09:00</updated>
+   <id>http://niceaji.github.com/archives/BigNews - BigVideo.js의 프로토타이핑 서비스</id>
+   <content type="html">&lt;p&gt;브라우저 전체화면에서 동영상을 재생시켜주는 &lt;a href='http://dfcb.github.com/BigVideo.js/'&gt;BigVideo.js&lt;/a&gt;을 이용한 프로토타이핑&lt;/p&gt;
+
+&lt;p&gt;크롬에서 작업했는데 &lt;a href='http://dfcb.github.com/BigVideo.js/'&gt;BigVideo.js&lt;/a&gt;에서 크로스브라우징을 잘 처리해주어 다행^^&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://niceaji7.github.com/big-news/'&gt;&lt;img alt='' src='https://img.skitch.com/20120830-fgr1qybh46xjajj7cw6pxumfs4.jpg' /&gt;&lt;/a&gt; &lt;a href='http://niceaji7.github.com/big-news/'&gt;http://niceaji7.github.com/big-news/&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>node.js - 간단한 Static 서버 만들기</title>
+   <link href="http://niceaji.github.com/archives/1137"/>
+   <updated>2012-08-30T10:36:22+09:00</updated>
+   <id>http://niceaji.github.com/archives/node.js - 간단한 Static 서버 만들기</id>
+   <content type="html">&lt;p&gt;로컬에서 개발하다보면 WAS까지는 아니더래도 서버환경을 구성하고 개발할 필요가 생기게 된다.&lt;/p&gt;
+
+&lt;p&gt;이때 보통 apache서버를 이용하는 경우가 많은데 간단하게 node.js로도 static서버가 가능하다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='https://github.com/cloudhead/node-static'&gt;node-static&lt;/a&gt; 모듈을 사용하면 간단하다.&lt;/p&gt;
+
+&lt;p&gt;터미널 환경에서 사용할 예정이니 global로 설치하자&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo npm install -g node-static&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이제 터미널에서 root가 될 디렉토리로 가서 &lt;code&gt;static&lt;/code&gt; 이라고 입력하면 static 서버가 올라간다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='' src='https://img.skitch.com/20120830-mih4us5mt2peqgx62ndmbeucj2.jpg' /&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>javascript 만으로 파일 업로드 구현</title>
+   <link href="http://niceaji.github.com/archives/1126"/>
+   <updated>2012-07-26T13:01:54+09:00</updated>
+   <id>http://niceaji.github.com/archives/javascript 만으로 파일 업로드 구현</id>
+   <content type="html">&lt;p&gt;&lt;a href='http://uix.kr/archives/1076'&gt;이전에 봤던&lt;/a&gt; imgur.com API 를 이용해서 javascript 만으로 직접 업로드를 구현해보자&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='' src='https://img.skitch.com/20120726-mn56y46imerfakgd4xrin2pcsj.jpg' /&gt; &lt;a href='http://www.uix.kr/drag-uploader/'&gt;http://www.uix.kr/drag-uploader/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://www.html5rocks.com/en/tutorials/dnd/basics/'&gt;html5 file API&lt;/a&gt;를 이용해서 간단하게 가능한데 &lt;a href='https://github.com/uixkr/drag-uploader/blob/gh-pages/index.html'&gt;소스&lt;/a&gt;를 보면 쉽게 이해 가능하다.&lt;/p&gt;
+
+&lt;p&gt;1. 이미지를 브라우저에 드래그앤 드랍으로 떨구면&lt;/p&gt;
+
+&lt;p&gt;2. file API로 이미지를 읽고&lt;/p&gt;
+
+&lt;p&gt;3. imgur.com에 base64방식으로 업로드 ~&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>간단하게 js,css minify 해보자 - Yuicompressor Online </title>
+   <link href="http://niceaji.github.com/archives/1101"/>
+   <updated>2012-07-23T18:31:17+09:00</updated>
+   <id>http://niceaji.github.com/archives/간단하게 js,css minify 해보자 - Yuicompressor Online </id>
+   <content type="html">&lt;p&gt;js,css 를 실제 서비스에 배포할때는 압축(minify)를 하게 된다.&lt;/p&gt;
+
+&lt;p&gt;미디어다음 js - &lt;a href='http://s1.daumcdn.net/photo-media/static/media/3.3.2.3/dist/news.commons.min.js'&gt;http://s1.daumcdn.net/photo-media/static/media/3.3.2.3/dist/news.commons.min.js&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;minify 하게되면 지역변수가 짧아지고 공백과 주석이 제거되어 성능향상(용량)과 소스보안에도 도움이 될수 있다.&lt;/p&gt;
+
+&lt;p&gt;이때 주로 &lt;a href='http://developer.yahoo.com/yui/compressor/'&gt;Yuicompressor&lt;/a&gt; 가 사용되어지는데 매번 그 환경을 구성하기가 번거롭다.&lt;/p&gt;
+
+&lt;p&gt;그래서 간단하게 &lt;strong&gt;js파일을 업로드하면 압축된 js소스를 뱉어주는 서비스&lt;/strong&gt;를 만들어 보았다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='' src='https://img.skitch.com/20120720-e7tdhkgaxha9bypxycsb7agk48.jpg' /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://yuionline.herokuapp.com/'&gt;http://yuionline.herokuapp.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://www.heroku.com/'&gt;heroku&lt;/a&gt;에 올려보았다. 나중에 정리예정&lt;/p&gt;
+
+&lt;p&gt;* 참고 - &lt;a href='https://devcenter.heroku.com/articles/nodejs'&gt;heroku nodejs&lt;/a&gt;, &lt;a href='https://devcenter.heroku.com/articles/error-codes#h14__no_web_processes_running'&gt;H14 에러&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* 이미 비슷한 &lt;a href='http://refresh-sf.com/yui/'&gt;서비스&lt;/a&gt;도 존재&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>알수없는 npm install 에러 발생시?</title>
+   <link href="http://niceaji.github.com/archives/1118"/>
+   <updated>2012-07-23T16:33:20+09:00</updated>
+   <id>http://niceaji.github.com/archives/알수없는 npm install 에러 발생시?</id>
+   <content type="html">&lt;p&gt;&lt;a href='http://expressjs.com/'&gt;express.js&lt;/a&gt;를 npm 설치하려는데 계속 알수 없는 에러가 발생하여 찾은 해결책&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm cache clean&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;에러를 기억?하고 있는 npm의 캐시를 날리는듯~&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>lazyload - 이미지를 늦게 load하여 웹성능 향상하기</title>
+   <link href="http://niceaji.github.com/archives/1088"/>
+   <updated>2012-07-19T15:35:19+09:00</updated>
+   <id>http://niceaji.github.com/archives/lazyload - 이미지를 늦게 load하여 웹성능 향상하기</id>
+   <content type="html">&lt;p&gt;요즘의 웹페이지에는 많은 이미지를 포함하게 된다.&lt;/p&gt;
+
+&lt;p&gt;웹페이지 첫 로딩시에는 사용자의 브라우저 영역안의 이미지만 로드를 하고 스크롤될때 해당 영역의 이미지를 로드하면 성능이 좋아질수 있는데 이러한 방법을 lazyloading이라 한다.&lt;/p&gt;
+
+&lt;p&gt;실제 실무에서 사용하는 방법은 여러가지가 있을수 있는데 그중에 &lt;a href='https://github.com/fasterize/lazyload'&gt;lazyload&lt;/a&gt;라는 간단한 js모듈을 소개 한다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;img
+    data-src=&amp;quot;real/image/src.jpg&amp;quot;
+    src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+    onload=lzld(this) onerror=lzld(this) /&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href='https://raw.github.com/fasterize/lazyload/master/lazyload.min.js'&gt;lazyload js&lt;/a&gt;을 head에서 부르고 위처럼 img 태그를 구성하면 끝이다.&lt;/p&gt;
+
+&lt;p&gt;실제 테스트는 &lt;a href='http://uix.kr/widget/lazyload.html'&gt;이곳&lt;/a&gt;에서 해보자 ( 브라우저 창 높이를 작게 해서 보자 )&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='' src='https://img.skitch.com/20120719-k2qnmyqigyr3f6i4daiwr9cdwm.jpg' /&gt;&lt;/p&gt;
+
+&lt;p&gt;위의 그림을 보듯이 하단에서 불려지는 이미지는 아직 로딩전이고 스크롤을 내리면 로딩되는것을 확인할수 있다.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>프로토타이핑에 유용한 이미지 업로드 API - imgur.com</title>
+   <link href="http://niceaji.github.com/archives/1076"/>
+   <updated>2012-07-16T20:13:15+09:00</updated>
+   <id>http://niceaji.github.com/archives/프로토타이핑에 유용한 이미지 업로드 API - imgur.com</id>
+   <content type="html">&lt;p&gt;프로토타이핑할때 간단하게 이미지업로드를 할경우에 간단하게 사용할수 있는 OpenAPI를 살펴보자&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://imgur.com'&gt;imgur&lt;/a&gt; 서비스는 간단하게 이미지를 공유하는 심플한 서비스이다.&lt;/p&gt;
+
+&lt;p&gt;간단하게 사용자 등록만 하면 &lt;a href='http://api.imgur.com/#anonapi'&gt;Anonymous Upload API&lt;/a&gt;를 제공하니 써볼만 하다. (복잡한 OAuth 없이 ^^)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='https://imgur.com/register/api_anon'&gt;사용자 등록&lt;/a&gt;을 하면 바로 (귀찮은 이메일인증도 없다) Developer API Key를 발급해준다.&lt;/p&gt;
+
+&lt;p&gt;어딘가에 잘 카피하고 이제 &lt;a href='http://api.imgur.com/resources_anon'&gt;api문서&lt;/a&gt;에서 upload 부분을 살펴보자&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='' src='https://img.skitch.com/20120716-bqdqnwn7fbsf8wr6csymjrf9fd.jpg' /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://api.imgur.com/2/upload'&gt;http://api.imgur.com/2/upload&lt;/a&gt; 에 POST로 key와 image파라미터를 넘기면 된다.&lt;/p&gt;
+
+&lt;p&gt;key는 아까 등록할때 받았던 Developer API Key이고, image 에는 &amp;#8216;A binary file, base64 data, or a URL&amp;#8217; 같은 이미지 정보를 넘겨주면 된다&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://uix.kr/archives/1059'&gt;curl&lt;/a&gt;로 바로 테스트 해보기 위해 터미널을 열고 테스트 image 를 다운로드 하자&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl  http://icon.daumcdn.net/w/c/12/03/77951173032424319.png -o daum.png&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;다운로드 된 daum.png를 바로 imgur서버로 업로드 해보자&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -F image=@daum.png -F &amp;quot;key={Developer API Key}&amp;quot; http://api.imgur.com/2/upload&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이젠 리턴문구가 성공인지만 확인하면 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='' src='https://img.skitch.com/20120716-t12k87tn8miid35b332786hujs.jpg' /&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Dev HTTP Client - API 테스트 크롬 익스텐션</title>
+   <link href="http://niceaji.github.com/archives/1068"/>
+   <updated>2012-07-16T19:27:53+09:00</updated>
+   <id>http://niceaji.github.com/archives/Dev HTTP Client - API 테스트 크롬 익스텐션</id>
+   <content type="html">&lt;p&gt;&lt;a href='http://uix.kr/archives/1059'&gt;curl로 api 테스트하는 방법&lt;/a&gt;을 살펴보았다&lt;/p&gt;
+
+&lt;p&gt;GUI로 할수 있는 방법도 매우 많은데 그중에 크롬익스텐션으로 나온 &lt;a href='https://chrome.google.com/webstore/detail/aejoelaoggembcahagimdiliamlcdmfm'&gt;Dev HTTP Client&lt;/a&gt;를 소개한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='null' src='https://lh6.googleusercontent.com/8uPPttvzhJfqY17NDuhfLKZzFva8ZOFf5Rdrl9PVpoYcUGSVZYSVR1Kvpjb3VZHX--FdgdXZ_A=s640-h400-e365' /&gt;&lt;/p&gt;
+
+&lt;p&gt;사용법은 간단하다. 크롬웹스토어에서 &lt;a href='https://chrome.google.com/webstore/detail/aejoelaoggembcahagimdiliamlcdmfm'&gt;다운로드&lt;/a&gt; 받아 실행하고&lt;/p&gt;
+
+&lt;p&gt;api url를 적고 post,get 처럼 http method를 선택후에 &amp;#8216;send&amp;#8217;버튼을 누르면 응답이 아래에 펼쳐지게 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;post 일경우엔 body부분에 파라미터 스트링을 적어주고 header에 Content-Type:application/x-www-form-urlencoded&lt;/strong&gt;를 빼먹지 말자.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>curl로 api테스트 하기</title>
+   <link href="http://niceaji.github.com/archives/1059"/>
+   <updated>2012-07-13T14:06:47+09:00</updated>
+   <id>http://niceaji.github.com/archives/curl로 api테스트 하기</id>
+   <content type="html">&lt;p&gt;&lt;a href='http://curl.haxx.se/'&gt;curl&lt;/a&gt;은 명령행 기반 웹 요청 도구이다.&lt;/p&gt;
+
+&lt;p&gt;* 개발초기에 백엔드에서 만들어준 api를 테스트할때 요긴&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://uix.kr/archives/472'&gt;REST&lt;/a&gt; 애플리케이션을 개발 테스트시에 유용&lt;/p&gt;
+
+&lt;p&gt;터미널을 실행하고 아래 명령들을 날려보자&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// get
+curl http://uix.kr/widget/parameter.php?a=1&amp;amp;b=2
+
+// post
+curl -F &amp;quot;a=1&amp;amp;b=2&amp;quot; http://uix.kr/widget/parameter.php
+
+// file upload  (해당디렉토리에 test.js가 필요)
+curl -F upfile=@test.js -F &amp;quot;type=file&amp;quot;  http://uix.kr/widget/parameter.php&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href='http://uix.kr/widget/parameter.php'&gt;http://uix.kr/widget/parameter.php&lt;/a&gt;의 소스는 &lt;a href='https://github.com/uixkr/widget/blob/master/parameter.php'&gt;여기서&lt;/a&gt; 확인 가능하다.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Twitter Bootstrap 관련 위젯 모음</title>
+   <link href="http://niceaji.github.com/archives/1021"/>
+   <updated>2012-07-02T19:39:38+09:00</updated>
+   <id>http://niceaji.github.com/archives/Twitter Bootstrap 관련 위젯 모음</id>
+   <content type="html">&lt;p&gt;트위터에서 만들어서 공개한 &lt;a href='http://twitter.github.com/bootstrap/'&gt;Bootstrap&lt;/a&gt;은 웹사이트를 아주 쉽게 만들게 해준다.&lt;/p&gt;
+
+&lt;p&gt;주로 관리자화면이나 프로토타이핑을 할때 디자인을 신경쓰지 않고 빨리 만들때 무척이나 용이하다&lt;/p&gt;
+
+&lt;p&gt;요즘 대세인 &lt;a href='https://github.com'&gt;GitHub&lt;/a&gt;에서도 가장 활발한 커뮤니케이션이 이루어지고 있는 프로젝트 이기도 하다 &lt;img alt='' src='https://img.skitch.com/20120702-nkfnxh4n2x6qnf3r8wb4e2pffs.png' /&gt; &lt;a href='https://github.com/popular/watched'&gt;https://github.com/popular/watched&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;그래서인지 &lt;a href='http://twitter.github.com/bootstrap/'&gt;Bootstrap&lt;/a&gt;과 관련된 위젯,플러그인들이 아주 많은데 쉽게 모아볼수 있는 서비스를 간단하게 구성해 봤다. &lt;a href='https://github.com'&gt;GitHub&lt;/a&gt;에서 호스팅하는 이유는 대세이기도 하지만 혹시나 누군가 수정을 하고 좀더 나은 프로젝트가 될수 있지 않을까 하는 기대감 때문이기도 하다;&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='' src='https://img.skitch.com/20120702-dqhe2q8j5fd8d48e9yh5qftdh8.jpg' /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://bf.uix.kr'&gt;http://bf.uix.kr&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>jQuery 팁2 - ajax로 폼값 쉽게 넘기기 serialize()</title>
+   <link href="http://niceaji.github.com/archives/1007"/>
+   <updated>2012-06-14T10:08:03+09:00</updated>
+   <id>http://niceaji.github.com/archives/jQuery 팁2 - ajax로 폼값 쉽게 넘기기 serialize()</id>
+   <content type="html">&lt;p&gt;&lt;a href='http://api.jquery.com/serialize/'&gt;serialize()&lt;/a&gt;는 form요소들의 값을 한번에 url parameter형식으로 변환&lt;/p&gt;
+
+&lt;p&gt;ajax형태의 submit등에서 유용&lt;/p&gt;
+
+&lt;p&gt;html 코드&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div id=&amp;quot;debug&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;form id=&amp;quot;wform&amp;quot;&amp;gt;
+    id : &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;id&amp;quot; value=&amp;quot;aji&amp;quot; &amp;gt; &amp;lt;br&amp;gt;
+
+    sex :&amp;lt;input type=&amp;quot;radio&amp;quot; name=&amp;quot;sex&amp;quot; value=&amp;quot;m&amp;quot; checked &amp;gt;
+    &amp;lt;input type=&amp;quot;radio&amp;quot; name=&amp;quot;sex&amp;quot; value=&amp;quot;f&amp;quot; &amp;gt; &amp;lt;br&amp;gt;
+
+    &amp;lt;button type=&amp;quot;submit&amp;quot;&amp;gt;전송&amp;lt;/button&amp;gt;
+&amp;lt;/form&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;​ js 코드&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;#wform&amp;#39;).submit(function(evemt){
+
+    $(&amp;#39;#debug&amp;#39;).html( $(&amp;#39;#wform&amp;#39;).serialize() );
+
+    //ajax 구현
+
+
+    event.preventDefault();
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;​ &lt;a href='http://jsfiddle.net/niceaji/zFhQB/'&gt;동작예제&lt;/a&gt;를 참고&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>jQuery 팁1 - jQuery.when()</title>
+   <link href="http://niceaji.github.com/archives/998"/>
+   <updated>2012-06-13T16:28:21+09:00</updated>
+   <id>http://niceaji.github.com/archives/jQuery 팁1 - jQuery.when()</id>
+   <content type="html">&lt;p&gt;js애플리케이션 개발시에 다수의 api 들을 비동기로 호출하는 일이 빈번하다.&lt;/p&gt;
+
+&lt;p&gt;이때 A라는 api에서 B라는 api데이터를 참조해야할때 &amp;#8216;A api&amp;#8217; callback에서 &amp;#8216;B api&amp;#8217; 를 호출 하기도 하는데 ..&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://api.jquery.com/jQuery.when/'&gt;jQuery.when()&lt;/a&gt;은 이때 사용하면 좋은 메소드이다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function showData(data1, data2) {
+    $(&amp;#39;#debug&amp;#39;).html( data1[0].max_id  +&amp;quot;:&amp;quot;+ data2[0].max_id );
+}
+
+function method1() {
+    return $.ajax(&amp;quot;http://search.twitter.com/search.json&amp;quot;, {
+        data: {
+            q: &amp;#39;niceaji&amp;#39;
+        },
+        dataType: &amp;#39;jsonp&amp;#39;
+    });
+}
+
+function method2() {
+    return $.ajax(&amp;quot;http://search.twitter.com/search.json&amp;quot;, {
+        data: {
+            q: &amp;#39;niceaji&amp;#39;
+        },
+        dataType: &amp;#39;jsonp&amp;#39;
+    });
+}
+
+$.when(method1(), method2()).then(showData);​&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;직접 &lt;a href='http://jsfiddle.net/niceaji/T7cw2/'&gt;작동예제&lt;/a&gt;를 보면 이해가 쉽다.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>jQuery 이해10 - DOM요소를 추가하는 여러가지 방법</title>
+   <link href="http://niceaji.github.com/archives/987"/>
+   <updated>2012-06-12T19:04:46+09:00</updated>
+   <id>http://niceaji.github.com/archives/jQuery 이해10 - DOM요소를 추가하는 여러가지 방법</id>
+   <content type="html">&lt;p&gt;동적으로 요소를 추가하고 (createElement())하는 방법을 살펴보자&lt;/p&gt;
+
+&lt;p&gt;소개되는 예제코드는 &lt;a href='http://uix.kr/ex/jquery/ex.html'&gt;예제페이지&lt;/a&gt;로 이동한후 개발자도구 콘솔을 열어서 실행하면 된다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//#box에 &amp;lt;div&amp;gt;를 추가해
+$(&amp;#39;#box&amp;#39;).append(&amp;#39;&amp;lt;div&amp;gt;난 div 요소&amp;lt;/div&amp;gt;&amp;#39;);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;간단하다. 좀 다른느낌? 으로도 가능하다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// &amp;lt;div&amp;gt;요소를 #box에 추가해
+$(&amp;#39;&amp;lt;div&amp;gt;&amp;#39;).appendTo( $(&amp;#39;#box&amp;#39;) )
+        .text(&amp;quot;난 div 요소&amp;quot;)
+        .addClass(&amp;quot;border&amp;quot;)
+        .css(&amp;quot;background-color&amp;quot;,&amp;quot;#fff&amp;quot;);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;메소드 체이닝으로 요소의 어트리뷰트를 수정했다. 이 부분을 좀더 다른느낌으로 만져보자&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;&amp;lt;div&amp;gt;&amp;#39;, {  
+    text : &amp;#39;난 div 요소&amp;#39;,
+    addClass : &amp;#39;border&amp;#39;,
+    css : {
+        &amp;quot;background-color&amp;quot;:&amp;quot;#fff&amp;quot;
+    }
+}).appendTo( $(&amp;#39;#box&amp;#39;) );&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;재밌지 아니한가?&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>jQuery 이해9 - delegate로 이벤트 한방 등록</title>
+   <link href="http://niceaji.github.com/archives/973"/>
+   <updated>2012-06-12T15:55:06+09:00</updated>
+   <id>http://niceaji.github.com/archives/jQuery 이해9 - delegate로 이벤트 한방 등록</id>
+   <content type="html">&lt;p&gt;jQuery에는 이벤트등록을 할수 있는 흥미로운 방법이 존재한다.&lt;/p&gt;
+
+&lt;p&gt;바로 &lt;a href='http://api.jquery.com/delegate/'&gt;delegate()&lt;/a&gt;인데 1.7버전 이상부터는 &lt;a href='http://api.jquery.com/on/'&gt;on()&lt;/a&gt;메소드를 권장하니 on()으로 살펴보자.&lt;/p&gt;
+
+&lt;p&gt;소개되는 예제코드는 &lt;a href='http://api.jquery.com/on/'&gt;예제페이지&lt;/a&gt;로 이동한후 개발자도구 콘솔을 열어서 실행하면 된다.&lt;/p&gt;
+
+&lt;h2 id='delegate__'&gt;delegate형태로 이벤트 등록&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;$(document.body).on(&amp;#39;click&amp;#39;, &amp;#39;div&amp;#39;, function(event){
+    console.log(event.target,   event.currentTarget);
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;on()메소드의 두번째 인자가 div이다.&lt;/p&gt;
+
+&lt;p&gt;해석해 보자면 &lt;strong&gt;document.body에 click이벤트를 주고 document.body &amp;gt; div 만 감시&lt;/strong&gt;하겠다. 라는 의미 이런 delegate방식은 동적요소가 추가될경우 빛을 발한다!&lt;/p&gt;
+
+&lt;h2 id='___'&gt;동적요소 추가시 이벤트 등록&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;#box&amp;#39;).on(&amp;#39;click&amp;#39;, &amp;#39;p&amp;#39;, function(){
+    $(&amp;#39;#box&amp;#39;).append(&amp;quot;&amp;lt;p&amp;gt;나도 p태그, 클릭해보아요&amp;lt;/p&amp;gt;&amp;quot;);
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;위의 코드로 새로 생기는 p태그에도 동일한 이벤트를 할당하게 된다.&lt;/p&gt;
+
+&lt;p&gt;예제 &lt;a href='http://jsfiddle.net/niceaji/ea7v7/'&gt;http://jsfiddle.net/niceaji/ea7v7/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;delegate는 dom요소가 렌더링이 되기전에 이벤트 등록이 가능하고 이벤트 등록갯수를 줄이게 되어 결국 퍼포먼스 향상으로 이어질수 있다&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>jQuery 이해8 - 이벤트 등록</title>
+   <link href="http://niceaji.github.com/archives/960"/>
+   <updated>2012-06-11T10:48:44+09:00</updated>
+   <id>http://niceaji.github.com/archives/jQuery 이해8 - 이벤트 등록</id>
+   <content type="html">&lt;p&gt;jQuery에서 &lt;a href='http://api.jquery.com/category/events/'&gt;이벤트 관련 메소드들&lt;/a&gt;은 무척 많다.&lt;/p&gt;
+
+&lt;p&gt;그중에 편한방식,마음에 드는 방식을 선택하면 되는데 하나씩 살펴보자.&lt;/p&gt;
+
+&lt;p&gt;소개되는 예제코드는 &lt;a href='http://uix.kr/ex/jquery/ex.html'&gt;예제페이지&lt;/a&gt;로 이동한후 개발자도구 콘솔을 열어서 실행하면 된다.&lt;/p&gt;
+
+&lt;h2 id='_'&gt;이벤트 등록&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;#box&amp;#39;).on(&amp;#39;click&amp;#39;, function(event){
+    console.log(this,event);
+});
+
+//이렇게도 가능
+$(&amp;#39;#box&amp;#39;).click(function(event){
+    console.log(this, event);
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href='http://api.jquery.com/on/'&gt;on메소드&lt;/a&gt;를 사용해서 간단하게 이벤트 등록이 가능하다.&lt;/p&gt;
+
+&lt;p&gt;이벤트콜백함수 안에서의 this는 이벤트가 발생된 엘리먼트 그대로를 가르키고 event인자는 &lt;strong&gt;jQuery Event객체&lt;/strong&gt;를 가르킨다. 특이하게 &lt;a href='http://api.jquery.com/click/'&gt;click()&lt;/a&gt;처럼 이벤트명의 메소드들도 존재하는데 편한대로 사용하면 된다.&lt;/p&gt;
+
+&lt;h2 id='jquery_event'&gt;jQuery Event객체&lt;/h2&gt;
+
+&lt;p&gt;기본 js Event객체가 크로스브라우징이 필요하기에 통일된 &lt;a href='http://api.jquery.com/category/events/event-object/'&gt;jQuery Event객체&lt;/a&gt;를 제공한다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;#box&amp;#39;).on(&amp;#39;click&amp;#39;, function(event){
+    console.log(&amp;#39;#box 이벤트를 시작한 요소&amp;#39;, event.target );
+    console.log(&amp;#39;#box 이벤트 요소&amp;#39;, event.currentTarget );
+
+    console.log(&amp;#39;#box 네이티브 event객체&amp;#39;, event.originalEvent );
+});
+
+$(document.body).on(&amp;#39;click&amp;#39;, function(event){
+    console.log(&amp;#39;body 이벤트를 시작한 요소&amp;#39;, event.target );
+    console.log(&amp;#39;body이벤트 요소&amp;#39;, event.currentTarget );
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이벤트 전파방지, 기본동작 막기 : &lt;a href='http://uix.kr/archives/1153'&gt;http://uix.kr/archives/1153&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>js 즉시 실행함수로 안전하게 사용하기</title>
+   <link href="http://niceaji.github.com/archives/955"/>
+   <updated>2012-06-08T14:18:12+09:00</updated>
+   <id>http://niceaji.github.com/archives/js 즉시 실행함수로 안전하게 사용하기</id>
+   <content type="html">&lt;p&gt;프로젝트를 진행하다보면 여러 개발자들의 짜는 js소스들의 변수,함수 이름이 겹치기도 하여 예상치 못한 버그를 만들어 내기도 한다. 이때 즉시 실행함수 패턴을 사용하면 보다 안전하게 개발할수 있다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(function(){
+    //이곳에서 코드작성 
+
+    var myName = &amp;#39;aji&amp;#39;; //지역변수
+
+    window.myName = myName; //전역화
+})();&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;js는 함수스코프를 갖기에 임의의 함수를 만들고 바로 실행시키는 간단한 패턴이다.&lt;/p&gt;
+
+&lt;p&gt;안에서 변수,함수는 var로 선언하여 전역변수가 안되게 하는게 포인트 .&lt;/p&gt;
+
+&lt;p&gt;jQuery등의 라이브러리 사용시에도 해당 라리브러리에서 주는 별칭끼리 충돌을 피하려면 이런방법이 효율적이다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(function($){
+    //이곳에서 코드작성 
+
+    $(&amp;#39;#box&amp;#39;).hide();
+})(jQuery);&lt;/code&gt;&lt;/pre&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>pjax 배워보기</title>
+   <link href="http://niceaji.github.com/archives/920"/>
+   <updated>2012-06-05T10:14:34+09:00</updated>
+   <id>http://niceaji.github.com/archives/pjax 배워보기</id>
+   <content type="html">&lt;h2 id='pjax_'&gt;pjax ?&lt;/h2&gt;
+
+&lt;p&gt;pushState + ajax 의 합성어인 &lt;a href='https://github.com/defunkt/jquery-pjax'&gt;pjax&lt;/a&gt;는 github의 창립자,CEO인 &lt;a href='https://github.com/defunkt'&gt;defunkt&lt;/a&gt;가 개발했단다.&lt;/p&gt;
+
+&lt;p&gt;천천히 뜯어보자.&lt;/p&gt;
+
+&lt;h2 id='pushstate'&gt;pushState()&lt;/h2&gt;
+
+&lt;p&gt;pushState() 는 html5의 포함된 메소드로 history객체를 조작 가능하게 해준다.&lt;/p&gt;
+
+&lt;p&gt;아직 &lt;a href='http://caniuse.com/#feat=history'&gt;ie에서는 지원되지 않으니&lt;/a&gt; 크롬이나 파폭에서 아래의 예제를 보자.&lt;/p&gt;
+
+&lt;p&gt;예제 : &lt;a href='http://uix.kr/ex/push-state-example/html5.html'&gt;http://uix.kr/ex/push-state-example/html5.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;예제의 링크를 클릭하면 주소표시줄에 url이 변경되지만 실제로는 서버에 요청이 가지 않는다.&lt;/p&gt;
+
+&lt;p&gt;window.history객체에 pushState()가 이러한 작업을 가능하게 해주는데 세번째 인자로 url를 변경하고 두번째 인자로 문서의 title를 변경하게 된다(title변경은 잘되질 않는다.버그인듯). 더 자세한 설명은 &lt;a href='https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history'&gt;매뉴얼&lt;/a&gt;을 참고&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;history.pushState({url:url}, title, url);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;pushState()로 히스토리를 추가한후에 뒤로가기,앞으로가기(history.back()) 버튼을 누르면 popstate 이벤트가 발생한다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(window).on(&amp;#39;popstate&amp;#39;,function(event){
+    var state = event.originalEvent.state;
+    console.log(&amp;quot;popstate:&amp;quot;, state );
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이때 event.state(event.originalEvent.state)는 pushState()에 첫번째 인자값을 가져오게 된다.&lt;/p&gt;
+
+&lt;h2 id='pjax___'&gt;pjax 간단 예제 보기&lt;/h2&gt;
+
+&lt;p&gt;php를 사용하는 간단한 웹서비스 예제를 살펴보자&lt;/p&gt;
+
+&lt;p&gt;* 예제-&lt;a href='http://uix.kr/ex/push-state-example/pjax/pjax.php'&gt;http://uix.kr/ex/push-state-example/pjax/pjax.php&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* 소스-&lt;a href='https://github.com/niceaji7/push-state-example/tree/master/pjax'&gt;https://github.com/niceaji7/push-state-example/tree/master/pjax&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id='__'&gt;컨텐츠 동적으로 가져오기&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;a&amp;#39;).pjax(&amp;#39;#main&amp;#39;);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;자동으로 a태그의 href부분을 ajax 로 읽어서 #main 에 넣어준다.&lt;/p&gt;
+
+&lt;h3 id='ajax_____'&gt;ajax로 호출될때와 직접 호출될때 달라지는 문서내용&lt;/h3&gt;
+
+&lt;p&gt;이 부분의 &lt;a href='https://github.com/defunkt/jquery-pjax'&gt;pjax&lt;/a&gt;의 핵심이다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?
+//문서 호출시에 request header에 넣어주는 값으로 pjax인지 체크
+$pjax = ($_SERVER[&amp;#39;HTTP_X_PJAX&amp;#39;]===&amp;quot;true&amp;quot;);
+
+if($pjax){
+    //타이틀 변경하기 위해서
+    echo &amp;quot;&amp;lt;title&amp;gt;{$title}&amp;lt;/title&amp;gt;&amp;quot;;
+    return;
+}
+?&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;$pjax이면 header.php와 footer.php를 include하지 않는다&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='' src='https://img.skitch.com/20120605-nb5qkrdiie49h9k58ibsdw59rs.png' /&gt;&lt;/p&gt;
+
+&lt;p&gt;브라우저 개발자도구로 실제 a.php클릭시에 호출되는 내용 확인&lt;/p&gt;
+
+&lt;h3 id='pushstate___'&gt;pushState() 지원하지 않는 브라우저는?&lt;/h3&gt;
+
+&lt;p&gt;링크 그대로 이동하기에 안전하다. 실제 ajax 에러시에도 직접 링크로 이동한다.&lt;/p&gt;
+
+&lt;h2 id='id32'&gt;정리&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href='https://github.com/defunkt/jquery-pjax'&gt;pjax&lt;/a&gt;는 ajax를 사용하는 웹서비스에서 해쉬뱅(뒤로가기나 퍼머링크 구현을 위한)이 아닌 pushState()를 이용하여 실제 url를 변경하게 되어 &lt;a href='http://blog.outsider.ne.kr/698'&gt;해쉬뱅이 갖는 단점들&lt;/a&gt;을 보완할 수 있다.&lt;/p&gt;
+
+&lt;h2 id='id33'&gt;도움글&lt;/h2&gt;
+
+&lt;p&gt;* &lt;a href='https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history'&gt;Manipulating the browser history&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://rkjun.wordpress.com/2012/05/29/ajax-%EC%99%80-hashbang-%EA%B7%B8%EB%A6%AC%EA%B3%A0-pjax/'&gt;ajax 와 hashbang 그리고 pjax&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://blog.outsider.ne.kr/698'&gt;해시뱅(#!)에 대해서&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>PHP Selector 소개</title>
+   <link href="http://niceaji.github.com/archives/907"/>
+   <updated>2012-05-30T09:54:21+09:00</updated>
+   <id>http://niceaji.github.com/archives/PHP Selector 소개</id>
+   <content type="html">&lt;p&gt;&lt;a href='https://github.com/visionmedia/php-selector'&gt;PHP Selector&lt;/a&gt; 풍기는 이름에서도 대충 어떤일을 하는 라이브러인지 짐작이 가능할것 같다.&lt;/p&gt;
+
+&lt;p&gt;PHP로 html문서를 파싱할때 CSS Selector문법으로 쉽게 요소를 가져올수 있게 도와준다. (PHP DOM parser / queries with CSS selectors)&lt;/p&gt;
+
+&lt;p&gt;자주쓰던 php용 라이브러리 &lt;a href='http://simplehtmldom.sourceforge.net/'&gt;PHP Simple HTML DOM Parser&lt;/a&gt; 보다 더 심플하다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;include &amp;quot;selector.inc&amp;quot;;
+$dom = new SelectorDOM($html);
+$links = $dom-&amp;gt;select(&amp;#39;a&amp;#39;);
+$list_links = $dom-&amp;gt;select(&amp;#39;ul li a&amp;#39;);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;한글이 있을경우 깨질때는 html 스트링 맨처음에 아래 코드를 넣어주면 해결된다;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;meta http-equiv=&amp;quot;content-type&amp;quot; content=&amp;quot;text/html; charset=utf-8&amp;quot;&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href='http://uix.kr/archives/893'&gt;타임라인&lt;/a&gt; 프로토타이핑 할때 &lt;a href='https://github.com/niceaji7/niceaji7.github.com/blob/master/ex/issue-timeline-parse.php'&gt;사용한 소스&lt;/a&gt;를 참고.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Timeline JS 붙여보기</title>
+   <link href="http://niceaji.github.com/archives/893"/>
+   <updated>2012-05-29T17:57:57+09:00</updated>
+   <id>http://niceaji.github.com/archives/Timeline JS 붙여보기</id>
+   <content type="html">&lt;p&gt;괜찮은 &lt;a href='http://timeline.verite.co/'&gt;타임라인 라이브러리&lt;/a&gt;가 공개가 되어 오랫만에 프로토타이핑 진행&lt;/p&gt;
+
+&lt;p&gt;미디어다음에서 서비스하는 &lt;a href='http://media.daum.net/issue/list/all/'&gt;주요이슈&lt;/a&gt;들을 타임라인에 얹혀보았다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://uix.kr/ex/issue-timeline/'&gt;&lt;img alt='timeline' src='https://img.skitch.com/20120529-k6749x2buf6k7ykg6dafp5612c.png' /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://uix.kr/ex/issue-timeline/'&gt;http://uix.kr/ex/issue-timeline/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id='id31'&gt;횡설수설&lt;/h2&gt;
+
+&lt;p&gt;* jQuery 필요!&lt;/p&gt;
+
+&lt;p&gt;* 이런 라이브러리 특징이 그렇듯 json포맷만 맞춰서 넘겨주면 알아서 그려준다.&lt;/p&gt;
+
+&lt;p&gt;* 특이하게 데이터포맷은 &lt;a href='http://timeline.verite.co/#fileformat'&gt;구글닥스 url로 넘겨줘도 된다&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* 이제껏 공개된 타임라인 라이브러리중 비주얼은 최고;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>jQuery cdn서비스 이용시 안전한 방법</title>
+   <link href="http://niceaji.github.com/archives/886"/>
+   <updated>2012-05-25T19:01:15+09:00</updated>
+   <id>http://niceaji.github.com/archives/jQuery cdn서비스 이용시 안전한 방법</id>
+   <content type="html">&lt;p&gt;jQuery를 문서에 삽입할경우 &lt;a href='https://www.google.co.kr/search?rlz=1C1CHFA_enKR484KR484&amp;amp;sugexp=chrome,mod=11&amp;amp;sourceid=chrome&amp;amp;ie=UTF-8&amp;amp;q=jquery+cdn'&gt;cdn서비스&lt;/a&gt;를 이용하면 편리하다.&lt;/p&gt;
+
+&lt;p&gt;이때 만약 cdn서비스가 죽는다면 내 웹사이트는 어떻게 보장하지? 라는 물음이 들때 사용할수 있는 방법&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;script src=&amp;quot;http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script&amp;gt;window.jQuery || document.write(&amp;#39;&amp;lt;script src=&amp;quot;/js/jquery-1.7.2.min.js&amp;quot;&amp;gt;&amp;lt;\/script&amp;gt;&amp;#39;)&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/pre&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>당신의 브라우저의 javascript 버전은?</title>
+   <link href="http://niceaji.github.com/archives/874"/>
+   <updated>2012-04-30T18:44:24+09:00</updated>
+   <id>http://niceaji.github.com/archives/당신의 브라우저의 javascript 버전은?</id>
+   <content type="html">&lt;p&gt;프론트엔드 개발자들은 js버전에 대해선 다들 무관심? 하다.&lt;/p&gt;
+
+&lt;p&gt;브라우저 버전이 곧 js 개발환경을 말해주기에 굳이 알필요가 있을까 싶다. 갑자기 궁금증해져 검색해보니 단순하고 무식한 방법으로 js버전 체크가 가능했다;&lt;/p&gt;
+
+&lt;h2 id='__js_'&gt;주요 브라우저 js 버전&lt;/h2&gt;
+
+&lt;p&gt;* 크롬 18 - 1.7&lt;/p&gt;
+
+&lt;p&gt;* 파폭 11 - 1.8&lt;/p&gt;
+
+&lt;p&gt;* ie9 - 1.3&lt;/p&gt;
+
+&lt;p&gt;* 사파리 5.1.5 - 1.7&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://jsbin.com/ifosav/4/edit#javascript,html,live'&gt;버전 확인!&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;근데 ie9 는 정말 1.3 인겨??&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>워드프레스로 만든 Code Snippet 서비스</title>
+   <link href="http://niceaji.github.com/archives/853"/>
+   <updated>2012-04-19T13:59:15+09:00</updated>
+   <id>http://niceaji.github.com/archives/워드프레스로 만든 Code Snippet 서비스</id>
+   <content type="html">&lt;p&gt;워드프레스를 이용하여 간단하게 구현해본 Code Snippet 서비스 소개한다&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://snippet.uix.kr'&gt;http://snippet.uix.kr&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://snippet.uix.kr'&gt;&lt;img alt='Code Snippet' src='https://img.skitch.com/20120419-bgifkd54r79pucfadfu8ddjcte.png' /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;개발시에 까먹기 쉬운 코드들을 온라인상에 정리하여 쉽게 가져다 쓸수 있고 소셜 로그인 기능으로 누구든지 쉽게 snippet 추가가 가능하다.&lt;/p&gt;
+
+&lt;h2 id='___'&gt;사용된 플러그인 &amp;amp; 테마&lt;/h2&gt;
+
+&lt;p&gt;* &lt;a href='http://wordpress.org/extend/plugins/random-post-link/'&gt;Random Post Link&lt;/a&gt; - 랜덤한 포스트를 선택할수 있게 해줌&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://wordpress.org/extend/plugins/wordpress-social-login/'&gt;Social Login&lt;/a&gt; - 트위터등으로 워드프레스 로그인을 가능하게 해줌&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://wordpress.org/extend/plugins/wp-tweet-button/'&gt;WP Tweet Button&lt;/a&gt; - 트위터 버튼 추가&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://320press.com/wpbs/'&gt;WordPress Bootstrap 테마&lt;/a&gt; - 반응형웹디자인 지원&lt;/p&gt;
+
+&lt;h2 id='id30'&gt;관련글&lt;/h2&gt;
+
+&lt;p&gt;* &lt;a href='http://www.bloter.net/archives/107096?utm_source=twitterfeed&amp;amp;utm_medium=twitter'&gt;도전! 워드프레스로 SNS 만들기&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Canvas를 이용한 TreeMap 인포그래픽</title>
+   <link href="http://niceaji.github.com/archives/776"/>
+   <updated>2012-03-18T20:40:57+09:00</updated>
+   <id>http://niceaji.github.com/archives/Canvas를 이용한 TreeMap 인포그래픽</id>
+   <content type="html">&lt;p&gt;&lt;a href='http://blog.uix.kr/19'&gt;예전에 프로토타이핑&lt;/a&gt;을 해보며 봐왔던 &lt;a href='http://thejit.org/'&gt;JavaScript InfoVis Toolkit&lt;/a&gt;에 &lt;a href='http://thejit.org/static/v20/Jit/Examples/Treemap/example1.html'&gt;TreeMap&lt;/a&gt; 라이브러리를 사용하여 이번 19대총선 웹서비스에 SNS맵 인포그래픽을 선보였다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='SNS맵' src='https://img.skitch.com/20120316-mtayrqtyq71uts6pk51f69xqki.medium.jpg' /&gt;&lt;/p&gt;
+
+&lt;p&gt;라이브러리에서 HTML5의 Canvas를 사용하여 표현하고 지원하지 않는 IE8이하에서는 &lt;a href='http://excanvas.sourceforge.net/'&gt;excanvas&lt;/a&gt;를 사용하여 렌더링을 하게된다.&lt;/p&gt;
+
+&lt;p&gt;보통 포털처럼 여러종류의 사용자를 커버해야하는 서비스등에선 HTML5의 최신기술들을 사용하기가 꺼려지는게 사실이다. 낮은 버전의 브라우저에 대한 하위호환성을 유지하기가 쉽지만은 않기 때문이다. 그리고 이런 부담들은 대부분 프론트엔드개발자들의 몫이 될수 밖에 없다.&lt;/p&gt;
+
+&lt;h2 id='api'&gt;API&lt;/h2&gt;
+
+&lt;p&gt;라이브러리의 사용은 쉽다. &lt;a href='http://thejit.org/static/v20/Jit/Examples/Treemap/example1.code.html'&gt;예제코드&lt;/a&gt;에서 보이는 json형태로 데이터를 구성하고 호출해주면 끝이다. 백엔드에서 받게되는 API를 똑같이 맞추긴 보다 &lt;strong&gt;프론트엔드에서 라이브러리에서 원하는 형태로 다시 맞춰주는게 일이 보다 수월&lt;/strong&gt;해 진다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://media.daum.net/2012g_election/proxy/v1/sns_map?interval=&amp;amp;limit=50&amp;amp;asof=&amp;amp;candidate=potential'&gt;SNS맵 백엔드 API 보기&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id='ie9_'&gt;IE9 문제&lt;/h2&gt;
+
+&lt;p&gt;IE9에서는 Canvas로 렌더링함에도 Area에서 mouseover가 발생하지 않고 Area안 텍스트에서만 mouseover가 발생하였다 그래서 아쉽지만 IE8 문서모드로 고정하는걸로 문제를 해결했다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;meta http-equiv=&amp;quot;X-UA-Compatible&amp;quot; content=&amp;quot;IE=8&amp;quot;&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='_treemap'&gt;다른 TreeMap&lt;/h2&gt;
+
+&lt;p&gt;많은 웹서비스에서 TreeMap 인포그래픽을 사용중이다.&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://www.yonhapnews.co.kr/medialabs/tm/'&gt;http://www.yonhapnews.co.kr/medialabs/tm/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://newsmap.jp/'&gt;http://newsmap.jp/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://code.google.com/apis/chart/interactive/docs/gallery/treemap.html'&gt;구글 TreeMap ChartTool&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://oursignal.com/'&gt;http://oursignal.com/&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>블로그를 뛰어넘는 워드프레스 CMS</title>
+   <link href="http://niceaji.github.com/archives/765"/>
+   <updated>2012-03-18T16:13:02+09:00</updated>
+   <id>http://niceaji.github.com/archives/블로그를 뛰어넘는 워드프레스 CMS</id>
+   <content type="html">&lt;p&gt;2001년경에 개발된 워드프레스는 Content Management System(CMS) 이다.&lt;/p&gt;
+
+&lt;p&gt;CMS툴로써 세계에서 가장 많이 사용하는 워드프레스는 우리나라에선 NHN의 &lt;a href='http://www.xpressengine.com/'&gt;익스프레스엔진&lt;/a&gt;(제로보드의 발전된) 다음으로 &lt;a href='http://media.daum.net/v/20111125155714599'&gt;많이 사용되어 진다&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;국내에선 블로그툴로만 관심을 받다가 이제 점차 해외에서처럼 CMS툴로 점차 인식이 바뀌어 나가는듯 하다. 컨텐츠를 관리하는 시스템이라는 의미를 가진 CMS는 단순히 컨텐츠의 효율적인 관리를 벗어나서 &amp;#8216;지속가능한 웹&amp;#8217;을 지향한다는 의미가 더 클 것 같다.&lt;/p&gt;
+
+&lt;h2 id='id29'&gt;장점&lt;/h2&gt;
+
+&lt;p&gt;* 쉽다(설치, 운영&amp;#8230;.)&lt;/p&gt;
+
+&lt;p&gt;* 오픈소스, 무료&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://wordpress.org/extend/themes/'&gt;수 많은 테마(스킨)&lt;/a&gt; 들과 &lt;a href='http://wordpress.org/extend/plugins/'&gt;확장 플러그인&lt;/a&gt;들&lt;/p&gt;
+
+&lt;p&gt;* 쉬운 컨텐츠 업데이트&lt;/p&gt;
+
+&lt;p&gt;* 개발기술 없이도 손쉽게 확장 가능&lt;/p&gt;
+
+&lt;h2 id='_'&gt;도움 링크&lt;/h2&gt;
+
+&lt;p&gt;* &lt;a href='http://usefulparadigm.com/2012/03/17/creating-static-website-with-wordpress/'&gt;워드프레스로 웹사이트 만들기&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://www.ciokorea.com/news/11875'&gt;‘워드프레스, 드루팔, 줌라’ 어떤 오픈소스 CMS 고를까?&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://wordpressblog.co.kr/'&gt;웹초보의 WORDPRESS 홈페이지 제작하기&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id='__'&gt;워드프레스로 만들어진 웹사이트&lt;/h2&gt;
+
+&lt;p&gt;* &lt;a href='http://www.metapresso.com/'&gt;http://www.metapresso.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://social.lge.co.kr'&gt;http://social.lge.co.kr&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://www.ddanzi.com'&gt;http://www.ddanzi.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://company.ktb.co.kr'&gt;http://company.ktb.co.kr&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://media.daum.net/v/20120315112711234'&gt;서울시청&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Node.js로 외부 프로그램 실행</title>
+   <link href="http://niceaji.github.com/archives/755"/>
+   <updated>2012-03-08T00:08:06+09:00</updated>
+   <id>http://niceaji.github.com/archives/Node.js로 외부 프로그램 실행</id>
+   <content type="html">&lt;p&gt;노드로도 당연히 외부 프로그램을 실행할수 있다.&lt;/p&gt;
+
+&lt;h2 id='____'&gt;외부 프로그램 실행 프로그램 만들기&lt;/h2&gt;
+
+&lt;p&gt;우선 터미널상에서 테스트용 디렉토리를 만들고 nodedate.js파일을 생성하자&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; mkdir exec-test       
+&amp;gt; cd exec-test          
+&amp;gt; vi nodedate.js            ## vi에디터로 nodedate.js생성&amp;amp;열기&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이제 아래소스를 nodedate.js에 넣으면 된다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var exec = require(&amp;#39;child_process&amp;#39;).exec;
+exec(&amp;quot;date&amp;quot;, function (error, stdout, stderr) {
+   console.log(stdout);
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;date&lt;/code&gt; 는 현재 시간을 보여주는 명령어다. &lt;code&gt;node nodedate.js&lt;/code&gt; 로 실행하면 현재시간이 출력 된다&lt;/p&gt;
+
+&lt;h2 id='__'&gt;커맨드라인 명령처럼 실행&lt;/h2&gt;
+
+&lt;p&gt;nodedate.js에 맨상단에 한줄을 추가하면 파일 실행권한을 주게 되면 커맨드라인 명령처럼 사용이 가능해진다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/usr/bin/env node
+var exec = require(&amp;#39;child_process&amp;#39;).exec;
+exec(&amp;quot;date&amp;quot;, function (error, stdout, stderr) {
+   console.log(stdout);
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;파일의 실행권한을 부여하자&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; chmod 755 nodedate.js&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;자~ 이제 &lt;code&gt;./nodedate.js&lt;/code&gt; 로도 실행이 가능해 진다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;exec-test &amp;gt; chmod 755 nodedate.js
+exec-test &amp;gt; ./nodedate.js
+2012년 3월  8일 목요일 00시 21분 47초 KST&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='id28'&gt;도움글&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href='http://nodejs.org/api/child_process.html'&gt;Child Process&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Node.js로 js 소스 압축하기 - UglifyJS</title>
+   <link href="http://niceaji.github.com/archives/745"/>
+   <updated>2012-03-06T18:03:27+09:00</updated>
+   <id>http://niceaji.github.com/archives/Node.js로 js 소스 압축하기 - UglifyJS</id>
+   <content type="html">&lt;p&gt;&lt;a href='https://github.com/mishoo/UglifyJS'&gt;UglifyJS&lt;/a&gt; 를 이용하면 자바스크립트 소스를 압축할수 있다. 실 서비스에 배포되는 자바스크립트를 압축하면 용량면이나 소스보안? 면에서 이익을 가질수 있다.&lt;/p&gt;
+
+&lt;p&gt;콘솔에서 사용하게될 모듈이므로 글로벌 설치 하자. &lt;code&gt;npm install uglify-js -g&lt;/code&gt; 글로벌 설치를 하면 어느 디렉토리에서든 &lt;code&gt;uglifyjs&lt;/code&gt; 명령이 사용가능 하다.&lt;/p&gt;
+
+&lt;p&gt;일단 압축할 js파일을 구하자. 터미널에서 아래와 같은 명령으로 &lt;a href='/jquery'&gt;jquery&lt;/a&gt;를 다운로드 하자&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; curl --output jquery.js http://code.jquery.com/jquery-1.7.1.js&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;다운로드 되었으니 바로 압축!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; uglifyjs --output jquery.min.js jquery.js&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href='https://github.com/mishoo/UglifyJS'&gt;매뉴얼&lt;/a&gt;에서 사용할수 있는 여러 옵션도 살펴보자&lt;/p&gt;
+
+&lt;h2 id='id27'&gt;도움&lt;/h2&gt;
+
+&lt;h3 id='___'&gt;주요 자바스크립트 압축 도구&lt;/h3&gt;
+
+&lt;p&gt;* &lt;a href='http://developer.yahoo.com/yui/compressor/'&gt;YUI Compressor&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://www.crockford.com/javascript/jsmin.html'&gt;JSMin&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://code.google.com/closure/compiler/'&gt;Google Closure Compiler&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>손쉽게 코드 하이라이트 추가</title>
+   <link href="http://niceaji.github.com/archives/727"/>
+   <updated>2012-03-05T21:50:14+09:00</updated>
+   <id>http://niceaji.github.com/archives/손쉽게 코드 하이라이트 추가</id>
+   <content type="html">&lt;p&gt;블로그 글 내용중에 소스코드를 삽입하게 되는데 이때 에디터처럼 컬러풀하게 적용하면 유저들이 좀더 쉽게 소스관찰이 가능하다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://bit.ly/AfFMQH'&gt;여러종류의 코드하이라이터&lt;/a&gt; 중에 내가 선택한 기준은 편리함이다. &lt;a href='/archives/238'&gt;마크다운&lt;/a&gt;을 사용하는 이유로 작성시에 오직 글에만 집중해야기에 코드하이라이트를 위해 마크업을 추가 작업하는 일은 피곤한 일이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://code.google.com/p/google-code-prettify/'&gt;google-code-prettify&lt;/a&gt; 를 사용하여 이미 작성한 글에도 손쉽게 코드하이라이트를 추가했다. 워드프레스 하단스킨(footer.php)에 추가한 소스는&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;link href=&amp;quot;/wordpress/wp-content/google-code-prettify/prettify.css&amp;quot; type=&amp;quot;text/css&amp;quot; rel=&amp;quot;stylesheet&amp;quot; /&amp;gt;
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;/wordpress/wp-content/google-code-prettify/prettify.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script src=&amp;quot;http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script&amp;gt;
+$(function(){
+    $(&amp;#39;pre&amp;#39;).addClass(&amp;#39;prettyprint&amp;#39;);
+    prettyPrint();
+});
+&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이 방법은 페이지 하단에서 불러오기에 페이지 영향속도에 영향을 덜주고 글 작성시에도 피곤하지 않다^^&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Node.js 에서 mongoDB 제어하기 – mongoose</title>
+   <link href="http://niceaji.github.com/archives/717"/>
+   <updated>2012-03-04T15:52:59+09:00</updated>
+   <id>http://niceaji.github.com/archives/Node.js 에서 mongoDB 제어하기 – mongoose</id>
+   <content type="html">&lt;p&gt;이전시간에 노드에서 몽고db를 제어할때 &lt;a href='/archives/710'&gt;몽고리안&lt;/a&gt;모듈을 살펴봤다. 이번엔 좀더 색다른 &lt;a href='http://mongoosejs.com'&gt;몽구스&lt;/a&gt;라는 모듈을 살펴보자&lt;/p&gt;
+
+&lt;p&gt;npm으로 설치가 가능하다. &lt;code&gt;npm install mongoose&lt;/code&gt; 설치하고 바로 예제소스를 보자&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var mongoose = require(&amp;#39;mongoose&amp;#39;);
+var Schema = mongoose.Schema;
+
+// localhost 에 testdb Database에 접속
+mongoose.connect(&amp;#39;mongodb://localhost/testdb&amp;#39;);
+
+//모델의 스키마를 작성한다
+var CommentSchema = new Schema({
+    desc : String,  //내용
+    hit : Number,   //조회수
+    date : Date     //작성일
+});
+
+// CommentSchema에 맞는 CommentModel 만들기
+// comment는 Document , 자동으로 comments Collection 에 모델이 저장된
+var CommentModel = mongoose.model(&amp;#39;comment&amp;#39;, CommentSchema);
+
+//CommentModel의 인스턴스생성
+var comment = new CommentModel();
+
+//인스턴스에 값을 할당하고
+comment.desc = &amp;quot;nodejs test&amp;quot;;
+comment.hit = 0;
+comment.date = new Date();
+
+//저장하면 바로 몽고db에 올라간다
+comment.save(function (err) {
+    if (!err) console.log(&amp;#39;Success!&amp;#39;);
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;좀 복잡하다. Document 에 해당하는 모델을 생성하고 그 모델을 저장하면 몽고db 에 저장이 되는 형태이다. 모델을 만들기전에 스키마(구조)도 만들어줘야 한다. &lt;a href='/archives/710'&gt;몽고리안&lt;/a&gt;보다 뭔가 있어 보이지만? 불편해 보인다;;&lt;/p&gt;
+
+&lt;p&gt;위 소스를 mongoose.js 로 만들고 실행후에 몽고쉘로 접속해서 데이터가 잘 들어갔는지 보자&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='' src='https://img.skitch.com/20120304-ewb9si3f61tidwcd1udg8mtpgc.jpg' /&gt;&lt;/p&gt;
+
+&lt;h2 id='id26'&gt;도움글&lt;/h2&gt;
+
+&lt;p&gt;* &lt;a href='http://mongoosejs.com/'&gt;mongoosejs&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://www.mongodb.org/display/DOCS/node.JS'&gt;MongoDB Node.js Driver&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>mongoDB 5 - _id Field</title>
+   <link href="http://niceaji.github.com/archives/713"/>
+   <updated>2012-03-04T13:13:24+09:00</updated>
+   <id>http://niceaji.github.com/archives/mongoDB 5 - _id Field</id>
+   <content type="html">&lt;p&gt;우선 몽고쉘로 접속하여 아래와 같이 testdb 에서 comments에 하나의 row를 추가해서 find() 해보자&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='몽고쉘예제' src='https://img.skitch.com/20120304-f4g1h9a2rttm7w3tsdk4iiugfq.jpg' /&gt;&lt;/p&gt;
+
+&lt;p&gt;방금 추가한 desc필드외에 &lt;em&gt;id 필드가 보인다.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id='id_document__key'&gt;&lt;em&gt;id필드는 Document의 고유한 key&lt;/em&gt;&lt;/h2&gt;
+
+&lt;p&gt;위 쉘에서 한번 더 똑같은 Document를 넣어보자.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;db.comments.save({desc:&amp;#39;my comment!&amp;#39;})
+db.comments.find();&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;여기서 또다른 고유한 &lt;em&gt;id필드가 생성된것을 볼수 있다.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id='id__'&gt;&lt;em&gt;id필드 직접 넣어주기&lt;/em&gt;&lt;/h2&gt;
+
+&lt;p&gt;Collections에 Document를 추가할때 &lt;em&gt;id필드를 생략하면 자동으로 유니크한 문자열로 생성이 되지만 직접 넣어줄수도 있다&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;db.comments.save({_id:1,desc:&amp;quot;desc 1&amp;quot;})
+db.comments.save({_id:1,desc:&amp;quot;desc 2&amp;quot;}) // _id=1 인값이 update 된다&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='id25'&gt;도움글&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href='http://www.mongodb.org/display/DOCS/Object+IDs'&gt;mongoDB Object IDs&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Node.js 에서 mongoDB 제어하기 - Mongolian</title>
+   <link href="http://niceaji.github.com/archives/710"/>
+   <updated>2012-03-03T22:15:46+09:00</updated>
+   <id>http://niceaji.github.com/archives/Node.js 에서 mongoDB 제어하기 - Mongolian</id>
+   <content type="html">&lt;p&gt;&lt;a href='/mongodb'&gt;몽고db&lt;/a&gt;는 프론트엔드개발자가 사용하기에 아주 적합한 데이터베이스이다. &lt;a href='/nodejs'&gt;노드&lt;/a&gt;에서 몽고db를 컨트롤 해보자&lt;/p&gt;
+
+&lt;p&gt;노드의 &lt;a href='https://github.com/marcello3d/node-mongolian'&gt;Mongolian&lt;/a&gt;모듈을 설치해 보자&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm install mongolian&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;테스트 예제는 매뉴얼에서 고대로 퍼왔다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var Mongolian = require(&amp;quot;mongolian&amp;quot;);
+var server = new Mongolian;
+
+var db = server.db(&amp;quot;test&amp;quot;); // test Database선택
+var posts = db.collection(&amp;quot;posts&amp;quot;); //posts Collection 선택
+
+//posts Collection 에  Document 넣기
+posts.insert({
+    pageId: &amp;quot;hallo&amp;quot;,
+    title: &amp;quot;Hallo&amp;quot;,
+    created: new Date,
+    body: &amp;quot;Welcome to my new blog!&amp;quot;
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;소스는 &lt;a href='/mongodb'&gt;이제까지 모든 내용&lt;/a&gt;들을 쫒아왔다면 이해하기 아주 쉽다.&lt;/p&gt;
+
+&lt;p&gt;파일을 mongolian.js로 저장하고 실행해보면 몽고db 에 하나의 row가 생긴걸 확인할 수 있다&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='' src='https://img.skitch.com/20120303-ffmskqda7me1g8qeue1rsb5drx.png' /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='https://github.com/marcello3d/node-mongolian'&gt;매뉴얼&lt;/a&gt;에 insert 말고 다른 예제들도 꼭 따라해 보자&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>jQuery 이해7 - Effects 메소드들</title>
+   <link href="http://niceaji.github.com/archives/705"/>
+   <updated>2012-03-03T11:29:49+09:00</updated>
+   <id>http://niceaji.github.com/archives/jQuery 이해7 - Effects 메소드들</id>
+   <content type="html">&lt;p&gt;이번엔 좀 재밌는 &lt;a href='http://api.jquery.com/category/effects/'&gt;이펙트관련 메소드&lt;/a&gt;를 살펴보자. 소개하는 메소드들은 &lt;a href='/ex/jquery/ex.html'&gt;예제페이지&lt;/a&gt;로 이동한후 개발자도구 콘솔을 열어서 입력하면서 테스트 해보면 된다.&lt;/p&gt;
+
+&lt;h2 id='hide'&gt;.hide()&lt;/h2&gt;
+
+&lt;p&gt;엘리먼트를 숨긴다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// $(&amp;#39;div&amp;#39;).css(&amp;quot;display&amp;quot;,&amp;quot;none&amp;quot;) 과 동일
+$(&amp;#39;div&amp;#39;).hide()
+//천천히 사라지게
+$(&amp;#39;div&amp;#39;).hide(&amp;#39;slow&amp;#39;,function(){ console.log(&amp;#39;hide ok!&amp;#39;) });&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='show'&gt;.show()&lt;/h2&gt;
+
+&lt;p&gt;엘리먼트를 보여준다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;div&amp;#39;).show()
+$(&amp;#39;div&amp;#39;).show(&amp;#39;fast&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='toggle'&gt;.toggle()&lt;/h2&gt;
+
+&lt;p&gt;엘리먼트 show(),hide() 를 toggle 처리&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;div&amp;#39;).toggle(&amp;#39;fast&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='fadeout'&gt;.fadeOut()&lt;/h2&gt;
+
+&lt;p&gt;엘리먼트가 opacity값이 빠지면서 사라진다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//모든 태그 사라짐 
+$(&amp;#39;*&amp;#39;).fadeOut()&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='fadein'&gt;.fadeIn()&lt;/h2&gt;
+
+&lt;p&gt;엘리먼트가 opacity값이 채워지면서 나타남&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;*&amp;#39;).fadeIn(&amp;#39;fast&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='fadeto'&gt;.fadeTo()&lt;/h2&gt;
+
+&lt;p&gt;두번째 인자로 엘리먼트의 opacity를 결정한다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;*&amp;#39;).fadeTo(&amp;#39;slow&amp;#39;, 0.3, function(){ console.log(&amp;#39;done&amp;#39;) })&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='fadetoggle'&gt;.fadeToggle()&lt;/h2&gt;
+
+&lt;p&gt;fadeIn(), fadeOut() toggle&lt;/p&gt;
+
+&lt;h2 id='slideup'&gt;.slideUp()&lt;/h2&gt;
+
+&lt;p&gt;엘리먼트를 슬라이드가 올라가는 형태로 숨긴다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;#box&amp;#39;).slideUp();&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='slidedown'&gt;.slideDown()&lt;/h2&gt;
+
+&lt;p&gt;엘리먼트를 밑으로 슬라이드 펼쳐지는 형태로 보여준다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;#box&amp;#39;).slideDown();&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='slidetoggle'&gt;.slideToggle()&lt;/h2&gt;
+
+&lt;p&gt;slideDown(), slideUp() toggle&lt;/p&gt;
+
+&lt;h2 id='animate'&gt;.animate()&lt;/h2&gt;
+
+&lt;p&gt;엘리먼트 CSS속성에 에니메이션 효과를 적용하여 변경한다. &lt;a href='http://api.jquery.com/animate/'&gt;API 참고&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;#ani&amp;#39;).animate({ 
+    &amp;#39;background-color&amp;#39; : &amp;#39;#ff0000&amp;#39;,
+    &amp;#39;top&amp;#39; : &amp;#39;200&amp;#39;,
+    &amp;#39;left&amp;#39; : &amp;#39;500&amp;#39;,
+    &amp;#39;width&amp;#39; : 200
+},5000, function(){
+    console.log(&amp;#39;animate end!&amp;#39;);
+})&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='delay'&gt;.delay()&lt;/h2&gt;
+
+&lt;p&gt;지연 타이머를 설정&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;#box&amp;#39;).slideUp(300).delay(800).fadeIn(400)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이 외에도 현재 동작중인 모든 에니메이션을 멈춘다든가 (&lt;a href='http://api.jquery.com/jQuery.fx.off/'&gt;jQuery.fx.off&lt;/a&gt;), 에니메이션의 framerate를 변경 하는(&lt;a href='http://api.jquery.com/jQuery.fx.interval/'&gt;jQuery.fx.interval&lt;/a&gt;) 등의 전역변수들도 참고하자&lt;/p&gt;
+
+&lt;h2 id='id24'&gt;도움글&lt;/h2&gt;
+
+&lt;p&gt;* &lt;a href='http://api.jquery.com/category/effects/'&gt;jQuery Effects 메소드&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>jQuery 이해 6 - 메소드 특징 이해</title>
+   <link href="http://niceaji.github.com/archives/695"/>
+   <updated>2012-03-02T20:01:44+09:00</updated>
+   <id>http://niceaji.github.com/archives/jQuery 이해 6 - 메소드 특징 이해</id>
+   <content type="html">&lt;p&gt;jQuery의 &lt;a href='/archives/642'&gt;Selector메소드&lt;/a&gt;, &lt;a href='/archives/649'&gt;CSS메소드&lt;/a&gt;, &lt;a href='/archives/655'&gt;Attribute메소드&lt;/a&gt;를 살펴봤다. jQuery 특징이 보이는가?&lt;/p&gt;
+
+&lt;p&gt;그럼 몇가지 특징을 찾아보자. (소개하는 예제들은 &lt;a href='/archives/649'&gt;예제페이지&lt;/a&gt;로 이동한후 개발자도구 콘솔을 열어서 입력하면서 테스트 해보면 된다)&lt;/p&gt;
+
+&lt;h2 id='___'&gt;어떤 엘리먼트를 타겟으로 하는가?&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;// 모든 div안에 text를 집어넣는다
+$(&amp;#39;div&amp;#39;).html(&amp;quot;text&amp;quot;)
+
+// 모든 div가 아니라 $(&amp;#39;div&amp;#39;) 에서 가장 처음에 발견된 엘리먼트의 width를 구한다
+$(&amp;#39;div&amp;#39;).width();&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='jquery_'&gt;jQuery객체를 리턴하는가?&lt;/h2&gt;
+
+&lt;p&gt;많은 메소드들이 jQuery 자기 자신을 리턴한다. 이렇게 되면 메소드체이닝이 가능하게 된다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//  bgcolor 를 변경하고 uix.kr 텍스트를 집어 넣어라!
+$(&amp;#39;#box&amp;#39;).css(&amp;quot;background-color&amp;quot;,&amp;quot;red&amp;quot;).html(&amp;quot;uix.kr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;css() 메소드에서 처음 선택했던 엘리먼트인 jQuery객체 $(&amp;#8216;#box&amp;#8217;) 를 그대로 리턴한다. 그래서 바로 이어서 html() 이 사용가능해 지는 이유이다.&lt;/p&gt;
+
+&lt;p&gt;그럼 아래소스는 어떨까?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// width를 구하고 uix.kr 텍스트를 집어넣어라?
+$(&amp;#39;#box&amp;#39;).width().html(&amp;quot;uix.kr&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;width() 메소드는 width값을 리턴하기에 메소드체이닝이 불가능하다. 위의 소스를 콘솔에서 실행하면 에러가 발생한다.&lt;/p&gt;
+
+&lt;h2 id='__'&gt;수많은 인자 타입들&lt;/h2&gt;
+
+&lt;p&gt;메소드들에 많은 인자타입이 존재한다 (오버로딩)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//모든 div에 border 클래스를 추가
+$(&amp;quot;div&amp;quot;).addClass(&amp;quot;border&amp;quot;)
+
+//모든 div에 div-{index} 클래스 추가
+$(&amp;#39;div&amp;#39;).addClass(function(index){   return &amp;quot;div-&amp;quot; + index  })&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;인자가 없을경우엔 getter 가 되고 있을경우엔 setter 가 되는 경우도 있다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;#box&amp;#39;).width(300) //300px 로 설정
+$(&amp;#39;#box&amp;#39;).width() // width 구하기&lt;/code&gt;&lt;/pre&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Raphael로 구현한 SVG 지도 인포그래픽</title>
+   <link href="http://niceaji.github.com/archives/661"/>
+   <updated>2012-03-01T14:39:12+09:00</updated>
+   <id>http://niceaji.github.com/archives/Raphael로 구현한 SVG 지도 인포그래픽</id>
+   <content type="html">&lt;p&gt;이번에 &lt;a href='http://media.daum.net/2012g_election/'&gt;19대 총선 서비스&lt;/a&gt;를 오픈하면서 역대 선거구별 당선현황을 지도 인포그래픽으로 구현해 보았다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='지도 인포그래픽' src='https://img.skitch.com/20120301-rw4dswk65jajnktx4p1m2c592u.jpg' /&gt;&lt;/p&gt;
+
+&lt;p&gt;지도는 &lt;a href='http://raphaeljs.com/'&gt;Raphael 자바스크립트 라이브러리&lt;/a&gt;를 사용해서 그려졌는데 &lt;a href='http://ko.wikipedia.org/wiki/SVG'&gt;SVG&lt;/a&gt;와 &lt;a href='http://www.w3.org/TR/NOTE-VML'&gt;VML&lt;/a&gt; 중 브라우저에서 지원하는 방식으로 표현을 한다. 보통 지도에 인터랙티브 UI를 구현할때 플래시를 자주 사용하게 되는데 HTML5 이슈 등으로 이 방식을 선택했다.&lt;/p&gt;
+
+&lt;p&gt;주요 PC브라우저와 iOS는 커버했지만 아쉽게도 안드로이드에서는 SVG를 지원하지 않기에 보이지 않는다&lt;/p&gt;
+
+&lt;h2 id='_path'&gt;지도 Path&lt;/h2&gt;
+
+&lt;p&gt;지도 Path는 사내에서 사용중인 데이터를 그대로 SVG로 익스포트 하였기에 디자이너의 수작업은 필요치 않았다. 그 내려진 SVG를 다시 JSON형태로 변환하여 사용을 한다. 아래는 18대 서울지도(위 이미지)의 Path와 선거구포인트,명의 JSON이다&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://s1.daumcdn.net/photo-media/static/2012g_election/path/109/map18-11.js'&gt;http://s1.daumcdn.net/photo-media/static/2012g_election/path/109/map18-11.js&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id='raphael_'&gt;Raphael 라이브러리&lt;/h2&gt;
+
+&lt;h3 id='path_'&gt;path 그리기&lt;/h3&gt;
+
+&lt;p&gt;Raphael 로 그리는건 간단하다. 위 JSON 에서 보이는 path 프로퍼티를 그대로 넣어주면 된다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var paper = Raphael(0, 0, 500, 500);
+paper.path( path ).attr(&amp;quot;fill&amp;quot;, &amp;quot;#eee&amp;quot;);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;정당별 컬러값을 채우기 위해 &lt;a href='http://raphaeljs.com/reference.html#Element.attr'&gt;attr()&lt;/a&gt; 메소드를 사용하여 폴리곤에 색상을 채우게 된다.&lt;/p&gt;
+
+&lt;h3 id='_'&gt;선거구명 표시&lt;/h3&gt;
+
+&lt;p&gt;텍스트(선거구명)를 추가 할경우 &lt;a href='http://raphaeljs.com/reference.html#Paper.text'&gt;text()&lt;/a&gt; 메소드를 사용하면 낮은버전 ie 에서 폰트가 제대로 표시가 안되기에 html에서 직접 올려서 표시했다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Raphael.fn.hangulText = function(x, t, text, style) {
+    var wrap = daum.getParent(this.canvas);
+    var div = daum.createElement(&amp;#39;&amp;lt;div style=&amp;quot;position:absolute;&amp;quot;&amp;gt;&amp;#39; + text + &amp;quot;&amp;lt;/div&amp;gt;&amp;quot;);
+    wrap.appendChild(div);
+    daum.setLeft(div, x - (div.offsetWidth / 2));
+    daum.setTop(div, y - (div.offsetHeight / 2));
+    if (style) {
+            daum.setStyle(div, style)
+    }
+    return this.set()
+};&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='id22'&gt;정리&lt;/h2&gt;
+
+&lt;p&gt;지도 인포그래픽은 어떻게 구현하든 조율이 많이 필요한 작업이다. 장점을 따져보자면&lt;/p&gt;
+
+&lt;p&gt;* 액션스크립트 지식없이 자바스크립트로 가능&lt;/p&gt;
+
+&lt;p&gt;* 플래시 없이 인터랙티브 지도 가능 (요새 악의축이 되어버린듯한;)&lt;/p&gt;
+
+&lt;p&gt;* iOS 에서 지도 표시&lt;/p&gt;
+
+&lt;p&gt;물론 플래시 보다 단점도 존재한다&lt;/p&gt;
+
+&lt;p&gt;* 폴리건에 mouseover 시에 지역명에 가면 mouseout 발생. 툴팁 유지하기가 힘들다&lt;/p&gt;
+
+&lt;p&gt;* 디자이너가 직접 path와 포인트들을 다듬기엔 불편할수 있다&lt;/p&gt;
+
+&lt;p&gt;* 플래시보다 피곤하다;(폰트, 마우스오버이슈 등)&lt;/p&gt;
+
+&lt;h2 id='id23'&gt;관련글&lt;/h2&gt;
+
+&lt;p&gt;* &lt;a href='http://media.daum.net/v/20120305095119693'&gt;다음, 4월 총선특집 페이지 개설&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>jQuery 이해5 - Attributes 메소드들</title>
+   <link href="http://niceaji.github.com/archives/655"/>
+   <updated>2012-02-29T17:15:57+09:00</updated>
+   <id>http://niceaji.github.com/archives/jQuery 이해5 - Attributes 메소드들</id>
+   <content type="html">&lt;p&gt;이번 시간에는 엘리먼트의 &lt;a href='http://api.jquery.com/category/attributes/'&gt;Attribute 관련된 메소드&lt;/a&gt;들을 살펴보자&lt;/p&gt;
+
+&lt;p&gt;소개하는 메소드들은 &lt;a href='/ex/jquery/ex.html'&gt;예제페이지&lt;/a&gt;로 이동한후 개발자도구 콘솔을 열어서 입력하면서 테스트 해보면 된다. 자 하나씩 따라해보자&lt;/p&gt;
+
+&lt;h2 id='addclass'&gt;.addClass()&lt;/h2&gt;
+
+&lt;p&gt;엘리먼트에 css클래스명을 추가할때 사용한다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;#box&amp;#39;).addClass(&amp;#39;red&amp;#39;);
+
+//모든 div엘리먼트에 border 클래스 추가
+$(&amp;#39;div&amp;#39;).addClass(&amp;#39;border&amp;#39;);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='removeclass'&gt;.removeClass()&lt;/h2&gt;
+
+&lt;p&gt;엘리먼트에 css클래스명을 제거 한다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;#box&amp;#39;).removeClass(&amp;#39;red&amp;#39;);
+$(&amp;#39;div&amp;#39;).removeClass(&amp;#39;border&amp;#39;);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='hasclass'&gt;.hasClass()&lt;/h2&gt;
+
+&lt;p&gt;클래스명의 존재여부를 true,false 로 리턴한다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;if($(&amp;#39;#box&amp;#39;).hasClass(&amp;#39;red&amp;#39;)){
+    $(&amp;#39;#box&amp;#39;).removeClass(&amp;#39;red&amp;#39;); 
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='toggleclass'&gt;.toggleClass()&lt;/h2&gt;
+
+&lt;p&gt;인자로 주어지는 클래스명이 toggle 된다&lt;/p&gt;
+
+&lt;h2 id='attr'&gt;.attr()&lt;/h2&gt;
+
+&lt;p&gt;엘리먼트에 있는 어트리뷰트를 읽거나 세팅할때 사용된다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;#box&amp;#39;).attr(&amp;#39;data&amp;#39;,&amp;#39;i am box&amp;#39;);
+$(&amp;#39;#box&amp;#39;).attr(&amp;#39;data&amp;#39;); //i am box 출력&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='removeattr'&gt;.removeAttr()&lt;/h2&gt;
+
+&lt;p&gt;엘리먼트에 있는 어트리뷰트 제거&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;#box&amp;#39;).removeAttr(&amp;#39;data&amp;#39;); &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='html'&gt;.html()&lt;/h2&gt;
+
+&lt;p&gt;엘리먼트의 내용을 html형태로 가지고 오던가 세팅한다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;#box&amp;#39;).html(); // id=box
+$(&amp;#39;#box&amp;#39;).html(&amp;#39;hello box&amp;#39;);  &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='prop'&gt;.prop()&lt;/h2&gt;
+
+&lt;p&gt;엘리먼트의 프로퍼티에 직접 접근하여 값을 가져오거나 세팅한다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;quot;input[type=&amp;#39;checkbox&amp;#39;]&amp;quot;).attr(&amp;quot;checked&amp;quot;) // checked
+$(&amp;quot;input[type=&amp;#39;checkbox&amp;#39;]&amp;quot;).prop(&amp;quot;checked&amp;quot;) // true
+$(&amp;quot;input&amp;quot;).prop(&amp;quot;disabled&amp;quot;, true) // 폼요소를 사용하지 못하게 세팅
+$(&amp;quot;input&amp;quot;).prop({&amp;quot;disabled&amp;quot;: false}) //인자를 object 형태로도 전달 가능&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='removeprop'&gt;.removeProp()&lt;/h2&gt;
+
+&lt;p&gt;프로퍼티를 제거한다&lt;/p&gt;
+
+&lt;h2 id='val'&gt;.val()&lt;/h2&gt;
+
+&lt;p&gt;value어트리뷰트가 있는 엘리먼트에서 value값을 가져온다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;input[type=text]&amp;#39;).val()&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;엘리먼트의 어트리뷰트와 프로퍼티의 차이점을 이해 해보고, 자주 사용하게 되는 메소드들이니 &lt;a href='http://api.jquery.com/category/attributes/'&gt;API페이지&lt;/a&gt;에서 더 많은 예제를 보고 완벽히 학습하도록 하자!&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>jQuery 이해4 - CSS 메소드들</title>
+   <link href="http://niceaji.github.com/archives/649"/>
+   <updated>2012-02-29T17:12:50+09:00</updated>
+   <id>http://niceaji.github.com/archives/jQuery 이해4 - CSS 메소드들</id>
+   <content type="html">&lt;p&gt;&lt;a href='http://api.jquery.com/category/css/'&gt;CSS 와 관련된 속성을 얻고 설정하는 메소드&lt;/a&gt;를 살펴보자. 소개하는 메소드들은 &lt;a href='/ex/jquery/ex.html'&gt;예제페이지&lt;/a&gt;로 이동한후 개발자도구 콘솔을 열어서 입력하면서 테스트 해보자.&lt;/p&gt;
+
+&lt;h2 id='css'&gt;.css()&lt;/h2&gt;
+
+&lt;p&gt;엘리먼트의 첫번째 인자의 style값을 가져오거나 style을 적용한다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;#box&amp;#39;).css(&amp;quot;background-color&amp;quot;);
+
+$(&amp;#39;div&amp;#39;).css(&amp;quot;background-color&amp;quot;, &amp;#39;#eee&amp;#39;);
+
+$(&amp;#39;ul&amp;#39;).css({&amp;#39;list-style&amp;#39;:&amp;#39;none&amp;#39;,&amp;#39;border&amp;#39;:&amp;#39;1px solid red&amp;#39;});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='height'&gt;.height()&lt;/h2&gt;
+
+&lt;p&gt;엘리먼트의 높이값을 구하거나 인자값으로 세팅한다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;#box&amp;#39;).height()    //200
+$(&amp;#39;#box&amp;#39;).height(500) //500으로 늘림 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img alt='jQuery.height()' src='http://api.jquery.com/images/0042_04_01.png' /&gt;&lt;/p&gt;
+
+&lt;h2 id='innerheight'&gt;.innerHeight()&lt;/h2&gt;
+
+&lt;p&gt;엘리먼트의 패딩을 포함하는 높이값을 구함&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;#box&amp;#39;).innerHeight()   //220&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img alt='jQuery.innerHeight()' src='http://api.jquery.com/images/0042_04_02.png' /&gt;&lt;/p&gt;
+
+&lt;h2 id='outerheight'&gt;.outerHeight()&lt;/h2&gt;
+
+&lt;p&gt;엘리먼트의 외부 padding,boder를 포함한 높이를 구함, 인자값이 true 일경우 margin 도 포함 합니다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;#box&amp;#39;).outerHeight()   //222
+$(&amp;#39;#box&amp;#39;).outerHeight(true)   //242&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img alt='jQuery.outerHeight()' src='http://api.jquery.com/images/0042_04_03.png' /&gt;&lt;/p&gt;
+
+&lt;h2 id='width'&gt;.width()&lt;/h2&gt;
+
+&lt;p&gt;&lt;img alt='jQuery.width()' src='http://api.jquery.com/images/0042_04_04.png' /&gt;&lt;/p&gt;
+
+&lt;h2 id='innerwidth'&gt;.innerWidth()&lt;/h2&gt;
+
+&lt;p&gt;&lt;img alt='jQuery.innerWidth()' src='http://api.jquery.com/images/0042_04_05.png' /&gt;&lt;/p&gt;
+
+&lt;h2 id='outerwidth'&gt;.outerWidth()&lt;/h2&gt;
+
+&lt;p&gt;&lt;img alt='jQuery.outerWidth()' src='http://api.jquery.com/images/0042_04_06.png' /&gt;&lt;/p&gt;
+
+&lt;h2 id='offset'&gt;.offset()&lt;/h2&gt;
+
+&lt;p&gt;엘리먼트의 절대좌표를 반환한다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;li.a1&amp;#39;).offset().top
+$(&amp;#39;li.a1&amp;#39;).offset().left&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='position'&gt;.position()&lt;/h2&gt;
+
+&lt;p&gt;엘리먼트의 부모엘리먼트 기준 좌표를 반환한다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;li.a1&amp;#39;).position().top&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='scrollleft'&gt;.scrollLeft()&lt;/h2&gt;
+
+&lt;p&gt;엘리먼트의 수평 스크롤 위치를 구하거나 인자로 주어진값으로 세팅한다&lt;/p&gt;
+
+&lt;h2 id='scrolltop'&gt;.scrollTop()&lt;/h2&gt;
+
+&lt;p&gt;엘리먼트의 수직 스크롤 위치를 구하거나 인자로 주어진값으로 세팅한다&lt;/p&gt;
+
+&lt;h2 id='id21'&gt;도움글&lt;/h2&gt;
+
+&lt;p&gt;* 이미지는 &lt;a href='http://jquery.com'&gt;jQuery홈페이지&lt;/a&gt;에서 가져왔다&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://api.jquery.com/category/css/'&gt;CSS 관련 메소드&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>jQuery 이해3 - Selectors 메소드들</title>
+   <link href="http://niceaji.github.com/archives/642"/>
+   <updated>2012-02-28T18:23:14+09:00</updated>
+   <id>http://niceaji.github.com/archives/jQuery 이해3 - Selectors 메소드들</id>
+   <content type="html">&lt;p&gt;웹개발에서 대부분의 자바스크립트의 작업이 &lt;a href='http://ko.wikipedia.org/wiki/%EB%AC%B8%EC%84%9C_%EA%B0%9D%EC%B2%B4_%EB%AA%A8%EB%8D%B8'&gt;DOM&lt;/a&gt;을 조작하는 일로 이루어진다.&lt;/p&gt;
+
+&lt;p&gt;문서의 특정 태그엘리먼트에 접근하여 이벤트를 주거나 class명을 변경, 내용을 채워넣는(innerHTML)일등을 하기위해선 그 특정 태그엘리먼트를 쉽게 찾을수 있어야 하는데 이때 사용 되어지는게 &lt;a href='http://api.jquery.com/category/selectors/'&gt;Selector&lt;/a&gt; 이다. jQuery에서 사용되는 &lt;a href='http://sizzlejs.com/'&gt;Sizzle CSS Selector Engine&lt;/a&gt;은 현재 가장 빠른 속도를 자랑하기도 한다.&lt;/p&gt;
+
+&lt;h2 id='___'&gt;자주 사용하는 기본 셀렉터&lt;/h2&gt;
+
+&lt;h3 id='_'&gt;태그 셀렉터&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;div&amp;#39;); //모든 div 태그엘리먼트를 가지고 온다&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id='id_'&gt;id 셀렉터&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;#daum&amp;#39;); // id=&amp;quot;daum&amp;quot; 엘리먼트를 가지고 온다&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id='class_'&gt;class 셀렉터&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;.bar&amp;#39;); // class=&amp;quot;bar&amp;quot; 엘리먼트를 가지고 온다&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id='multiple_'&gt;Multiple 셀렉터&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;div&amp;#39;,&amp;#39;span&amp;#39;,&amp;#39;img&amp;#39;); //div ,span, img 엘리먼트 모두를 가지고 온다&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;중복 사용과 해당 엘리먼트 내부에서만 검색도 가능하다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;div.bar&amp;#39;); //div 태그엘리먼트중에 bar 클래스명을 사용하는 엘리먼트
+$(&amp;#39;img&amp;#39; , &amp;#39;#content&amp;#39;); // id=&amp;quot;content&amp;quot; 안에 img 태그 엘리먼트만 가져온다&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이 외에 많은,유용한 셀렉터들이 존재하는데 꼭 하단에 &amp;#8216;도움글&amp;#8217;들을 참고하여 학습하도록 하자&lt;/p&gt;
+
+&lt;h2 id='id20'&gt;도움글&lt;/h2&gt;
+
+&lt;p&gt;* &lt;a href='http://api.jquery.com/category/selectors/'&gt;jQuery Selector API&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://www.w3.org/TR/css3-selectors/'&gt;CSS3 Selectors&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>mongoDB 4 – 몽고쉘 맛보기</title>
+   <link href="http://niceaji.github.com/archives/629"/>
+   <updated>2012-02-28T00:31:43+09:00</updated>
+   <id>http://niceaji.github.com/archives/mongoDB 4 – 몽고쉘 맛보기</id>
+   <content type="html">&lt;p&gt;&lt;a href='/mongodb'&gt;이전시간&lt;/a&gt;에 설치도 했고 몽고db 데몬도 올렸다. 이제는 몽고쉘로 접속해서 가지고 놀아볼 차례이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='/archives/622'&gt;path를 설정&lt;/a&gt;했으니 터미널을 띄우고 바로 쉘로 접속해보자&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; mongo&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;프롬프트가 입력을 기다리고 있다. 바로 또 아래 명령어들을 차례대로 입력해보자&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; use testdb  //testdb Database 를 사용하겠음
+
+&amp;gt; db  // 현재 사용하고 있는 Database 인 testdb 를 표시 
+
+&amp;gt; todo = {text:&amp;#39;study mongodb&amp;#39;}  // todo Document 생성
+
+&amp;gt; db.todos.save(todo) //todos Collection 에  todo Document 넣기
+
+&amp;gt; db.todos.save({text:&amp;#39;jquery study&amp;#39;})    //새로운 Document 저장
+
+&amp;gt; db.todos.find()   // todos Collection에 모든 내용 가져오기
+
+&amp;gt;db.todos.count()   //todos Collection count
+
+&amp;gt; show collections // 현재 사용하는 Database에 모든 Collection 보기&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;아주 쉽지 않은가? 좀 더 살펴보자&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; var ids = [&amp;#39;a&amp;#39;,&amp;#39;b&amp;#39;,&amp;#39;c&amp;#39;,&amp;#39;d&amp;#39;,&amp;#39;e&amp;#39;,&amp;#39;f&amp;#39;,&amp;#39;g&amp;#39;,&amp;#39;h&amp;#39;,&amp;#39;i&amp;#39;,&amp;#39;j&amp;#39;];  // 배열생성
+&amp;gt; for(i=0; i&amp;lt;10; i++) { db.users.save({ id : ids[i],level : i }) } // users Collection에 10개의 유저 Document 저장
+
+&amp;gt; db.users.find({level:4})  //level 이 4 인 유저 뽑기
+
+&amp;gt; db.users.find({level:{$gt:4}})    // level 이 4보다 큰 유저만 가져오기
+
+&amp;gt; db.users.find({level:{$lt:4}})        //4보다 작은 유저 가져오기&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이번엔 데이터를 업데이트 해보자&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;  db.users.update({id:&amp;#39;a&amp;#39;}, {id:&amp;#39;a&amp;#39;, level:100})       //a id를 가진 유저의 level를 100으로
+
+&amp;gt; db.users.update({id:&amp;#39;a&amp;#39;} , {$set: {nick: &amp;#39;aji&amp;#39;} } )   //  nick Field 추가
+
+&amp;gt; db.users.remove({nick:&amp;#39;aji&amp;#39;})       // aji 유저 삭제
+
+&amp;gt;  db.users.remove()    //users Collection 에 모든 요소 지우기
+
+&amp;gt; show collections      //  현재 Database 에 생성된 모든 Collections 보기
+
+&amp;gt; db.users.drop()       // users Collection 삭제&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;자바스크립트와 별반 다르지 않은 코드들로 그냥 쉽게 넣고, 빼고, 수정하고, 삭제 하면 된다.&lt;/p&gt;
+
+&lt;h2 id='id19'&gt;도움글&lt;/h2&gt;
+
+&lt;p&gt;* &lt;a href='http://www.mongodb.org/display/DOCS/dbshell+Reference'&gt;dbshell Reference&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://try.mongodb.org/'&gt;MongoDB Browser Shell&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>mongoDB 3 - mongod config  파일로 실행</title>
+   <link href="http://niceaji.github.com/archives/622"/>
+   <updated>2012-02-27T22:17:27+09:00</updated>
+   <id>http://niceaji.github.com/archives/mongoDB 3 - mongod config  파일로 실행</id>
+   <content type="html">&lt;h2 id='path_'&gt;$PATH 설정&lt;/h2&gt;
+
+&lt;p&gt;몽고db 데몬을 쉽게 올릴수 있게 어느 디렉토리든 mongod가 실행이 되게 설정해 보자 (mac같은 유닉스시스템 기준) 터미널에서 아래 명령을 실행한다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; echo $PATH&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;위 명령으로 보이는 디렉토리 목록이 경로 지정 없이도 프로그램이 실행되는 디렉토리 모음이다. 이제 $PATH에 mongodb 설치경로를 지정해 보자.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; vi ~/.profile&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;현재 계정의 .profile 파일을 vi 에디터로 열고 아래 내용을 한줄 추가한다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export PATH=/Applications/mongodb/bin:$PATH&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;/Applications/mongodb/bin 이부분은 자기가 mongodb 를 둔 디렉토리 기준으로 작성하면 된다. .profile 파일은 처음 터미널에 접속할경우 해석되는데 우린 이미 접속 하고 있기에 갱신 명령으로 바로 사용할수 있게 하자&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; source ~/.profile&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이젠 바로 터미널에서 mongod 를 실행시켜 보면 path가 잡힌걸 확인가능 하다.&lt;/p&gt;
+
+&lt;h2 id='config__'&gt;config파일로 옵션 지정하기&lt;/h2&gt;
+
+&lt;p&gt;mongod 를 올릴때 여러 옵션들을 config 파일을 지정하면 좀더 손쉽게 올릴수 있다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; mongod --config /Applications/mongodb/mongo.conf&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;mongo.conf 파일명과 위치는 원하는대로 하면 된다. 이제 mongo.conf 에 파일을 만들어보자&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;port = 27017 # 몽고데몬이 돌아갈 포트
+fork = true # 데몬모드
+logpath = /tmp/mongodb.log  #로그파일 위치
+dbpath = /Applications/mongodb/data  # DB 파일의 path (기본 /data/db)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;위 처럼 자신의 환경에 맞게 옵션을 설정하고 저장한다&lt;/p&gt;
+
+&lt;p&gt;자 이제 몽고db를 띄워보자!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; mongod --config /Applications/mongodb/mongo.conf&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='id18'&gt;도움글&lt;/h2&gt;
+
+&lt;p&gt;* &lt;a href='http://judydba.tistory.com/tag/%EB%AA%BD%EA%B3%A0%EB%94%94%EB%B9%84%20%EC%84%A4%EC%B9%98'&gt;윈도우에서 환경변수 설정&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>jQuery 이해2 - $(document).ready()</title>
+   <link href="http://niceaji.github.com/archives/608"/>
+   <updated>2012-02-27T20:50:12+09:00</updated>
+   <id>http://niceaji.github.com/archives/jQuery 이해2 - $(document).ready()</id>
+   <content type="html">&lt;p&gt;&lt;a href='http://api.jquery.com/ready/'&gt;ready()&lt;/a&gt; 메소드는 DOM이 모두 로드된후에 실행될 함수를 지정한다.&lt;/p&gt;
+
+&lt;p&gt;웹문서에서 자바스크립트의 개발은 DOM을 조작하는 경우가 많은데 이때 DOM이 로드가 되기전에 자바스크립트를 작성할경우 예상치 못한 버그나 에러를 발생할수 있다. 그래서 DOM 로드가 완료된후에 자바스크립트 코드를 작성하는 방식을 권장하고 이럴경우 차후에 마크업과 코드와의 분리도 수월할수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='uix.kr' src='https://img.skitch.com/20120227-es3dm9gt7xfkf3w5aa9bj5cis4.jpg' /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 그림은 uix.kr이 로딩될때 네크워크 콘솔을 확인한 모습이다. 파란색 라인이 DomContentLoaded 가 발생한 시점인데 1.30초쯤에 발생한것을 확인할수 있다. onload 이벤트는 이미지를 포함한 모든 문서의 로딩이 끝난후에 발생하게 된다.&lt;/p&gt;
+
+&lt;p&gt;jQuery에서 DomContentLoaded 이벤트핸들러의 작성은 아래코드 처럼 가능하다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(document).ready(function() {
+    //이곳에 실행될 함수를 작성한다
+
+});
+
+//축약형
+$(function() {
+    //이곳에 실행될 함수를 작성한다
+
+});&lt;/code&gt;&lt;/pre&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>jQuery 이해1 - 시작</title>
+   <link href="http://niceaji.github.com/archives/577"/>
+   <updated>2012-02-26T23:20:25+09:00</updated>
+   <id>http://niceaji.github.com/archives/jQuery 이해1 - 시작</id>
+   <content type="html">&lt;p&gt;&lt;a href='http://jquery.com/'&gt;jQuery&lt;/a&gt;는 수많은 &lt;a href='http://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8'&gt;자바스크립트&lt;/a&gt; 라이브러리중에 현재 가장 많이 사용하는 프레임웍이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://jquery.com/'&gt;jQuery홈페이지&lt;/a&gt;에서 말하고 있듯이 빠르고 간결하며 기존 자바스크립트와는 달리 작성하는 방식을 달리 할수 있도록 설계되었다(메소드체이닝). 당연히 프론트엔드개발을 하고있는 개발자들은 반드시 이해를 하고 있어야 하는 라이브러리이다.&lt;/p&gt;
+
+&lt;h2 id='jquery_'&gt;jQuery 삽입&lt;/h2&gt;
+
+&lt;p&gt;자바스크립트 라이브러리들의 사용방법은 간단하다. 문서에 스크립트를 삽입해주면 되는데 jQuery도 동일하다. &lt;a href='http://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8'&gt;다운로드 페이지&lt;/a&gt;에서 원하는 버전을 내려받아서 사용하던가 &lt;a href='http://en.wikipedia.org/wiki/Content_delivery_network'&gt;CDN&lt;/a&gt;이 적용된 주소를 그대로 사용해도 무방하다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;script src=&amp;quot;http://code.jquery.com/jquery-1.7.1.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='jquery_'&gt;jQuery 사용&lt;/h2&gt;
+
+&lt;p&gt;jQuery를 삽입하면 &lt;a href='http://api.jquery.com/jQuery/'&gt;jQuery() 함수&lt;/a&gt;가 만들어 지는데 축약형태로 $ 로 사용이 가능하다. &lt;a href='http://jquery.com/'&gt;jQuery홈페이지&lt;/a&gt;에서 브라우저에서 콘솔을 열어서 아래코드를 넣어보자 ( 크롬에서 개발자도구를 사용하여 해보기를 권장한다)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(&amp;#39;body&amp;#39;).fadeOut().delay(1000).fadeIn();&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;사용방법이 특이한가? 메소드를 연결해서 (method chaining) 계속 호출하고 있다. &lt;strong&gt;jQuery의 많은 메소드들이 jQuery객체를 그대로 리턴하기에 이러한 문법으로 작성&lt;/strong&gt;이 가능하다.&lt;/p&gt;
+
+&lt;h2 id='_'&gt;$ 충돌방지&lt;/h2&gt;
+
+&lt;p&gt;기존에 다른프레임웍을 사용한다는 이유등로 이미 $를 선언해서 사용하고 있다면 &lt;a href='http://api.jquery.com/jQuery.noConflict/'&gt;jQuery별칭인 $ 를 다른이름으로 변경&lt;/a&gt; 할수 있습니다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var j = jQuery.noConflict();
+j(&amp;#39;body&amp;#39;).fadeOut().delay(1000).fadeIn();&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='jquery_'&gt;jQuery 장점&lt;/h2&gt;
+
+&lt;p&gt;* 오픈소스이다&lt;/p&gt;
+
+&lt;p&gt;* 브라우저마다 javascript,DOM,이벤트 구현등이 처리가 다른데 이런 크로스브라우징 문제를 쉽게 해결 가능&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://www.google.co.kr/search?aq=f&amp;amp;sourceid=chrome&amp;amp;ie=UTF-8&amp;amp;q=jquery+plugin'&gt;수많은 플러그인&lt;/a&gt;이 존재하여 개발시간을 단축 시킬수 있다&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>node.js 맛보기12 – 앱 백그라운드 실행 forever</title>
+   <link href="http://niceaji.github.com/archives/567"/>
+   <updated>2012-02-26T20:44:04+09:00</updated>
+   <id>http://niceaji.github.com/archives/node.js 맛보기12 – 앱 백그라운드 실행 forever</id>
+   <content type="html">&lt;p&gt;&lt;a href='https://github.com/nodejitsu/forever'&gt;forever&lt;/a&gt; 모듈은 node.js의 앱을 실행시키고 이때 생성된 프로세스를 관리해주는 모듈이다. &lt;a href='/archives/381'&gt;supervisor모듈&lt;/a&gt;처럼 커맨드에서 사용이 가능한 모듈이므로 글로벌설치를 권장한다. 개발시에는 &lt;a href='/archives/381'&gt;supervisor모듈&lt;/a&gt;로 앱을 실행시켜서 테스트를 하다가 실제 서비스에 올릴경우 사용하면 유용 하겠다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm install forever -g&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;설치가 완료되면 이제 forever로 노드앱을 실행시켜보자&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;forever start app.js&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;forever로 관리되는 앱의 프로세스 목록을 볼수도 있다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;forever list&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;프로세스를 kill 하려면 stop에 forever list에서 확인가능한 프로세스id 를 인자로 주면 된다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;forever stop 0&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img alt='node.js forever' src='https://img.skitch.com/20120226-e1k828drhspj6gbtjesp2arbhi.jpg' /&gt;&lt;/p&gt;
+
+&lt;h2 id='id17'&gt;도움글&lt;/h2&gt;
+
+&lt;p&gt;* &lt;a href='https://github.com/nodejitsu/forever'&gt;forever 매뉴얼&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://blog.outsider.ne.kr/590'&gt;node.js 앱의 인스턴스를 관리해 주는 forever&lt;/a&gt;‎&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>북마클릿 배워보기 - Daum사전 북마클릿</title>
+   <link href="http://niceaji.github.com/archives/550"/>
+   <updated>2012-02-25T12:02:21+09:00</updated>
+   <id>http://niceaji.github.com/archives/북마클릿 배워보기 - Daum사전 북마클릿</id>
+   <content type="html">&lt;p&gt;문서내에서 찾고자하는 단어를 드래그로 선택하면 Daum사전으로 검색해주는 간단한 북마클릿이다. &lt;a href='https://plus.google.com/108919073072673973649/posts/BZeUmB4d9d1'&gt;Daum사전은 이번에 반응형웹&lt;/a&gt;으로 개편되었기에 새창으로 띄워도 최적화된 화면으로 잘 보인다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='Daum사전 북마클릿' src='https://img.skitch.com/20120225-bkyr1j6g12yadcxramwygia6k4.jpg' /&gt;&lt;/p&gt;
+
+&lt;h2 id='_'&gt;북마클릿 추가&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href='javascript:(function('&gt;Daum사전&lt;/a&gt;{var dic=&amp;#8217;http://alldic.daum.net/&amp;#8217;,query=&amp;#8221;;if(window.getSelection){query=window.getSelection().toString()||&amp;#8221;;}else if(document.selection.createRange){query=document.selection.createRange().text||&amp;#8221;;}var url=(query)?dic+&amp;#8217;search.do?q=&amp;#8217;+query:dic;window.open(url,&amp;#8221;,&amp;#8217;width=400px,height=500px&amp;#8217;);})())&lt;/p&gt;
+
+&lt;h2 id='id15'&gt;소스&lt;/h2&gt;
+
+&lt;p&gt;아래소스로 북마클릿을 쉽게 만들수 있게 도와주는 &lt;a href='http://subsimple.com/bookmarklets/jsbuilder.htm'&gt;Bookmarklet Builder&lt;/a&gt;에서 쉽게 만들수 있다.&lt;/p&gt;
+
+&lt;h2 id='id16'&gt;도움글&lt;/h2&gt;
+
+&lt;p&gt;* &lt;a href='http://en.wikipedia.org/wiki/Bookmarklet'&gt;북마클릿 위키&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://net.tutsplus.com/tutorials/javascript-ajax/create-bookmarklets-the-right-way/'&gt;Create Bookmarklets – The Right Way&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://codefactory.kr/old/posts/javascript/title/%EB%B6%81%EB%A7%88%ED%81%B4%EB%A6%BF%E2%94%80%EB%A7%8C%EB%93%A4%EA%B8%B0%E2%94%80bookmarklet'&gt;북마클릿 만들기&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://benalman.com/projects/run-jquery-code-bookmarklet/'&gt;jQuery Bookmarklet Generator&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://daringfireball.net/2007/03/javascript_bookmarklet_builder'&gt;Perl Bookmarklet Builder&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>mongoDB 2 - 구조 이해 하기</title>
+   <link href="http://niceaji.github.com/archives/522"/>
+   <updated>2012-02-24T12:30:42+09:00</updated>
+   <id>http://niceaji.github.com/archives/mongoDB 2 - 구조 이해 하기</id>
+   <content type="html">&lt;p&gt;mongoDB는 프론트엔드 개발자가 꼭 배워야 하는 데이터베이스 이다.&lt;/p&gt;
+
+&lt;p&gt;* 쉽고 빠르다&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://www.json.org/'&gt;JSON&lt;/a&gt;형식으로 저장과 출력을 하기에 더욱 더 우리에겐 익숙하고 유리하다.&lt;/p&gt;
+
+&lt;p&gt;* 기존에 다른 데이터베이스를 경험하지 않아도 쉽게 익힐수 있다.&lt;/p&gt;
+
+&lt;p&gt;* 빠른 프로토타이핑을 도와준다 (데이터베이스 설계 따위는 필요없다)&lt;/p&gt;
+
+&lt;p&gt;* 자바스크립트 스럽다?!&lt;/p&gt;
+
+&lt;h2 id='_'&gt;데이터베이스 ?&lt;/h2&gt;
+
+&lt;p&gt;쉽게 데이터를 저장하고 간편하게 꺼내 쓰게 만든것이 바로 데이터베이스이다. 다른 개념이나 이론들은 나중에 찾아보고 지금은 일단 이 부분만 빠르게 습득하는걸 목표로 삼자&lt;/p&gt;
+
+&lt;h3 id='document_row'&gt;Document (row)&lt;/h3&gt;
+
+&lt;p&gt;가장 최소의 데이터 단위를 Document라 부른다. 아래는 aji라는 사람의 점수(score)를 표시하는 Document 이다. 우리에게 매우 익숙한 json 형식라 이해도 빠르다. 여기서 name, score 를 field 라고 한다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//score Document
+{
+    &amp;quot;name&amp;quot; : &amp;quot;aji&amp;quot;,
+    &amp;quot;score&amp;quot; : 100 
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id='collection_table'&gt;Collection (table)&lt;/h3&gt;
+
+&lt;p&gt;Document 가 여러개 모여서 Collection를 이룬다고 보면 된다. 위에 &lt;strong&gt;score Document 가 여러개 모여서 scores Collection&lt;/strong&gt;를 만들었다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//scores Collection
+{
+    &amp;quot;name&amp;quot; : &amp;quot;aji&amp;quot;,
+    &amp;quot;score&amp;quot; : 100 
+},
+{
+    &amp;quot;name&amp;quot; : &amp;quot;cat&amp;quot;,
+    &amp;quot;score&amp;quot; : 95 
+},
+{
+    &amp;quot;name&amp;quot; : &amp;quot;bat&amp;quot;,
+    &amp;quot;score&amp;quot; : 80 
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id='database'&gt;Database&lt;/h3&gt;
+
+&lt;p&gt;여러개의 관련된 Collection 이 모여서 한개의 Database를 만든다. 그냥 쉽게 최상위 폴더 개념이라고 보면 된다.&lt;/p&gt;
+
+&lt;h2 id='id14'&gt;정리&lt;/h2&gt;
+
+&lt;p&gt;&lt;img alt='mongodb' src='https://img.skitch.com/20120226-xgx3e177a5ihgup2qin926ndqs.png' /&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>mongoDB 1 시작하기 - 설치,실행</title>
+   <link href="http://niceaji.github.com/archives/504"/>
+   <updated>2012-02-23T19:47:02+09:00</updated>
+   <id>http://niceaji.github.com/archives/mongoDB 1 시작하기 - 설치,실행</id>
+   <content type="html">&lt;p&gt;&lt;a href='http://www.mongodb.org/'&gt;mongoDB&lt;/a&gt; 는 프론트엔드개발자가 꼭 배워둘만한 데이터베이스 이다. 일단 겪어보려면 mongoDB가 필요하다. 얼른 설치해 보자&lt;/p&gt;
+
+&lt;h2 id='id12'&gt;설치&lt;/h2&gt;
+
+&lt;p&gt;환경에 맞는 mongoDB 를 &lt;a href='http://www.mongodb.org/downloads'&gt;다운로드&lt;/a&gt; 받아 압축만 풀면 바로 데몬을 올릴수 있다. &lt;a href='http://www.mongodb.org/display/DOCS/Quickstart'&gt;퀵가이드&lt;/a&gt;에 따라 설치를 진행해 보자&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://blog.naver.com/PostView.nhn?blogId=ff9292&amp;amp;logNo=70116175704'&gt;윈도우에 설치하기&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id='_'&gt;서버 띄우기&lt;/h2&gt;
+
+&lt;p&gt;mongoDB는 데이터베이스 서버이기 때문에 서버를 띄워줘야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;기본 데이터베이스 저장 디렉토리는 /data/db (윈도우 c:\data/db )&lt;/strong&gt; 이기에 경로를 만들어주고 콘솔로 설치된 디렉토리에 bin/mongod (윈도우는 mongod.exe) 를 실행 시켜주면 바로 서버가 올라온다. (데이터베이스가 저장되는 경로는 물론 변경할수도 있다)&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='윈도우에서 mongoDB 실행' src='https://img.skitch.com/20120222-dq3gmepuf5d28mibf5rjwt5fet.jpg' /&gt;&lt;/p&gt;
+
+&lt;h2 id='_'&gt;서버 접속&lt;/h2&gt;
+
+&lt;p&gt;데이터베이스에 쿼리를 날려보려면 접속을 해야한다. 이 또한 간단하다. 콘솔로 설치된 디렉토리에 bin/mongo 를 실행해주면 바로 관리쉘로이 뜬다. 쉘이 우리의 입력을 기다리고 있다. 이제 가지고 놀 준비는 끝났다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://www.mongodb.org/'&gt;mongoDB 홈페이지&lt;/a&gt;에서 &amp;#8220;Try it Out&amp;#8221;메뉴를 클릭하면 간단하게 쉘을 실행시켜 볼수 있다. 잘 만들어진 튜토리얼을 진행해 보자!&lt;/p&gt;
+
+&lt;h2 id='id13'&gt;도움글&lt;/h2&gt;
+
+&lt;p&gt;* &lt;a href='http://blog.outsider.ne.kr/582?category=41'&gt;mongoDB를 Demon으로 실행하고 정상적으로 종료하기&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>node.js 맛보기11 – jQueryMobile 프로토타이핑 만들기2</title>
+   <link href="http://niceaji.github.com/archives/366"/>
+   <updated>2012-02-21T22:10:10+09:00</updated>
+   <id>http://niceaji.github.com/archives/node.js 맛보기11 – jQueryMobile 프로토타이핑 만들기2</id>
+   <content type="html">&lt;p&gt;이번 시간에는 &lt;a href='http://uix.kr/archives/99'&gt;이전 포스팅&lt;/a&gt; 에 이어 좀더 프로토타이핑 완성도를 높여보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://www.youtube.com/watch?v=Iw-Uhulbt3o'&gt;&lt;img alt='' src='https://img.skitch.com/20120221-k9sy6w499nxaw877fnbym78g7t.png' /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;실제 완성모습 (&lt;a href='http://www.youtube.com/watch?v=Iw-Uhulbt3o'&gt;동영상 보기&lt;/a&gt;)&lt;/p&gt;
+
+&lt;h2 id='__'&gt;기능별로 모듈로 만들기&lt;/h2&gt;
+
+&lt;p&gt;리스트페이지,뷰페이지, 리스트 스크랩핑, 뷰 스크래핑&amp;#8230;.등 각 기능별로 파일,모듈로 빼자. 하나의 파일로 관리하는것보다 직관적이고 효율적이다.&lt;/p&gt;
+
+&lt;h3 id='newshistory__'&gt;news-history 프로젝트 파일구조&lt;/h3&gt;
+
+&lt;p&gt;* app.js - 첫 실행되는 메인프로그램 이다. 웹서버를 구성하는 부분&lt;/p&gt;
+
+&lt;p&gt;* index.html - 리스트를 표시한다&lt;/p&gt;
+
+&lt;p&gt;* view.html - 기사뷰를 표시한다&lt;/p&gt;
+
+&lt;p&gt;* news-list.js - 뉴스리스트를 스크래핑하여 json형태로 리턴하는 모듈&lt;/p&gt;
+
+&lt;p&gt;* news-view.js - 뉴스뷰를 스크래핑하여 json형태로 리턴하는 모듈&lt;/p&gt;
+
+&lt;p&gt;* file-content.js - index.html,view.html &lt;a href='http://uix.kr/archives/418'&gt;파일을 읽어서 출력하기위한 모듈&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* loadurl.js - 특정 &lt;a href='http://uix.kr/archives/435'&gt;url를 가져오는 모듈&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id='appjs'&gt;app.js&lt;/h3&gt;
+
+&lt;p&gt;http서버를 띄우고 요청이 들어오는 url마다 분기처리하여 맞는 문서,api 를 출력한다. &lt;a href='https://github.com/niceaji7/news-history/blob/master/app.js'&gt;전체 소스보기&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;http.createServer(function (req, res) {
+
+    var urlObj = url.parse(req.url, true),
+        output = &amp;#39;&amp;#39;;
+
+    //들어오는 주소에 따라 분기처리 
+    if(urlObj.pathname == &amp;quot;/&amp;quot;) {
+        //index.html 출력
+    }
+    else if(urlObj.pathname == &amp;quot;/view&amp;quot;) {
+        //view.html 출력 
+    }
+    // /api/list 
+    else if(urlObj.pathname == &amp;quot;/api/list&amp;quot;) {
+        //news-list.js 모듈을 호출하여 json api 출력  
+    }
+    // /api/view?newsid=1234....
+    else if(urlObj.pathname == &amp;quot;/api/view&amp;quot;){
+        //news-view.js 모듈을 호출하여 json api 출력  
+    }
+    else {
+        // 404 
+    }
+
+}).listen(8889, &amp;quot;127.0.0.1&amp;quot;); &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id='newslistjs'&gt;news-list.js&lt;/h3&gt;
+
+&lt;p&gt;$(&amp;#8216;.section_statsbox a&amp;#8217;) 에서 보다 디테일 하게 뉴스링크만 빼보도록 하자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='' src='https://img.skitch.com/20120216-dqwphmh7r9rux3xh42m2cqiywu.medium.jpg' /&gt;&lt;/p&gt;
+
+&lt;p&gt;콘솔을 열어서 &lt;strong&gt;document.querySelectorAll(&amp;#8216;.section_statsbox a&amp;#8217;)&lt;/strong&gt; 로 dom 을 살펴보면 뉴스링크일경우에는 &lt;strong&gt;newsid 라는 17자리 숫자형태의 키&lt;/strong&gt;를 발견할수 있다. 이 newsid 를 가 있을경우에만 api로 뱉어주도록 변경 해보자. &lt;a href='https://github.com/niceaji7/news-history/blob/master/news-list.js'&gt;소스보기&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id='newsviewjs'&gt;news-view.js&lt;/h3&gt;
+
+&lt;p&gt;newsid 를 가지고 뉴스제목과 내용을 가져오는 모듈이다. &lt;a href='https://github.com/niceaji7/news-history/blob/master/news-view.js'&gt;소스보기&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id='_'&gt;전체소스 다운로드&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href='https://github.com/niceaji7/news-history'&gt;전체소스를 다운로드&lt;/a&gt; 하고 해당폴더에서 node app.js로 실행시키고 http://localhost:8889/ 를 브라우저에서 열어보자&lt;/p&gt;
+
+&lt;h3 id='_'&gt;필요한 모듈&lt;/h3&gt;
+
+&lt;p&gt;* &lt;a href='/archives/96'&gt;jsdom 모듈&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='/archives/83'&gt;request 모듈&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>프론트엔드개발자를 위한 RESTful</title>
+   <link href="http://niceaji.github.com/archives/472"/>
+   <updated>2012-02-21T15:52:45+09:00</updated>
+   <id>http://niceaji.github.com/archives/프론트엔드개발자를 위한 RESTful</id>
+   <content type="html">&lt;h2 id='id10'&gt;소개&lt;/h2&gt;
+
+&lt;p&gt;* &lt;a href='http://ko.wikipedia.org/wiki/REST'&gt;REST&lt;/a&gt; : ROA(Resource Oriented Architecture) 를 따르는 웹서비스 디자인 표준&lt;/p&gt;
+
+&lt;p&gt;* REST 원리를 따르는 시스템은 &lt;a href='http://ko.wiktionary.org/wiki/-ful'&gt;RESTful&lt;/a&gt;이란 용어로 지칭&lt;/p&gt;
+
+&lt;h3 id='id11'&gt;도움글&lt;/h3&gt;
+
+&lt;p&gt;* &lt;a href='http://www.iamcorean.net/22'&gt;http://www.iamcorean.net/22&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://ds5apn.wordpress.com/2011/11/11/restful-api-design-second-edition/'&gt;http://ds5apn.wordpress.com/2011/11/11/restful-api-design-second-edition/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id='restful_api'&gt;RESTful API&lt;/h1&gt;
+
+&lt;p&gt;* HTTP로 &lt;a href='http://ko.wikipedia.org/wiki/CRUD'&gt;CRUD&lt;/a&gt; 할수 있는 자원을 관리하는데 사용되는 웹 서비스 API&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://dialup.egloos.com/139627'&gt;HTTP Method&lt;/a&gt;로 &lt;a href='http://ko.wikipedia.org/wiki/CRUD'&gt;CRUD&lt;/a&gt; 구분&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;* POST -  아이템 작성 (Create)
+
+
+* GET - 아이템 검색 (Read)
+
+
+* PUT – 아이템 업데이트 (Update)
+
+
+* DELETE - 아이템 삭제 (Delete)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;* 실제 대부분의 브라우저는 GET,POST 메소드만 제공, 하지만 javascript XMLHttpRequest() 에서는 모두 가능&lt;/p&gt;
+
+&lt;p&gt;* 많은 openAPI가 RESTful 인터페이스 제공&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;* [Twitter REST Api](https://dev.twitter.com/docs/api)
+
+
+* [구글맵](http://code.google.com/intl/ko-KR/apis/maps/documentation/places/)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;* 많은 개발 프레임웍 지원&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;* [backbone.js](http://documentcloud.github.com/backbone/)
+
+
+* [mongoDB REST 인터페이스](http://www.mongodb.org/display/DOCS/Http+Interface)&lt;/code&gt;&lt;/pre&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Canvas를 파일로 저장하는 방법</title>
+   <link href="http://niceaji.github.com/archives/450"/>
+   <updated>2012-02-20T12:38:55+09:00</updated>
+   <id>http://niceaji.github.com/archives/Canvas를 파일로 저장하는 방법</id>
+   <content type="html">&lt;p&gt;Canvas로 그린 그림을 파일로 저장할수 있다. &lt;a href='http://www.nihilogic.dk/labs/canvas2image/'&gt;canvas2image 라이브러리&lt;/a&gt;를 사용하면 js만으로 브라우저 다운로드까지 구현이 가능하지만 이번엔 php로 서버에 파일로 저장하는 방법에 대해 살펴보자&lt;/p&gt;
+
+&lt;h2 id='id8'&gt;동작방법&lt;/h2&gt;
+
+&lt;p&gt;1. Sketch.js 로 드로잉 구현&lt;/p&gt;
+
+&lt;p&gt;간단하게 캔버스 드로잉툴을 제공해주는 &lt;a href='http://intridea.github.com/sketch.js/'&gt;Sketch.js&lt;/a&gt;를 사용해서 예제 구성&lt;/p&gt;
+
+&lt;p&gt;2. Canvas.toDataURL() 로 데이터 가져오기&lt;/p&gt;
+
+&lt;p&gt;캔버스에 그려진 path들은 Canvas.toDataURL() 를 사용하면 &lt;a href='http://en.wikipedia.org/wiki/Data_URI_scheme'&gt;DataURI형태&lt;/a&gt;의 스트링으로 가져올수 있음&lt;/p&gt;
+
+&lt;p&gt;3. php로 데이터 파일로 저장&lt;/p&gt;
+
+&lt;p&gt;DataURI 의 데이터를 php로 넘겨서 바로 저장&lt;/p&gt;
+
+&lt;h2 id='id9'&gt;예제&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href='http://uix.kr/ex/canvas2image/sketch.html'&gt;http://uix.kr/ex/canvas2image/sketch.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id='canvas2imagephp_'&gt;canvas2image.php 소스&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php 
+$data  = $_POST[&amp;#39;data&amp;#39;];
+
+$filename = &amp;quot;test&amp;quot;; 
+$filename .= &amp;quot;.png&amp;quot;;
+
+//파일로 저장!
+file_put_contents($filename, base64_decode($data)); 
+
+echo $filename;
+?&amp;gt;&lt;/code&gt;&lt;/pre&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>node.js 맛보기10 – 모듈 만들기</title>
+   <link href="http://niceaji.github.com/archives/435"/>
+   <updated>2012-02-19T20:15:38+09:00</updated>
+   <id>http://niceaji.github.com/archives/node.js 맛보기10 – 모듈 만들기</id>
+   <content type="html">&lt;p&gt;프로젝트가 커지면 1개의 파일로 개발은 불가능하다. 웹개발 할때처럼 기능에 맞게 모듈로 만들어서 require()하여 사용해 보자&lt;/p&gt;
+
+&lt;p&gt;아래 예제는 &lt;a href='http://uix.kr/archives/83'&gt;일전에 설치했던 request 모듈&lt;/a&gt;을 가지고 간단히 모듈화 해본 예제이다. &lt;strong&gt;맨 마지막줄에 exports 하는 부분이 포인트&lt;/strong&gt;이다. loadurl.js 로 저장하자&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// loadurl.js 
+var request = require(&amp;#39;request&amp;#39;);
+
+function call(url, callback){
+    //https://github.com/mikeal/request
+    request(url, function (error, response, body) {
+        if (!error &amp;amp;&amp;amp; response.statusCode == 200) {
+            callback(body); //인자로 받은 callback() 호출 
+        }
+    });
+}
+
+//함수 export 
+exports.call = call;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이제 loadurl 모듈을 사용해보자. 사용법은 간단하다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// loadurl.js 모듈 호출 
+var loadurl = require(&amp;quot;./loadurl&amp;quot;);
+
+loadurl.call(&amp;quot;http://www.daum.net&amp;quot;, function(data){
+    console.log(data);
+});&lt;/code&gt;&lt;/pre&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>node.js 맛보기9 – File System</title>
+   <link href="http://niceaji.github.com/archives/418"/>
+   <updated>2012-02-19T13:40:50+09:00</updated>
+   <id>http://niceaji.github.com/archives/node.js 맛보기9 – File System</id>
+   <content type="html">&lt;p&gt;파일을 읽고 쓰거나 폴더를 만드는 등의 파일시스템과 관련된 일들을 할수 있는 &lt;a href='http://nodejs.org/docs/latest/api/fs.html'&gt;File System&lt;/a&gt; 모듈을 살펴보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://uix.kr/archives/377'&gt;url 모듈에서 썼던 예제&lt;/a&gt;를 조금 수정하여 들어오는 url 마다 파일을 읽어서 해당 파일을 보여주려 한다. http://127.0.0.1:8889/info 로 접속하면 &lt;a href='https://gist.github.com/1862000'&gt;info.html&lt;/a&gt; 을 열어서 보여주고, http://127.0.0.1:8889/api 로 접속하면 &lt;a href='https://gist.github.com/1862003'&gt;api.html&lt;/a&gt;을 &lt;a href='http://nodejs.org/docs/latest/api/fs.html'&gt;File System&lt;/a&gt;모듈로 읽어서 보여준다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var http = require(&amp;#39;http&amp;#39;),
+    url = require(&amp;#39;url&amp;#39;),
+    fs = require(&amp;#39;fs&amp;#39;);
+
+http.createServer(function (request, response) {
+
+    var urlObj = url.parse(request.url, true),
+        filename = urlObj.pathname.replace(&amp;quot;/&amp;quot;,&amp;quot;&amp;quot;) + &amp;quot;.html&amp;quot;; 
+
+    console.log(urlObj);
+
+    //파일을 읽는다 
+    fs.readFile(filename, function (err, data) {
+          if (err) { //에러가 날경우에는 404 로 연결 
+              response.writeHead(404, {&amp;#39;Content-Type&amp;#39;: &amp;#39;text/plain&amp;#39;});
+              response.end(&amp;quot;404 Not Found!! \n&amp;quot;);
+              throw err;
+          }
+          //파일이 있으면 해당 내용 보여주기 
+          response.writeHead(200, {&amp;#39;Content-Type&amp;#39;: &amp;#39;text/html;&amp;#39;});
+          response.end(data);
+    });
+
+}).listen(8889, &amp;quot;127.0.0.1&amp;quot;);
+console.log(&amp;#39;Server running at http://127.0.0.1:8889/&amp;#39;);&lt;/code&gt;&lt;/pre&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>node.js 맛보기8 – URL 해석</title>
+   <link href="http://niceaji.github.com/archives/377"/>
+   <updated>2012-02-19T12:00:30+09:00</updated>
+   <id>http://niceaji.github.com/archives/node.js 맛보기8 – URL 해석</id>
+   <content type="html">&lt;p&gt;node.js 의 기본모듈인 &lt;a href='http://nodejs.org/docs/latest/api/url.html'&gt;URL&lt;/a&gt; 모듈을 살펴보자. 아래는 간단하게 들어오는 url(request.url) 를 해석하여 url마다 보여주는 컨텐츠를 달리 해보는 예제이다.&lt;/p&gt;
+
+&lt;h3 id='_urljs'&gt;소스 (url.js)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;var http = require(&amp;#39;http&amp;#39;);
+var url = require(&amp;#39;url&amp;#39;);
+
+http.createServer(function (request, response) {
+
+    var urlObj = url.parse(request.url, true);
+    console.log(urlObj);
+
+    //http://127.0.0.1:8889/info 
+    if(urlObj.pathname==&amp;quot;/info&amp;quot;) {
+        response.writeHead(200, {&amp;#39;Content-Type&amp;#39;: &amp;#39;text/plain;&amp;#39;});
+        response.end(&amp;quot;hi! url module info page!! \n&amp;quot;);
+    }
+    //http://127.0.0.1:8889/api
+    else if(urlObj.pathname==&amp;quot;/api&amp;quot;){
+        response.writeHead(200, {&amp;#39;Content-Type&amp;#39;: &amp;#39;text/plain&amp;#39;});
+        response.end(&amp;quot;http://nodejs.org/docs/latest/api/url.html \n&amp;quot;);
+    }
+    else {
+        response.writeHead(404, {&amp;#39;Content-Type&amp;#39;: &amp;#39;text/plain&amp;#39;}); //404
+        response.end(&amp;quot;404 Not Found!! \n&amp;quot;);
+    }
+
+
+}).listen(8889, &amp;quot;127.0.0.1&amp;quot;);
+
+console.log(&amp;#39;Server running at http://127.0.0.1:8889/&amp;#39;);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id='node_urljs__'&gt;node url.js 에 접속&lt;/h3&gt;
+
+&lt;p&gt;&lt;img alt='nodejs url모듈' src='https://img.skitch.com/20120219-q4ugbyhkpau7md3aekuw985pd1.jpg' /&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>node.js 맛보기7 – 프로그램 자동재실행 supervisor</title>
+   <link href="http://niceaji.github.com/archives/381"/>
+   <updated>2012-02-17T19:27:57+09:00</updated>
+   <id>http://niceaji.github.com/archives/node.js 맛보기7 – 프로그램 자동재실행 supervisor</id>
+   <content type="html">&lt;p&gt;node.js 프로그램을 개발하면서 소스 수정하고 콘솔에서 node를 재실행하고를 반복하게 되는데 이때 자동으로 리로딩 해주는 &lt;a href='https://github.com/isaacs/node-supervisor'&gt;supervisor&lt;/a&gt; 모듈은 반드시 사용하자. npm 으로 바로 설치가 가능한데 &lt;a href='http://doortts.tistory.com/226'&gt;글로벌 설치&lt;/a&gt;를 권장한다. (글로벌설치시에 디렉토리에 쓰기권한이 없을경우 에러를 뱉는데 관리자권한으로 실행시켜 주면 된다)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm install supervisor -g&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;설치하면 바로 사용이 가능하다. 간단하게 &lt;a href='http://uix.kr/archives/61'&gt;이전에 했던 server.js&lt;/a&gt;로 테스트 해보자.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;supervisor server.js &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;supervisor 로 실행하고 server.js 를 수정하면 자동으로 다시 실행되는걸 볼수 있다&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='supervisor 실행화면' src='https://img.skitch.com/20120217-t45dgn5dn5msy94m25g3913x8b.medium.jpg' /&gt;&lt;/p&gt;
+
+&lt;p&gt;더 자세한 사용방법은 &lt;a href='https://github.com/isaacs/node-supervisor'&gt;레퍼런스&lt;/a&gt;를 참고하면 된다.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>background-image 쉽게 찾기 – BG Finder</title>
+   <link href="http://niceaji.github.com/service/bgfinder"/>
+   <updated>2012-02-14T22:53:09+09:00</updated>
+   <id>http://niceaji.github.com/service/background-image 쉽게 찾기 – BG Finder</id>
+   <content type="html">&lt;p&gt;디자이너가 백그라운드 이미지명을 쉽게 찾지 못하는걸 보고 간단하게 만들어본 북마클릿입니다. 찾고자 하는 bg가 있는 웹페이지에서 북마클릿을 실행하고 원하는곳에 클릭하면 bg이미지 명이 나옵니다(상위 엘리먼트의 bg까지~)&lt;/p&gt;
+
+&lt;p&gt;북마클릿 등록 : &lt;a href='javascript:s=document.createElement(&quot;script&quot;);s.setAttribute(&quot;type&quot;,&quot;text/javascript&quot;);s.setAttribute(&quot;charset&quot;,&quot;utf-8&quot;);s.setAttribute(&quot;src&quot;,&quot;https://raw.github.com/uixkr/bg-finder/master/bg-finder.js&quot;);document.getElementsByTagName(&quot;head&quot;).item(0).appendChild(s);void(0)'&gt;BG Finder&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='' src='http://cfile3.uf.tistory.com/image/181D091B49DAD9FB5CB9A0' /&gt;&lt;/p&gt;
+
+&lt;p&gt;iframe 일경우 bg이미지명을 가져올수 없기에 새창으로 iframe url을 띄울수 있도록 했습니다&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='' src='http://cfile22.uf.tistory.com/image/111C881B49DAD9FBAFC636' /&gt;&lt;/p&gt;
+
+&lt;p&gt;만들어놓고 보니 파이어버그등으로 bg를 찾아보는것보다 편하네요 ^^&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>어디를 많이 클릭할까? - 클릭 트래킹</title>
+   <link href="http://niceaji.github.com/archives/211"/>
+   <updated>2012-02-13T22:53:09+09:00</updated>
+   <id>http://niceaji.github.com/archives/어디를 많이 클릭할까? - 클릭 트래킹</id>
+   <content type="html">&lt;p&gt;유저가 어디를 보다 많이 클릭 하는지를 알면 웹문서에 많은 컨텐츠 중에서 어떤 부분에 좀더 집중할수 있을지를 결정할수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;이런 물음으로 시작되어 만들어진 &lt;strong&gt;&amp;#8216;클릭 트래킹-Click Tracking(이하 ct)&amp;#8217;&lt;/strong&gt; 을 소개합니다.&lt;/p&gt;
+
+&lt;p&gt;위와 같은 화면으로 유저의 클릭을 분석해 볼수 있는데요. 처음엔 개발자끼리 모여 재미로 개발되어 많은 버전업을 하고 현재 많은 서비스에서 적용되어 유저의 패턴을 분석해 보고 있습니다.&lt;/p&gt;
+
+&lt;h2 id='id7'&gt;관리화면&lt;/h2&gt;
+
+&lt;p&gt;이번에 &lt;a href='http://yakulten.tistory.com'&gt;yakulten&lt;/a&gt;님이 판올림하면서 가장 많이 신경쓴 부분입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='클릭 트래킹 관리화면' src='http://uix.kr/wordpress/wp-content/uploads/2012/02/ct.jpg' /&gt;&lt;/p&gt;
+
+&lt;p&gt;1. Calendar - 날짜별로 ct데이터를 불러와서 문서에 출력&lt;/p&gt;
+
+&lt;p&gt;2. Hits - 총 클릭수를 표시하고 영역별, 링크별 선택 출력&lt;/p&gt;
+
+&lt;p&gt;3. Links - 가장 많은 클릭수순으로 정렬&lt;/p&gt;
+
+&lt;p&gt;4. &lt;a href='http://uix.kr/wordpress/wp-content/uploads/2012/02/ct.png'&gt;Hitmap&lt;/a&gt; - 클릭정보로 &lt;a href='http://www.youtube.com/watch?v=lo_a2cfBUGc'&gt;아이트래킹&lt;/a&gt; 같은 히트맵을 그립니다&lt;/p&gt;
+
+&lt;p&gt;5. Settings - 관리화면 설정&lt;/p&gt;
+
+&lt;h2 id='__3'&gt;동작 방법 3줄요약;&lt;/h2&gt;
+
+&lt;p&gt;* 유저가 문서내에 A링크를 클릭하면 수집 ( document.body 에 mousedown 에서 감시 )&lt;/p&gt;
+
+&lt;p&gt;* A링크는 xpath 처럼 &lt;strong&gt;&amp;#8216;ct path&amp;#8217;&lt;/strong&gt; 로 변환후에 저장&lt;/p&gt;
+
+&lt;p&gt;* 유저에게 얻은 클릭정보를 한번에 모아서 출력 (그림 1)&lt;/p&gt;
+
+&lt;h3 id='ct_path__'&gt;ct path 셀렉터 예제&lt;/h3&gt;
+
+&lt;p&gt;* 아래의 링크를 클릭하며 ct path 확인. &lt;a href='http://uix.kr/ex/ct/'&gt;원본열기&lt;/a&gt; , &lt;a href='https://gist.github.com/1814029'&gt;소스열기&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;언젠가는 잘 정리해서 공개도 해보고 싶은 맘입니다^^&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>워드프레스에서 다시 시작</title>
+   <link href="http://niceaji.github.com/archives/238"/>
+   <updated>2012-02-12T10:43:00+09:00</updated>
+   <id>http://niceaji.github.com/archives/워드프레스에서 다시 시작</id>
+   <content type="html">&lt;p&gt;&lt;a href='http://blog.uix.kr'&gt;티스토리&lt;/a&gt;를 사용하다 워드프레스로 건너왔다. 가장 큰 이유는 &lt;a href='http://blog.uix.kr/17'&gt;위지윅 편집기 사용이 너무 큰 스트레스&lt;/a&gt;라 &lt;a href='http://daringfireball.net/projects/markdown/syntax'&gt;마크다운&lt;/a&gt;으로 대체하려 넘어왔다. 결과는 대만족.&lt;/p&gt;
+
+&lt;p&gt;이전 블로그에서는 &lt;a href='http://blog.uix.kr/category/One%20Page%20Project'&gt;기존서비스 html 스크랩핑으로 프로토타이핑&lt;/a&gt;을 만든다거나 UX개선을 위한 시도들에 대한 포스팅이 많았는데 서비스 개편등으로 마크업,데이터등이 변경으로 작동을 하지 않는경우가 대부분. 가볍게 이사할수 있었던 또다른 이유이기도 하다;&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='' src='http://uix.kr/wordpress/wp-content/uploads/2012/02/20120213-cgck75435ec1r6x17xuwf9y4bh1.png' /&gt;&lt;/p&gt;
+
+&lt;h2 id='__'&gt;워드프레스가 좋은 이유&lt;/h2&gt;
+
+&lt;p&gt;* 플러그인 설치로 마크다운이 사용 가능하다. &lt;a href='http://offree.net/entry/Markdown-Formatter'&gt;마크다운의 장점&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* 일반 글과는 다른 분류인 &lt;strong&gt;페이지&lt;/strong&gt; 작성이 가능하다. 페이지별로 다른 템플릿 적용도 가능하다. (&lt;a href='http://uix.kr/service/easy-editor/info'&gt;사이드바 없애기&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;* &lt;strong&gt;페이지에 의미있는 주소&lt;/strong&gt;를 부여할수 있다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;* [http://uix.kr/service/jes](/service/jes)
+
+
+* [http://uix.kr/archives/category/nodejs](/archives/category/nodejs)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;* 설치형 블로그의 장점이겠지만 스킨파일을 ftp로 수정이 가능하다. 티스토리에서의 css수정은 정말 피곤하다&lt;/p&gt;
+
+&lt;h2 id='__'&gt;워드프레스 마크다운 플로그인&lt;/h2&gt;
+
+&lt;p&gt;비슷비슷한 종류의 플러그인이 많아서 고르기 쉽지 않았다&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://wordpress.org/extend/plugins/markdown-on-save-improved/'&gt;Markdown on Save Improved&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://wordpress.org/extend/plugins/markdown-quicktags/'&gt;Markdown QuickTags&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id='___'&gt;페이스북,트위터 공유 버튼 달기&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;single-social&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;facebook&amp;quot;&amp;gt;
+    &amp;lt;iframe src=&amp;quot;http://www.facebook.com/plugins/like.php?href=&amp;lt;?php urlencode(the_permalink()) ?&amp;gt;&amp;amp;amp;layout=button_count&amp;amp;amp;show_faces=false&amp;amp;amp;width=100&amp;amp;amp;action=like&amp;amp;amp;colorscheme=light&amp;quot;
+    scrolling=&amp;quot;no&amp;quot; frameborder=&amp;quot;0&amp;quot; allowTransparency=&amp;quot;true&amp;quot;
+    style=&amp;quot;border:none; overflow:hidden; width:100px; height: 30px; align: left; margin: 0px 0px 0px 0px&amp;quot;&amp;gt;&amp;lt;/iframe&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;twitter&amp;quot;&amp;gt;
+    &amp;lt;a href=&amp;quot;http://twitter.com/share&amp;quot; class=&amp;quot;twitter-share-button&amp;quot; data-url=&amp;quot;&amp;lt;?php the_permalink() ?&amp;gt;&amp;quot; data-text=&amp;quot;&amp;lt;?php the_title(); ?&amp;gt;&amp;quot; data-count=&amp;quot;horizontal&amp;quot;  data-via=&amp;quot;niceaji&amp;quot; &amp;gt;&amp;lt;/a&amp;gt;
+    &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;http://platform.twitter.com/widgets.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>node.js 맛보기6 - jQueryMobile 프로토타이핑 만들기1</title>
+   <link href="http://niceaji.github.com/archives/99"/>
+   <updated>2012-02-11T12:05:46+09:00</updated>
+   <id>http://niceaji.github.com/archives/node.js 맛보기6 - jQueryMobile 프로토타이핑 만들기1</id>
+   <content type="html">&lt;p&gt;이전 포스팅에 활용했던 파싱하는 소스를 활용해서 프로토타이핑 서비스를 만들어 보자. ‘뉴스박스 히스토리’ 페이지를 파싱해서 모바일웹 페이지를 구성해보려 한다.&lt;/p&gt;
+
+&lt;h2 id='___api_'&gt;뉴스박스 히스토리 파싱하여 api 만들기&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href='http://media.daum.net/netizen/newsbox'&gt;http://media.daum.net/netizen/newsbox&lt;/a&gt; 이 페이지에서 파란색부분의 링크를 긁어서 리스트 페이지를 구성한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='' src='http://cfile3.uf.tistory.com/image/1645FE424F33B109095643' /&gt;&lt;/p&gt;
+
+&lt;p&gt;class명이 section_statsbox 라는 div엘리먼트 안에 모든 정보는 들어 있는것 같다. 바로 jsdom으로 파싱해보자&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//news-history.js
+var jsdom = require(&amp;quot;jsdom&amp;quot;),
+    http = require(&amp;#39;http&amp;#39;);
+
+jsdom.env(&amp;quot;http://media.daum.net/netizen/newsbox&amp;quot;, [
+    &amp;#39;http://code.jquery.com/jquery-1.5.min.js&amp;#39;
+],
+function(errors, window) {
+    var $ = window.$,
+        json = &amp;#39;&amp;#39;,
+        result = [];
+    //jsdom으로 불러와서 우리가 원하는 부분 스크랩핑
+    $(&amp;#39;.section_statsbox a&amp;#39;).each(function(){ 
+
+        result.push({
+            href : $(this).attr(&amp;#39;href&amp;#39;) ,
+            text : encodeURIComponent($(this).text())
+        }); 
+
+    }); 
+
+    //jsonp 형태로 return
+    json = &amp;quot;jsonpCallback(&amp;quot; + JSON.stringify(result) + &amp;quot;)&amp;quot;;
+
+    //http 서버 띄움 (8889포트)
+    http.createServer(function (req, res) {
+
+        res.writeHead(200, {&amp;#39;Content-Type&amp;#39;: &amp;#39;text/javascript&amp;#39;});
+        res.end(json); 
+
+    }).listen(8889, &amp;quot;127.0.0.1&amp;quot;); 
+
+    console.log(&amp;#39;News History API Server!!&amp;#39;);
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;소스는 주석만으로 설명 가능하다. 간단하게 api서버가 준비 되었다. 실행 시키고 브라우저로 &lt;a href='http://127.0.0.1:8889/'&gt;http://127.0.0.1:8889/&lt;/a&gt; 접속해 보면 js소스가 주르륵 펼쳐질 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='' src='http://cfile25.uf.tistory.com/image/1561FE434F33B109098229' /&gt;&lt;/p&gt;
+
+&lt;h2 id='api___'&gt;api 사용하는 페이지(클라이언트) 만들기&lt;/h2&gt;
+
+&lt;p&gt;이제 api와 그걸 출력해주는 서버가 준비 되었다. 이젠 그 api를 이용하여 우리가 원하는 페이지를 만들어볼텐데 &lt;a href='http://jquerymobile.com/'&gt;jQueryMobile&lt;/a&gt;를 사용해서 간단하게 뿌려줄 예정이다. &lt;a href='http://jquerymobile.com//demos/1.0.1/docs/about/getting-started.html'&gt;Quick Start guide&lt;/a&gt;에 우리가 원하는 소스가 있다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//news-history1.html
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+    &amp;lt;head&amp;gt;
+    &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
+    &amp;lt;title&amp;gt;뉴스 히스토리&amp;lt;/title&amp;gt;
+    &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1&amp;quot;&amp;gt;
+    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css&amp;quot; /&amp;gt;
+    &amp;lt;script src=&amp;quot;http://code.jquery.com/jquery-1.6.4.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script src=&amp;quot;http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt; 
+
+&amp;lt;div data-role=&amp;quot;page&amp;quot;&amp;gt;
+
+    &amp;lt;div data-role=&amp;quot;header&amp;quot;&amp;gt;
+        &amp;lt;h1&amp;gt;뉴스 히스토리&amp;lt;/h1&amp;gt;
+    &amp;lt;/div&amp;gt;&amp;lt;!-- /header --&amp;gt;
+
+    &amp;lt;div data-role=&amp;quot;content&amp;quot;&amp;gt;
+        &amp;lt;ul data-role=&amp;quot;listview&amp;quot; id=&amp;quot;list&amp;quot;&amp;gt;
+        &amp;lt;/ul&amp;gt;
+    &amp;lt;/div&amp;gt;&amp;lt;!-- /content --&amp;gt;
+
+&amp;lt;/div&amp;gt;&amp;lt;!-- /page --&amp;gt;
+
+&amp;lt;script&amp;gt;
+//api에서 호출할 전역함수
+function  jsonpCallback(data){
+    var str = &amp;#39;&amp;#39;;
+
+    for(var i=0; i &amp;lt; data.length; i++){
+
+        str += &amp;#39;&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;&amp;#39;+data[i].href+&amp;#39;&amp;quot;&amp;gt;&amp;#39;+decodeURIComponent(data[i].text)+&amp;#39;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&amp;#39;;
+    }
+
+    $(&amp;#39;#list&amp;#39;).html(str);
+    $(&amp;#39;#list&amp;#39;).listview(&amp;#39;refresh&amp;#39;); //jQueryMobile형태의 list로 렌더링 
+
+}
+
+//domready
+$(function(){
+    //jquery jsonp 형태의 api 호출
+    $.ajax({
+
+        url: &amp;#39;http://localhost:8889&amp;#39;, 
+
+        dataType: &amp;#39;jsonp&amp;#39;,
+        success: function(){
+        }
+    });
+
+});
+
+&amp;lt;/script&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;html파일로 저장하고 브라우저에서 열어보면 아래와 같은 깔끔한 화면을 볼수 있다. 링크를 클릭할경우 기사보기화면과 몇몇 수정사항은 다음시간에 살펴보기로 한다&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='실행화면' src='http://cfile29.uf.tistory.com/image/195B9C3B4F346C800F328F' /&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>node.js 맛보기5 - html 문서 파싱 (jsdom)</title>
+   <link href="http://niceaji.github.com/archives/96"/>
+   <updated>2012-02-11T11:57:29+09:00</updated>
+   <id>http://niceaji.github.com/archives/node.js 맛보기5 - html 문서 파싱 (jsdom)</id>
+   <content type="html">&lt;h2 id='id6'&gt;시작하기&lt;/h2&gt;
+
+&lt;p&gt;node로 html를 읽어서 필요한 데이터를 뽑아보자. 이곳에 소개되었던 많은 프로토타이핑들이 직접 html를 파싱하고 구현이 되었다. 백엔드 개발자에게 원하는 데이터를 요청하기보다 이렇게 html스크랩핑 하는것이 훨씬 효율적이다. 프로토타이핑은 빨라야하고 node 또한 이런 부분들을 충분히 채워줄수 있다&lt;/p&gt;
+
+&lt;h2 id='jsdom_'&gt;jsdom 모듈&lt;/h2&gt;
+
+&lt;p&gt;jsdom 모듈을 설치한다. &lt;a href='https://github.com/tmpvar/jsdom'&gt;https://github.com/tmpvar/jsdom&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; npm install jsdom&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href='http://stackoverflow.com/questions/8844708/npm-install-error'&gt;c++ 컴파일러가 없을경우 설치시 에러가 발생할수 있다&lt;/a&gt;. 맥이라면 xcode를 설치해보자. 기타 플랫폼에서의 에러는 직접 검색으로 해결해보자; javascript로 개발된 모듈만 붙일수 있는게 아니라 다른언어로 작성된 컴파일된 모듈도 붙일수 있다라는 느낌도 대충 온다.&lt;/p&gt;
+
+&lt;p&gt;예제소스는 늘 그렇듯 소스홈페이지에 잘 나와있다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//jsdom1.js
+var jsdom = require(&amp;quot;jsdom&amp;quot;);
+
+jsdom.env(&amp;quot;http://daum.net&amp;quot;, [
+  &amp;#39;http://code.jquery.com/jquery-1.5.min.js&amp;#39;
+],
+function(errors, window) {
+    var $ = window.$;
+    $(&amp;#39;#news a&amp;#39;).each(function(){ 
+
+        console.log(  $(this).attr(&amp;#39;href&amp;#39;)  +&amp;quot; : &amp;quot;+ $(this).text() );
+    });
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;예제를 조금 수정했다. 실행해 보자&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='' src='http://cfile1.uf.tistory.com/image/123DFC3B4F3221FC2E066E' /&gt;&lt;/p&gt;
+
+&lt;h2 id='js_'&gt;js데이터 파싱&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href='http://media.daum.net/common/wing.data'&gt;http://media.daum.net/common/wing.data&lt;/a&gt; 이런 js는 어떻게 파싱해야 할까?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//jsdom2.js
+var jsdom    = require(&amp;quot;jsdom&amp;quot;).jsdom,
+    document = jsdom(&amp;quot;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&amp;quot;),
+    window   = document.createWindow();
+
+var script = document.createElement(&amp;#39;script&amp;#39;);
+script.src = &amp;#39;http://media.daum.net/common/wing.data&amp;#39;;
+document.body.appendChild(script);
+
+script.onload = function(){
+
+    var data = window.wing_primary_sisa.component.data,
+        length = data.length;
+
+    for(var i=0; i &amp;lt; length; i++){
+        console.log( data[i].component.data[0].title );
+    }
+};&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;미소가 지어진다 ^^&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>node.js 맛보기4 - npm으로 설치 팁</title>
+   <link href="http://niceaji.github.com/archives/87"/>
+   <updated>2012-02-11T11:46:02+09:00</updated>
+   <id>http://niceaji.github.com/archives/node.js 맛보기4 - npm으로 설치 팁</id>
+   <content type="html">&lt;p&gt;프론트엔드개발만 해온 우리에겐 서버 쉘에서의 작업이 익숙치 않다. 텍스트만 즐비한 터미널에서의 설치,에러파악, 에디팅 작업, 수많은 에러와 예외 등은 하품만 난다; 우리에게 Node가 친근하지 않은 이유이다. (지금은 ^^)&lt;/p&gt;
+
+&lt;h2 id='npm__'&gt;npm 으로 설치&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href='http://uix.kr/archives/83'&gt;이전 포스팅&lt;/a&gt;에서 살펴봤듯 node에서 모듈 추가 작업은 아주 쉽다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm install 패키지명&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;하지만 터미널작업이 안되는 환경을 만날때가 매우 많다. 로컬에서는 잘되는데 서비스서버에서는 잘안되거나 혹은 그반대. 해결방법은 쉬울수도 있지만 그 방법을 찾기까진 우리에겐 쉽지 않을수도 있다. 내 경우엔 방화벽이 있을경우 저런 방식으론 설치가 불가능했다. (방화벽 설정마다 다를수 있다;;)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;이럴땐 간단하게 잘 설치가 되는 로컬등에서 npm으로 설치하고 설치디렉토리를 압축해서 바로 해당서버의 node_modules 로 업로드하면 된다!&lt;/strong&gt; 보통 node 모듈이 설치되는 디렉토리는 npm install 를 실행한 디렉토리에 node_modules 폴더에 설치가 된다. &amp;#8216;글로벌설치&amp;#8217;일경우엔 -g 옵션을 주면 된다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm install 패키지명 -g&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id='__'&gt;글로벌설치 ? 로컬설치?&lt;/h3&gt;
+
+&lt;p&gt;모듈설치를 글로벌or로컬 로 할지는 콘솔에서 사용하려면 글로벌로 설치로 하고 소스상에 require() 해서 사용하려면 로컬설치를 하면된다&lt;/p&gt;
+
+&lt;h3 id='npmrc__'&gt;~/.npmrc 파일 수정하기&lt;/h3&gt;
+
+&lt;p&gt;https가 막혀있는 서버라면 아래줄을 추가해주면 도움이 될수도 있다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;registry = http://registry.npmjs.org&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='id5'&gt;도움글&lt;/h2&gt;
+
+&lt;p&gt;* &lt;a href='http://blog.doortts.com/226'&gt;npm: 글로벌 vs 로컬 설치 (Global vs Local installation)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* &lt;a href='http://blog.doortts.com/225'&gt;npm FAQ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;* 윈도우에서는 npm 설치가 잘 되지 않았다. 이왕이면 유닉스계열의 서버로 준비하자.&lt;/p&gt;
+
+&lt;p&gt;* 수많은 에러들은 거의 모두 구글에서 해결할수 있다. 많이 검색하고 많이 시도해 보면 다 된다고 본다;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>node.js 맛보기3 - request 모듈 설치(npm)</title>
+   <link href="http://niceaji.github.com/archives/83"/>
+   <updated>2012-02-11T11:39:31+09:00</updated>
+   <id>http://niceaji.github.com/archives/node.js 맛보기3 - request 모듈 설치(npm)</id>
+   <content type="html">&lt;p&gt;node는 서버사이드 javascript 이다. 서버사이드에서 돌아가는 언어들이 할수 있는 많은 일들을 할수 있다. 좀더 발전적인 프론트엔드 개발자라면 서버사이드에서의 기술도 구현이 가능해야 한다. 서비스가 아니더라도 간단한 프로토타이핑, ajax API 구현, http의 이해.. 등을 위해서라도 서버사이드 기술은 우리에게도 매우 중요하다. 우리가 Node를 좀더 알아야 하는 이유이기도 하다&lt;/p&gt;
+
+&lt;h2 id='_'&gt;모듈 사용하기&lt;/h2&gt;
+
+&lt;p&gt;Node에서는 많은 부분이 외부모듈(플러그인)형태로 동작을 한다. 브라우저에서의 javascript개발도 마찬가지 이지 않은가? jQuery, ext.js… 훌륭한 오픈소스들이 즐비하다. Node도 마찬가지로 이런 훌륭한 라이브러리로 가득하다. 이제 첫번째 &lt;a href='https://github.com/mikeal/request'&gt;request 모듈&lt;/a&gt;을 사용해 보자&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var request = require(&amp;#39;request&amp;#39;);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;바로 이전에 봤던 소스 이다. 특정 모듈을 불러오는것 같은 코드. 이렇게만 적고 request.js로 저장하고 실행해보자( .js는 생략해도 된다)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node request&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img alt='' src='http://cfile10.uf.tistory.com/image/173806354F2F70C82A88B9' /&gt;&lt;/p&gt;
+
+&lt;h2 id='npm__'&gt;npm으로 모듈 설치하기&lt;/h2&gt;
+
+&lt;p&gt;request 모듈을 찾을수 없다고 나온다. 기본core에 포함된 모듈일경우는 그냥 땡겨쓰면(require()) 되고 없는경우 찾아줘야 한다는걸 알수 있다 .node에는 훌륭한 모듈 설치 프로그램이 존재한다. npm (Node Package Manager 정확한 약어는 아니라는데 이해하는데는 전혀 문제 없다^^) 모듈설치는 아주 간단하다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm install request&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;위처럼 터미널에서 실행하게 되면 request 모듈에 관련된 모든 모듈패키지를 설치하게 된다. 설치후엔 제대로 설치 되었는지 npm list로 확인해보자!&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='' src='http://cfile1.uf.tistory.com/image/1820283B4F2F70C802CF32' /&gt;&lt;/p&gt;
+
+&lt;p&gt;request 모듈관련된 매뉴얼은 늘그렇듯 &lt;a href='https://github.com/mikeal/request'&gt;해당 홈페이지&lt;/a&gt;에서 찾아보면 된다. 그리고 또 도움되는 &lt;a href='http://nodejs-kr.org/insidejs/archives/634'&gt;블로그 글 하나&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>node.js 맛보기2 - 웹서버 만들기</title>
+   <link href="http://niceaji.github.com/archives/61"/>
+   <updated>2012-02-11T09:28:39+09:00</updated>
+   <id>http://niceaji.github.com/archives/node.js 맛보기2 - 웹서버 만들기</id>
+   <content type="html">&lt;p&gt;Node 를 돌릴수 있는 환경이 있으니 이젠 어떤 일들을 할수 있는지 살펴보자. 솔직히 Node의 목적인 “쉽고 빠르게 확장가능한 네트워크 애플리케이션 구축” 이라는 내용의 이해는 천천히 해도 무리는 없다 (이런 부분의 갈증은 구글에서 검색)&lt;/p&gt;
+
+&lt;h2 id='_http_'&gt;간단한 http 서버&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;var http = require(&amp;#39;http&amp;#39;);
+
+http.createServer(function (req, res) {
+
+    res.writeHead(200, {&amp;#39;Content-Type&amp;#39;: &amp;#39;text/plain&amp;#39;});
+    res.end(&amp;#39;Hello Worldn&amp;#39;);
+
+}).listen(1337, &amp;quot;127.0.0.1&amp;quot;);
+
+console.log(&amp;#39;Server running at http://127.0.0.1:1337/&amp;#39;);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(&lt;a href='http://nodejs.org'&gt;nodejs.org&lt;/a&gt;에 걸린 첫번째 예제)&lt;/p&gt;
+
+&lt;p&gt;위는 간단한 웹서버를 만들어주는 코드이다. 우리(프론트엔드 개발자) 에겐 매우 익숙한 코드 패턴이다. http 모듈 같은것을 불러오고(require()), 서버를 만들고(createServer()) 요청을 기다린다( listen(1337, &amp;#8220;127.0.0.1&amp;#8221;) ) 핵심부분은 createServer() 안에 작성된 함수 부분이다. 보통 함수가 메소드의 인자로 넘어가게 되면 callback인 경우가 많다.(경험상..)&lt;/p&gt;
+
+&lt;h2 id='_'&gt;서버 실행&lt;/h2&gt;
+
+&lt;p&gt;자 이제 서버를 만들었으니 실행하고 그 서버에 접속해보자. 위 소스를 server.js 로 저장을 하고 node로 실행하면 된다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node server.js&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img alt='' src='http://cfile2.uf.tistory.com/image/187D583C4F2F67652E4ACC' /&gt;&lt;/p&gt;
+
+&lt;p&gt;간단하게 http 서버가 되고 callback이라고 의심해본 부분이 실행되는걸로 봐서 사용자 접속이 이뤄질경우 실행되는 callback임을 알수 있다.&lt;/p&gt;
+
+&lt;p&gt;별로 놀랍진 않다.. (많은 예제들에선 놀라길 바라고? 있는데 아직은 모르겠다)&lt;/p&gt;
+
+&lt;h2 id='id4'&gt;도움글&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;a href='http://www.slideshare.net/rockdoli/what-is-nodejs-6751599?from=ss_embed'&gt;What is Node.js&lt;/a&gt; (&lt;a href='http://blog.outsider.ne.kr/'&gt;Outsider&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>node.js 맛보기1 - 설치</title>
+   <link href="http://niceaji.github.com/archives/55"/>
+   <updated>2012-02-11T09:15:52+09:00</updated>
+   <id>http://niceaji.github.com/archives/node.js 맛보기1 - 설치</id>
+   <content type="html">&lt;h2 id='id1'&gt;시작하기&lt;/h2&gt;
+
+&lt;p&gt;node.js 는 서버쪽에서 동작하는 javascript이다. 프론트엔드 개발자라면, javascript에 관심이 많다면 무조건 살펴봐야 하는 기술임에 틀림없다.자세한 설명은 구글에게 맡기고 바로 node.js을 돌려보기 위한 환경 구성해보자!&lt;/p&gt;
+
+&lt;h2 id='id2'&gt;설치&lt;/h2&gt;
+
+&lt;p&gt;보통의 javascript라면 브라우저에서 실행이 가능하다. 하지만 node.js는 node.js를 구동할수 있는 환경을 설치해줘야 한다. 다운로드 페이지에서 원하는 설치 플랫폼을 선택하자 이글을 쓰면서 윈도우 버전을 처음 설치해 봤다. 어디에 설치를 하는지도 알려주지 않는다. 이왕이면 유닉스 계열의 OS에 설치를 권장한다.&lt;/p&gt;
+
+&lt;h3 id='mac'&gt;Mac&lt;/h3&gt;
+
+&lt;p&gt;패키지 파일을 다운받어서 설치하면 끝. 터미널을 띄워서 아래와 같이 작성해보자&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='' src='http://cfile23.uf.tistory.com/image/141AEA364F2F5BBD0C8994' /&gt;&lt;/p&gt;
+
+&lt;h3 id='id3'&gt;윈도우&lt;/h3&gt;
+
+&lt;p&gt;C:Program Files (x86)nodejs 이런 형태의 경로에 설치가 된다. cmd(command)를 띄워서 node.js가 설치한 폴더로 이동후에 아래와 같은 명령어를 입력해 보자&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt='' src='http://cfile3.uf.tistory.com/image/117B17384F2F5BBD258311' /&gt;&lt;/p&gt;
+
+&lt;p&gt;자 이제 절반은 했다;&lt;/p&gt;</content>
+ </entry>
+ 
+ 
+</feed>

@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        Canvas를 이용한 TreeMap 인포그래픽 - 
+      
+      UIX
+    </title>
+    
+    <meta name="author" content="aji">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+    <script src="/assets/themes/hooligan/js/jquery.min.js"></script>
+    <script src="/assets/themes/hooligan/bootstrap/js/bootstrap.min.js"></script>
+
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="/assets/themes/hooligan/css-social-buttons/css/zocial.stripped.css" />
+    <link href="/assets/themes/hooligan/css/pygments.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">    
+    <link href="/assets/themes/hooligan/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    
+    <!-- fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>      
+
+
+          <a class="brand" href="/">UIX</a>
+
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              
+              
+              
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive/">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories/">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages/">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags/">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            </ul>
+            <ul class="nav pull-right social visible-desktop">
+              <li class="divider-vertical"></li>
+              
+                <li>
+                  <a href="https://www.github.com/niceaji" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</a>
+                  </a>
+                </li>
+              
+                  
+              
+                <li>
+                  <a href="http://www.twitter.com/niceaji" class="zocial twitter icon" target="_blank">
+                  <span class="hidden-desktop">Twitter</a>
+                  </a>
+                </li>
+                                        
+                         
+                                  
+              
+                <li>
+                  <a href="http://feeds.feedburner.com/Uix" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">FeedBurner</a>
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="content">
+        
+<div class="page-header">
+  <h1>
+    Canvas를 이용한 TreeMap 인포그래픽 
+    
+  </h1>
+</div>
+
+<div class="row">
+  <div class="span10">
+    <p><a href='http://blog.uix.kr/19'>예전에 프로토타이핑</a>을 해보며 봐왔던 <a href='http://thejit.org/'>JavaScript InfoVis Toolkit</a>에 <a href='http://thejit.org/static/v20/Jit/Examples/Treemap/example1.html'>TreeMap</a> 라이브러리를 사용하여 이번 19대총선 웹서비스에 SNS맵 인포그래픽을 선보였다.</p>
+
+<p><img alt='SNS맵' src='https://img.skitch.com/20120316-mtayrqtyq71uts6pk51f69xqki.medium.jpg' /></p>
+
+<p>라이브러리에서 HTML5의 Canvas를 사용하여 표현하고 지원하지 않는 IE8이하에서는 <a href='http://excanvas.sourceforge.net/'>excanvas</a>를 사용하여 렌더링을 하게된다.</p>
+
+<p>보통 포털처럼 여러종류의 사용자를 커버해야하는 서비스등에선 HTML5의 최신기술들을 사용하기가 꺼려지는게 사실이다. 낮은 버전의 브라우저에 대한 하위호환성을 유지하기가 쉽지만은 않기 때문이다. 그리고 이런 부담들은 대부분 프론트엔드개발자들의 몫이 될수 밖에 없다.</p>
+
+<h2 id='api'>API</h2>
+
+<p>라이브러리의 사용은 쉽다. <a href='http://thejit.org/static/v20/Jit/Examples/Treemap/example1.code.html'>예제코드</a>에서 보이는 json형태로 데이터를 구성하고 호출해주면 끝이다. 백엔드에서 받게되는 API를 똑같이 맞추긴 보다 <strong>프론트엔드에서 라이브러리에서 원하는 형태로 다시 맞춰주는게 일이 보다 수월</strong>해 진다.</p>
+
+<p><a href='http://media.daum.net/2012g_election/proxy/v1/sns_map?interval=&amp;limit=50&amp;asof=&amp;candidate=potential'>SNS맵 백엔드 API 보기</a></p>
+
+<h2 id='ie9_'>IE9 문제</h2>
+
+<p>IE9에서는 Canvas로 렌더링함에도 Area에서 mouseover가 발생하지 않고 Area안 텍스트에서만 mouseover가 발생하였다 그래서 아쉽지만 IE8 문서모드로 고정하는걸로 문제를 해결했다</p>
+
+<pre><code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=8&quot;&gt;</code></pre>
+
+<h2 id='_treemap'>다른 TreeMap</h2>
+
+<p>많은 웹서비스에서 TreeMap 인포그래픽을 사용중이다.</p>
+
+<p>* <a href='http://www.yonhapnews.co.kr/medialabs/tm/'>http://www.yonhapnews.co.kr/medialabs/tm/</a></p>
+
+<p>* <a href='http://newsmap.jp/'>http://newsmap.jp/</a></p>
+
+<p>* <a href='http://code.google.com/apis/chart/interactive/docs/gallery/treemap.html'>구글 TreeMap ChartTool</a></p>
+
+<p>* <a href='http://oursignal.com/'>http://oursignal.com/</a></p>
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="/archives/765" title="블로그를 뛰어넘는 워드프레스 CMS">&larr; Previous</a>
+      
+        <a class="btn" href="/archive">Archive</a>
+      
+        <a class="btn next" href="/archives/853" title="워드프레스로 만든 Code Snippet 서비스">Next &rarr;</a>
+      
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'uix'; // required: replace example with your forum shortname
+    
+
+    // var disqus_identifier = 'http://uix.kr/archives/776';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span2">
+    <section>
+      <h4>Published</h4>
+      <div class="date"><span>18 March 2012</span></div>
+    </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
+
+
+  
+     
+    	<li><a href="/tags#canvas-ref">canvas <span>2</span></a></li>
+     
+    	<li><a href="/tags#javascript-ref">javascript <span>8</span></a></li>
+     
+    	<li><a href="/tags#TreeMap-ref">TreeMap <span>1</span></a></li>
+     
+    	<li><a href="/tags#기타-ref">기타 <span>6</span></a></li>
+     
+    	<li><a href="/tags#미디어다음-ref">미디어다음 <span>2</span></a></li>
+     
+    	<li><a href="/tags#인포그래픽-ref">인포그래픽 <span>2</span></a></li>
+    
+  
+
+
+
+        </ul>
+      </section>
+             
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; aji 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://github.com/dhulihan/hooligan" target="_blank">The Hooligan Theme</a>
+        </p>
+      </footer>
+    </div> <!-- /container -->
+
+    <link href="/assets/themes/hooligan/css/prettify.css" type="text/css" rel="stylesheet" />
+    <script src="/assets/themes/hooligan/js/prettify.js"></script>
+    <script>
+    $(function(){
+        $('pre').addClass('prettyprint');
+        prettyPrint();
+    });
+    </script>
+
+    
+  </body>
+</html>
+

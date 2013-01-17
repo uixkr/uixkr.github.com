@@ -1,0 +1,125 @@
+---
+comments: true
+date: 2012-02-13 22:53:09
+layout: post
+permalink: /archives/211
+title: 어디를 많이 클릭할까? - 클릭 트래킹
+categories:
+- 기타
+tags:
+- click
+- tracking
+- 기타
+---
+
+유저가 어디를 보다 많이 클릭 하는지를 알면  웹문서에 많은 컨텐츠 중에서 어떤 부분에 좀더 집중할수 있을지를 결정할수 있습니다.
+
+
+
+
+
+이런 물음으로 시작되어 만들어진 **'클릭 트래킹-Click Tracking(이하 ct)'** 을 소개합니다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+위와 같은 화면으로 유저의 클릭을 분석해 볼수 있는데요. 처음엔 개발자끼리 모여 재미로 개발되어 많은 버전업을 하고 현재 많은 서비스에서 적용되어 유저의 패턴을 분석해 보고 있습니다.
+
+
+
+
+
+## 관리화면
+
+
+
+
+
+이번에 [yakulten](http://yakulten.tistory.com)님이 판올림하면서  가장 많이 신경쓴 부분입니다.
+
+
+
+
+
+![클릭 트래킹 관리화면](http://uix.kr/wordpress/wp-content/uploads/2012/02/ct.jpg)
+
+
+
+
+
+
+
+  1. Calendar - 날짜별로 ct데이터를 불러와서 문서에 출력
+
+
+  2. Hits - 총 클릭수를 표시하고 영역별, 링크별 선택 출력 
+
+
+  3. Links - 가장 많은 클릭수순으로 정렬
+
+
+  4. [Hitmap](http://uix.kr/wordpress/wp-content/uploads/2012/02/ct.png) - 클릭정보로 [아이트래킹](http://www.youtube.com/watch?v=lo_a2cfBUGc) 같은 히트맵을 그립니다
+
+
+  5. Settings - 관리화면 설정
+
+
+
+
+
+## 동작 방법 3줄요약;
+
+
+
+
+
+
+
+  * 유저가 문서내에 A링크를 클릭하면 수집 ( document.body 에 mousedown 에서 감시 )
+
+
+  * A링크는 xpath 처럼 **'ct path'** 로 변환후에 저장 
+
+
+  * 유저에게 얻은 클릭정보를 한번에 모아서 출력 (그림 1)
+
+
+
+
+
+### ct path 셀렉터 예제
+
+
+
+
+
+
+
+  * 아래의 링크를 클릭하며 ct path 확인. [원본열기](http://uix.kr/ex/ct/) , [소스열기](https://gist.github.com/1814029) 
+
+
+
+
+
+
+
+
+
+
+
+
+언젠가는 잘 정리해서 공개도 해보고 싶은 맘입니다^^
+
+
+

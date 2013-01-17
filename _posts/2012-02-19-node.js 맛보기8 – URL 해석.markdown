@@ -1,0 +1,68 @@
+---
+comments: true
+date: 2012-02-19 12:00:30
+layout: post
+permalink: /archives/377
+title: node.js 맛보기8 – URL 해석
+categories:
+- nodejs
+tags:
+- node.js
+- url
+---
+
+node.js 의 기본모듈인 [URL](http://nodejs.org/docs/latest/api/url.html) 모듈을 살펴보자. 아래는 간단하게 들어오는 url(request.url) 를 해석하여 url마다 보여주는 컨텐츠를 달리 해보는 예제이다.
+
+
+
+
+
+### 소스 (url.js)
+
+
+
+
+    
+    var http = require('http');
+    var url = require('url');
+    
+    http.createServer(function (request, response) {
+    
+        var urlObj = url.parse(request.url, true);
+        console.log(urlObj);
+    
+        //http://127.0.0.1:8889/info 
+        if(urlObj.pathname=="/info") {
+            response.writeHead(200, {'Content-Type': 'text/plain;'});
+            response.end("hi! url module info page!! \n");
+        }
+        //http://127.0.0.1:8889/api
+        else if(urlObj.pathname=="/api"){
+            response.writeHead(200, {'Content-Type': 'text/plain'});
+            response.end("http://nodejs.org/docs/latest/api/url.html \n");
+        }
+        else {
+            response.writeHead(404, {'Content-Type': 'text/plain'}); //404
+            response.end("404 Not Found!! \n");
+        }
+    
+    
+    }).listen(8889, "127.0.0.1");
+    
+    console.log('Server running at http://127.0.0.1:8889/');
+    
+
+
+
+
+
+### node url.js 에 접속
+
+
+
+
+
+![nodejs url모듈](https://img.skitch.com/20120219-q4ugbyhkpau7md3aekuw985pd1.jpg)
+
+
+

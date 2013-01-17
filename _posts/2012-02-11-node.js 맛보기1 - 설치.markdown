@@ -1,0 +1,68 @@
+---
+comments: true
+date: 2012-02-11 09:15:52
+layout: post
+permalink: /archives/55
+title: node.js 맛보기1 - 설치
+categories:
+- nodejs
+tags:
+- node.js
+---
+
+## 시작하기
+
+
+
+
+
+node.js 는 서버쪽에서 동작하는 javascript이다. 프론트엔드 개발자라면, javascript에 관심이 많다면 무조건 살펴봐야 하는 기술임에 틀림없다.자세한 설명은 구글에게 맡기고 바로 node.js을 돌려보기 위한 환경 구성해보자!
+
+
+
+
+
+## 설치
+
+
+
+
+
+보통의 javascript라면 브라우저에서 실행이 가능하다. 하지만 node.js는 node.js를 구동할수 있는 환경을 설치해줘야 한다. 다운로드 페이지에서 원하는 설치 플랫폼을 선택하자 이글을 쓰면서 윈도우 버전을 처음 설치해 봤다. 어디에 설치를 하는지도 알려주지 않는다. 이왕이면 유닉스 계열의 OS에 설치를 권장한다.
+
+
+
+
+
+### Mac
+
+
+
+
+
+패키지 파일을 다운받어서 설치하면 끝. 터미널을 띄워서 아래와 같이 작성해보자  
+
+![](http://cfile23.uf.tistory.com/image/141AEA364F2F5BBD0C8994)
+
+
+
+
+
+### 윈도우
+
+
+
+
+
+C:Program Files (x86)nodejs 이런 형태의 경로에 설치가 된다. cmd(command)를 띄워서 node.js가 설치한 폴더로 이동후에 아래와 같은 명령어를 입력해 보자  
+
+![](http://cfile3.uf.tistory.com/image/117B17384F2F5BBD258311)
+
+
+
+
+
+자 이제 절반은 했다;
+
+
+

@@ -1,0 +1,61 @@
+---
+comments: true
+date: 2012-02-19 20:15:38
+layout: post
+permalink: /archives/435
+title: node.js 맛보기10 – 모듈 만들기
+categories:
+- nodejs
+tags:
+- module
+- node.js
+---
+
+프로젝트가 커지면 1개의 파일로 개발은 불가능하다. 웹개발 할때처럼 기능에 맞게 모듈로 만들어서 require()하여 사용해 보자
+
+
+
+
+
+아래 예제는 [일전에 설치했던 request 모듈](http://uix.kr/archives/83)을 가지고 간단히 모듈화 해본 예제이다. **맨 마지막줄에 exports 하는 부분이 포인트**이다. loadurl.js 로 저장하자
+
+
+
+
+    
+    // loadurl.js 
+    var request = require('request');
+    
+    function call(url, callback){
+        //https://github.com/mikeal/request
+        request(url, function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                callback(body); //인자로 받은 callback() 호출 
+            }
+        });
+    }
+    
+    //함수 export 
+    exports.call = call;
+    
+
+
+
+
+
+이제 loadurl 모듈을 사용해보자. 사용법은 간단하다.
+
+
+
+
+    
+    // loadurl.js 모듈 호출 
+    var loadurl = require("./loadurl");
+    
+    loadurl.call("http://www.daum.net", function(data){
+        console.log(data);
+    });
+    
+
+
+

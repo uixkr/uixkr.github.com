@@ -1,0 +1,68 @@
+---
+comments: true
+date: 2012-06-12 19:04:46
+layout: post
+permalink: /archives/987
+title: jQuery 이해10 - DOM요소를 추가하는 여러가지 방법
+categories:
+- jQuery
+tags:
+- jQuery
+---
+
+동적으로 요소를 추가하고 (createElement())하는 방법을 살펴보자  
+
+소개되는 예제코드는 [예제페이지](http://uix.kr/ex/jquery/ex.html)로 이동한후 개발자도구 콘솔을 열어서 실행하면 된다.
+
+
+
+
+    
+    //#box에 <div>를 추가해
+    $('#box').append('<div>난 div 요소</div>');
+    
+
+
+
+
+
+간단하다. 좀 다른느낌? 으로도 가능하다.
+
+
+
+
+    
+    // <div>요소를 #box에 추가해
+    $('<div>').appendTo( $('#box') )
+            .text("난 div 요소")
+            .addClass("border")
+            .css("background-color","#fff");
+    
+
+
+
+
+
+메소드 체이닝으로 요소의 어트리뷰트를 수정했다. 이 부분을 좀더 다른느낌으로 만져보자
+
+
+
+
+    
+    $('<div>', {  
+        text : '난 div 요소',
+        addClass : 'border',
+        css : {
+            "background-color":"#fff"
+        }
+    }).appendTo( $('#box') );
+    
+
+
+
+
+
+재밌지 아니한가?
+
+
+

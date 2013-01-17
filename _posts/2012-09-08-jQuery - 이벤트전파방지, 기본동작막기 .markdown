@@ -1,0 +1,60 @@
+---
+comments: true
+date: 2012-09-08 12:12:20
+layout: post
+permalink: /archives/1153
+title: 'jQuery - 이벤트전파방지, 기본동작막기 '
+categories:
+- jQuery
+tags:
+- jQuery
+---
+
+### [event.stopPropagation()](http://api.jquery.com/event.stopPropagation/)
+
+
+
+
+
+
+
+  * 이벤트 전파 방지
+
+
+
+
+
+### [event.preventDefault()](http://api.jquery.com/event.preventDefault/)
+
+
+
+
+
+
+
+  * 링크,폼등의 기본동작 중지
+
+
+
+
+
+예제보기 - [http://jsbin.com/amized/1/](http://jsbin.com/amized/1/)
+
+
+
+
+    
+    $(a).click(function(event){
+        //동작구현
+    
+        //이벤트막고 , 기본동작 중지
+        event.stopPropagation();
+        even.preventDefault();
+    
+        //return false; 로 대체가능
+    
+    });
+    
+
+
+
