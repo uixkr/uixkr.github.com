@@ -1,1 +1,1 @@
-http://niceaji.github.com/uix.kr/
+http://uixkr.github.com
